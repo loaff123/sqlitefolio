@@ -1,0 +1,8 @@
+{
+  "refused": true,
+  "message": "accumulated observations exceed packet ceiling; no packet published",
+  "elapsed_seconds": 1.1400142790007521,
+  "parent_peak_rss_kib": 191568,
+  "worker_peak_rss_kib": 154376,
+  "source_preserved": true
+}

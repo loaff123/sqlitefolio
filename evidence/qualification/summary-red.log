@@ -1,0 +1,82 @@
+EEEEEEE
+======================================================================
+ERROR: test_added_columns_explicit (test_summary.SummaryTests.test_added_columns_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 44, in test_added_columns_explicit
+    s=build_summary({'invariants':[]},[r])[0]['observed_changes']['tables']['t']
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_bad_boolean_error_and_notpass (test_summary.SummaryTests.test_bad_boolean_error_and_notpass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 40, in test_bad_boolean_error_and_notpass
+    s=build_summary({'invariants':[inv]},[r])[0]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_duplicate_projection_and_change (test_summary.SummaryTests.test_duplicate_projection_and_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 18, in test_duplicate_projection_and_change
+    s=build_summary({'invariants':[]},[r])[0]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_incomplete_no_loss_counts (test_summary.SummaryTests.test_incomplete_no_loss_counts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 23, in test_incomplete_no_loss_counts
+    s=build_summary({'invariants':[]},[r])[0]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_open_transaction_never_pass (test_summary.SummaryTests.test_open_transaction_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 28, in test_open_transaction_never_pass
+    self.assertEqual(build_summary({'invariants':[]},[r])[0]['status'],'execution_error')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_query_typed_bag (test_summary.SummaryTests.test_query_typed_bag)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 33, in test_query_typed_bag
+    self.assertEqual(build_summary({'invariants':[inv]},[r])[0]['observed_checks'][0]['status'],'pass')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_view_error_and_fk_failure (test_summary.SummaryTests.test_view_error_and_fk_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_summary.py", line 51, in test_view_error_and_fk_failure
+    self.assertEqual(build_summary({'invariants':[]},[r])[0]['status'],'failed')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/summary.py", line 2, in build_summary
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (errors=7)

@@ -1,0 +1,55 @@
+FFFFFF
+======================================================================
+FAIL: test_closed_stdout_keeps_published_packet (test_cli_packet.CLIPacketTests.test_closed_stdout_keeps_published_packet)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 58, in test_closed_stdout_keeps_published_packet
+    self.assertEqual(proc.returncode,7,error);self.assertTrue((out/'packet.json').exists())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 7 : b"[original-python]/bin/python: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed\n"
+
+======================================================================
+FAIL: test_database_inclusion_opt_in (test_cli_packet.CLIPacketTests.test_database_inclusion_opt_in)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 66, in test_database_inclusion_opt_in
+    self.assertEqual(self.invoke('rehearse',m,'--out',out,'--trust-input','--include-sample').returncode,0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_full_sql_journey (test_cli_packet.CLIPacketTests.test_full_sql_journey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 26, in test_full_sql_journey
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : b"[original-python]/bin/python: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed\n"
+
+======================================================================
+FAIL: test_open_transaction_and_preservation (test_cli_packet.CLIPacketTests.test_open_transaction_and_preservation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 42, in test_open_transaction_and_preservation
+    self.assertEqual(r.returncode,3,r.stderr)
+AssertionError: 1 != 3 : b"[original-python]/bin/python: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed\n"
+
+======================================================================
+FAIL: test_replay_changed_sql (test_cli_packet.CLIPacketTests.test_replay_changed_sql)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 50, in test_replay_changed_sql
+    self.assertEqual(self.invoke('rehearse',m,'--out',out,'--trust-input').returncode,0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_requires_explicit_trust (test_cli_packet.CLIPacketTests.test_requires_explicit_trust)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_cli_packet.py", line 36, in test_requires_explicit_trust
+    self.assertEqual(r.returncode,2);self.assertFalse((root/'packet').exists())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.089s
+
+FAILED (failures=6)

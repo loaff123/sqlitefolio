@@ -1,0 +1,28 @@
+test_all_phase_total_row_cap_is_enforced (test_engine_limits.EngineLimitContract.test_all_phase_total_row_cap_is_enforced) ... ok
+test_all_required_failure_query_frames_survive_small_budget (test_engine_limits.EngineLimitContract.test_all_required_failure_query_frames_survive_small_budget) ... ok
+test_exact_row_and_value_boundaries_succeed (test_engine_limits.EngineLimitContract.test_exact_row_and_value_boundaries_succeed) ... ok
+test_native_process_resource_limits_are_installed (test_engine_limits.EngineLimitContract.test_native_process_resource_limits_are_installed) ... ok
+test_nested_protocol_corruption_is_worker_error (test_engine_limits.EngineLimitContract.test_nested_protocol_corruption_is_worker_error) ... ok
+test_parent_wall_deadline_is_observed_and_workspace_cleaned (test_engine_limits.EngineLimitContract.test_parent_wall_deadline_is_observed_and_workspace_cleaned) ... ok
+test_runtime_profile_closes_its_native_connection (test_engine_limits.EngineLimitContract.test_runtime_profile_closes_its_native_connection) ... FAIL
+test_schema_object_limit_prevents_complete_baseline (test_engine_limits.EngineLimitContract.test_schema_object_limit_prevents_complete_baseline) ... ok
+test_source_schema_is_guarded_before_application_statements (test_engine_limits.EngineLimitContract.test_source_schema_is_guarded_before_application_statements) ... ok
+test_source_sidecar_or_hardlink_is_refused (test_engine_limits.EngineLimitContract.test_source_sidecar_or_hardlink_is_refused) ... ok
+test_table_limit_prevents_complete_baseline (test_engine_limits.EngineLimitContract.test_table_limit_prevents_complete_baseline) ... ok
+test_typed_value_validation_rejects_ambiguous_encodings (test_engine_limits.EngineLimitContract.test_typed_value_validation_rejects_ambiguous_encodings) ... ok
+test_unexpected_death_is_worker_error_not_guessed_resource (test_engine_limits.EngineLimitContract.test_unexpected_death_is_worker_error_not_guessed_resource) ... ok
+test_wide_without_rowid_expression_index_metadata_is_complete (test_engine_limits.EngineLimitContract.test_wide_without_rowid_expression_index_metadata_is_complete) ... ok
+
+======================================================================
+FAIL: test_runtime_profile_closes_its_native_connection (test_engine_limits.EngineLimitContract.test_runtime_profile_closes_its_native_connection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_limits.py", line 26, in test_runtime_profile_closes_its_native_connection
+    with self.assertRaises(sqlite3.ProgrammingError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ProgrammingError not raised
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.326s
+
+FAILED (failures=1)

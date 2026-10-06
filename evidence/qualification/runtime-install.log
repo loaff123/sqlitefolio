@@ -1,0 +1,8 @@
+Downloading cpython-3.12.14-linux-x86_64-gnu (download) (32.7MiB)
+ Downloaded cpython-3.12.14-linux-x86_64-gnu (download)
+Installed Python 3.12.14 in 26.83s
+ + cpython-3.12.14-linux-x86_64-gnu
+warning: `[home]/.local/share/../bin` is not on your PATH. To use installed Python executables, run `export PATH="[home]/.local/share/../bin:$PATH"` or `uv python update-shell`.
+warning: Failed to install executable for cpython-3.12.14-linux-x86_64-gnu
+  cause: Failed to create directory for Python executable link
+  cause: failed to create directory `[home]/.local/share/../bin`: Read-only file system (os error 30)

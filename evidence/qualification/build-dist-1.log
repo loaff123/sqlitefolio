@@ -1,0 +1,163 @@
+running bdist_wheel
+running build
+running build_py
+copying src/sqlitefolio/runner.py -> build/lib/sqlitefolio
+copying src/sqlitefolio/verify.py -> build/lib/sqlitefolio
+copying src/sqlitefolio/worker.py -> build/lib/sqlitefolio
+running egg_info
+writing src/sqlitefolio.egg-info/PKG-INFO
+writing dependency_links to src/sqlitefolio.egg-info/dependency_links.txt
+writing entry points to src/sqlitefolio.egg-info/entry_points.txt
+writing top-level names to src/sqlitefolio.egg-info/top_level.txt
+reading manifest file 'src/sqlitefolio.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.json' under directory 'docs'
+adding license file 'LICENSE'
+writing manifest file 'src/sqlitefolio.egg-info/SOURCES.txt'
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/sqlitefolio
+copying build/lib/sqlitefolio/runner.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/cli.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/verify.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/values.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/worker.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/publish.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/__main__.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/snapshot.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/report.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/contract.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/paths.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/guardrails.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/packet.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/summary.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+copying build/lib/sqlitefolio/__init__.py -> build/bdist.linux-x86_64/wheel/./sqlitefolio
+running install_egg_info
+Copying src/sqlitefolio.egg-info to build/bdist.linux-x86_64/wheel/./sqlitefolio-0.1.0a1-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/sqlitefolio-0.1.0a1.dist-info/WHEEL
+creating '[workspace]/sqlitefolio/dist/.tmp-kvw6l0wl/sqlitefolio-0.1.0a1-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'sqlitefolio/__init__.py'
+adding 'sqlitefolio/__main__.py'
+adding 'sqlitefolio/cli.py'
+adding 'sqlitefolio/contract.py'
+adding 'sqlitefolio/guardrails.py'
+adding 'sqlitefolio/packet.py'
+adding 'sqlitefolio/paths.py'
+adding 'sqlitefolio/publish.py'
+adding 'sqlitefolio/report.py'
+adding 'sqlitefolio/runner.py'
+adding 'sqlitefolio/snapshot.py'
+adding 'sqlitefolio/summary.py'
+adding 'sqlitefolio/values.py'
+adding 'sqlitefolio/verify.py'
+adding 'sqlitefolio/worker.py'
+adding 'sqlitefolio-0.1.0a1.dist-info/licenses/LICENSE'
+adding 'sqlitefolio-0.1.0a1.dist-info/METADATA'
+adding 'sqlitefolio-0.1.0a1.dist-info/WHEEL'
+adding 'sqlitefolio-0.1.0a1.dist-info/entry_points.txt'
+adding 'sqlitefolio-0.1.0a1.dist-info/top_level.txt'
+adding 'sqlitefolio-0.1.0a1.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+running sdist
+running egg_info
+writing src/sqlitefolio.egg-info/PKG-INFO
+writing dependency_links to src/sqlitefolio.egg-info/dependency_links.txt
+writing entry points to src/sqlitefolio.egg-info/entry_points.txt
+writing top-level names to src/sqlitefolio.egg-info/top_level.txt
+reading manifest file 'src/sqlitefolio.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.json' under directory 'docs'
+adding license file 'LICENSE'
+writing manifest file 'src/sqlitefolio.egg-info/SOURCES.txt'
+running check
+creating sqlitefolio-0.1.0a1
+creating sqlitefolio-0.1.0a1/.github/workflows
+creating sqlitefolio-0.1.0a1/docs
+creating sqlitefolio-0.1.0a1/examples/rebuild
+creating sqlitefolio-0.1.0a1/fixtures/frozen
+creating sqlitefolio-0.1.0a1/qualification
+creating sqlitefolio-0.1.0a1/src/sqlitefolio
+creating sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+creating sqlitefolio-0.1.0a1/tests
+copying files to sqlitefolio-0.1.0a1...
+copying LICENSE -> sqlitefolio-0.1.0a1
+copying MANIFEST.in -> sqlitefolio-0.1.0a1
+copying README.md -> sqlitefolio-0.1.0a1
+copying pyproject.toml -> sqlitefolio-0.1.0a1
+copying .github/workflows/tests.yml -> sqlitefolio-0.1.0a1/.github/workflows
+copying docs/competitors.md -> sqlitefolio-0.1.0a1/docs
+copying docs/profile.md -> sqlitefolio-0.1.0a1/docs
+copying docs/protocol-v1.md -> sqlitefolio-0.1.0a1/docs
+copying examples/rebuild/comparison.json -> sqlitefolio-0.1.0a1/examples/rebuild
+copying examples/rebuild/drops-behavior.sql -> sqlitefolio-0.1.0a1/examples/rebuild
+copying examples/rebuild/manifest.json -> sqlitefolio-0.1.0a1/examples/rebuild
+copying examples/rebuild/preserves-behavior.sql -> sqlitefolio-0.1.0a1/examples/rebuild
+copying examples/rebuild/schema.sql -> sqlitefolio-0.1.0a1/examples/rebuild
+copying examples/rebuild/seed.sql -> sqlitefolio-0.1.0a1/examples/rebuild
+copying fixtures/frozen/01_safe_additive.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/02_rebuild_drops_objects.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/03_fk_cascade_loss.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/04_fk_off_copy_correct.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/05_fk_off_orphan.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/06_lossy_cast.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/07_unique_collision_partial.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/08_unique_collision_transaction.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/09_uncommitted_additive.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/10_trigger_semicolons.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/11_invalid_view.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/12_without_rowid_composite.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/FROZEN_SHA256.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/README.md -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/SHA256SUMS -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/author_fixtures.py -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/expected.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/oracle-prediction-validation.json -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying fixtures/frozen/oracle.py -> sqlitefolio-0.1.0a1/fixtures/frozen
+copying qualification/ADDITIONAL_FREEZE.json -> sqlitefolio-0.1.0a1/qualification
+copying qualification/README.md -> sqlitefolio-0.1.0a1/qualification
+copying qualification/RESULTS.md -> sqlitefolio-0.1.0a1/qualification
+copying qualification/TAMPER_REPLAY_PLAN.md -> sqlitefolio-0.1.0a1/qualification
+copying qualification/additional_cases.json -> sqlitefolio-0.1.0a1/qualification
+copying qualification/author_additional.py -> sqlitefolio-0.1.0a1/qualification
+copying qualification/build_dist.py -> sqlitefolio-0.1.0a1/qualification
+copying qualification/calibrate_limits.py -> sqlitefolio-0.1.0a1/qualification
+copying qualification/independent_semantics.py -> sqlitefolio-0.1.0a1/qualification
+copying src/sqlitefolio/__init__.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/__main__.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/cli.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/contract.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/guardrails.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/packet.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/paths.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/publish.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/report.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/runner.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/snapshot.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/summary.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/values.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/verify.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio/worker.py -> sqlitefolio-0.1.0a1/src/sqlitefolio
+copying src/sqlitefolio.egg-info/PKG-INFO -> sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+copying src/sqlitefolio.egg-info/SOURCES.txt -> sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+copying src/sqlitefolio.egg-info/dependency_links.txt -> sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+copying src/sqlitefolio.egg-info/entry_points.txt -> sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+copying src/sqlitefolio.egg-info/top_level.txt -> sqlitefolio-0.1.0a1/src/sqlitefolio.egg-info
+copying tests/test_cli_packet.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_contract_paths.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_engine.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_engine_limits.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_engine_review.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_independent_semantics.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_output_review.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_publication.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_report.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_summary.py -> sqlitefolio-0.1.0a1/tests
+copying tests/test_verifier.py -> sqlitefolio-0.1.0a1/tests
+Writing sqlitefolio-0.1.0a1/setup.cfg
+Creating tar archive
+removing 'sqlitefolio-0.1.0a1' (and everything under it)
+sqlitefolio-0.1.0a1-py3-none-any.whl
+sqlitefolio-0.1.0a1.tar.gz

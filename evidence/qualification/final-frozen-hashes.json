@@ -1,0 +1,25 @@
+{
+  "original_cases": 12,
+  "original_checks": 30,
+  "original_schema_file_executions": 24,
+  "original_prototype_tests": 13,
+  "frozen_entries": {
+    "01_safe_additive.json": true,
+    "02_rebuild_drops_objects.json": true,
+    "03_fk_cascade_loss.json": true,
+    "04_fk_off_copy_correct.json": true,
+    "05_fk_off_orphan.json": true,
+    "06_lossy_cast.json": true,
+    "07_unique_collision_partial.json": true,
+    "08_unique_collision_transaction.json": true,
+    "09_uncommitted_additive.json": true,
+    "10_trigger_semicolons.json": true,
+    "11_invalid_view.json": true,
+    "12_without_rowid_composite.json": true,
+    "README.md": true,
+    "author_fixtures.py": true,
+    "expected.json": true,
+    "oracle-prediction-validation.json": true,
+    "oracle.py": true
+  }
+}

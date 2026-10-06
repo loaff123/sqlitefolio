@@ -1,0 +1,65 @@
+{
+  "independent-parity-after-engine-repair.json": {
+    "stored_as": "independent-parity-after-engine-repair.json.gz",
+    "original_bytes": 1603522,
+    "original_sha256": "94b2b5d90895072b4c9c4724825bd6a40e6f8aa608e63b46171ccc821dc0ca7e",
+    "compressed_bytes": 57545,
+    "compressed_sha256": "9c7ff63419944b4f38811c63ad8a86e05be29324479b61ad43d6b9c9b7cdd888"
+  },
+  "independent-parity-final.json": {
+    "stored_as": "independent-parity-final.json.gz",
+    "original_bytes": 1713533,
+    "original_sha256": "f8938e24d22e5fda34e1657861f353990e41e16f134b6b2cd02e4128018a67b0",
+    "compressed_bytes": 61115,
+    "compressed_sha256": "c32827c84f21a95906e10844d767283e9c0d21dc81ee483405fe909ad82899ff"
+  },
+  "independent-parity-first.json": {
+    "stored_as": "independent-parity-first.json.gz",
+    "original_bytes": 1705478,
+    "original_sha256": "3225dcad2cd2feb77177607fa347ec3267e91517ecd0143471ec92781ef30488",
+    "compressed_bytes": 69853,
+    "compressed_sha256": "0540ba7484d65d3751bc048b1b81c75ead291173e58dc1c26db511857a062237"
+  },
+  "independent-parity-original-runtime-build.json": {
+    "stored_as": "independent-parity-original-runtime-build.json.gz",
+    "original_bytes": 1726997,
+    "original_sha256": "c8b3960f5a88ea883a58ab2f50f84ea9dfc02ac978d243412d8f96890377a768",
+    "compressed_bytes": 63399,
+    "compressed_sha256": "c123312204e1a111fdd01855acf1e1a846181c1117200819e87202eb6aca38d3"
+  },
+  "independent-parity-public-runtime.json": {
+    "stored_as": "independent-parity-public-runtime.json.gz",
+    "original_bytes": 1726997,
+    "original_sha256": "dcf39c2ce1dd4bb62c684b06d37082aa13d228acb2f9a25d3479f497a53b60ee",
+    "compressed_bytes": 63391,
+    "compressed_sha256": "a47881e6c6f2cd4bda72d7a92ff1ddcb79d739dcfb0cf3a2460cb6d766ff47d8"
+  },
+  "native-reference-final.json": {
+    "stored_as": "native-reference-final.json.gz",
+    "original_bytes": 397901,
+    "original_sha256": "04c3634d3b537e090a19c5c6754a46ad6e919db43dd152e3a4da978e2b20fad3",
+    "compressed_bytes": 13482,
+    "compressed_sha256": "34145b01b8c76dd926457ef6fda613a27a86cbf9ab27c5c0ca5af127b4ed1ce6"
+  },
+  "native-reference-initial.json": {
+    "stored_as": "native-reference-initial.json.gz",
+    "original_bytes": 389615,
+    "original_sha256": "c238c23f5acf9631f23c93f9b1aab332afe190c3c12dc34e1147d98e6d98a621",
+    "compressed_bytes": 12957,
+    "compressed_sha256": "dbea3db3490da5ef79b5878eac470326371d7915eb2630f6f238d68832b59441"
+  },
+  "native-reference-public-runtime.json": {
+    "stored_as": "native-reference-public-runtime.json.gz",
+    "original_bytes": 401267,
+    "original_sha256": "1686c9171cf74c2e4b25a66439d35c647ea2a1dacdc05b1e7486d35b88e43fee",
+    "compressed_bytes": 13735,
+    "compressed_sha256": "0021a5f83173f5a2e9151d6eb7e850024cb89db2db4b27acd036e2fb8047ffc4"
+  },
+  "native-reference-validated.json": {
+    "stored_as": "native-reference-validated.json.gz",
+    "original_bytes": 397901,
+    "original_sha256": "dd3cab0540e8a8716fb542c2ff684f1cde66194b20975711b1edd48053a3068f",
+    "compressed_bytes": 13487,
+    "compressed_sha256": "c590513f67806ca6a4b12a2f7424f8925b4d7ad04a26894221ed2bfd04cfb305"
+  }
+}

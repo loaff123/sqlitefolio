@@ -1,0 +1,27 @@
+{
+  "frozen_at_utc": "2026-10-05T23:01:11Z",
+  "prototype_has_not_been_run": true,
+  "independence": "Original handwritten cases and predictions; no prototype imported, read, or executed by fixture author. Predictions validated once using independent stdlib sqlite3 oracle; zero corrections.",
+  "sqlite_version": "3.53.1",
+  "fixture_count": 12,
+  "workflow_scenario_count": 6,
+  "sha256": {
+    "01_safe_additive.json": "bae5931bc74de409d81e3b045835f048da1af9998050366f6c3e5143a8d2d576",
+    "02_rebuild_drops_objects.json": "3b757cdfb5260ba5e78f540e961ded639fb27fdd845036a3afa8bbbe3cf0b4a0",
+    "03_fk_cascade_loss.json": "58dca4fee923cbf18fdcec309726532bdf295373282937e4c42038864b64ad51",
+    "04_fk_off_copy_correct.json": "001ec2305e18812f28f72f9f990a483bc23d33010b3b6a42e796452943db2484",
+    "05_fk_off_orphan.json": "a0e555deff53e62de5dfd24469b29b5dd67d44ace2782934546fdf51cec04493",
+    "06_lossy_cast.json": "5098cb4d7629d1490c194d05af47651688f6e395bde6dab12e6ab413d7a554db",
+    "07_unique_collision_partial.json": "fe14d0688a2555229cd0353c05e6bc856f5583c6c35386021c5472bf78888e50",
+    "08_unique_collision_transaction.json": "22f23732636e1d88936765d34f5c0f977325ec069798db50b0de5c92546f4332",
+    "09_uncommitted_additive.json": "a6e12171fbbf33cd80c2a48ea9f02f76dbbcbab43e8ad78a8c05526eef212006",
+    "10_trigger_semicolons.json": "221a9587d80e638bbccce8d4e254d1790b4a5c0d08dd0e985ec62a17eb9e32cc",
+    "11_invalid_view.json": "b15c7ba510761d7f0f3f908ac2a216175fb6188e128a37c1081247b79d4f3228",
+    "12_without_rowid_composite.json": "51dbd86b35e655358c32bf4a24174cca0b75b4c0708318475b381030b1ba912d",
+    "README.md": "32e8b0ffa98cc9b32942dbb01a1d7f68b14d00d0df15ef9dd8c2b43f7ba8fc5b",
+    "author_fixtures.py": "f4282f98814a166c9480f8a372d4271d81a29816df4801fb523b7e4aeead005c",
+    "expected.json": "bcab769a0d0468972b70bffa581618ef730e0b636465f7eac5ccf85e8021bcbc",
+    "oracle-prediction-validation.json": "08ca23e139fbae26a4903222762c92685093558121a80a9f9da61ea98e7dabc3",
+    "oracle.py": "0fc5cbd7f94f53c8c3da5a9e6a6a67d6e24713edb9ca37f08804b37aff51fd3a"
+  }
+}

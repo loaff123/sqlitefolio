@@ -1,0 +1,61 @@
+{
+  "format": "sqlitefolio.input.v1",
+  "scenario": "inventory-rebuild",
+  "source": {
+    "schema": "schema.sql",
+    "seed": "seed.sql"
+  },
+  "profile": {
+    "foreign_keys": true,
+    "transaction_mode": "autocommit"
+  },
+  "candidates": [
+    {
+      "name": "preserves-behavior",
+      "sql": "preserves-behavior.sql"
+    }
+  ],
+  "invariants": [
+    {
+      "name": "inventory values preserved",
+      "kind": "query_preserved",
+      "sql": "SELECT id, sku, quantity FROM inventory",
+      "order": "bag"
+    },
+    {
+      "name": "sku index present",
+      "kind": "object_present",
+      "object_type": "index",
+      "object": "inventory_sku"
+    },
+    {
+      "name": "audit trigger present",
+      "kind": "object_present",
+      "object_type": "trigger",
+      "object": "inventory_update"
+    },
+    {
+      "name": "quantity CHECK retained",
+      "kind": "query_equals",
+      "sql": "SELECT instr(sql, 'CHECK(quantity >= 0)') > 0 FROM sqlite_schema WHERE type='table' AND name='inventory'",
+      "order": "ordered",
+      "expected": [
+        [
+          [
+            "integer",
+            "1"
+          ]
+        ]
+      ],
+      "boolean": true
+    },
+    {
+      "name": "native integrity",
+      "kind": "integrity_ok"
+    },
+    {
+      "name": "no FK violations",
+      "kind": "no_foreign_key_violations"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+test_baseline_limit_cannot_leave_open_transaction_with_an_error (test_engine_review.EngineIndependentReview.test_baseline_limit_cannot_leave_open_transaction_with_an_error) ... ok
+test_baseline_limit_open_transaction_packet_verifies_as_nonpassing (test_engine_review.EngineIndependentReview.test_baseline_limit_open_transaction_packet_verifies_as_nonpassing) ... ok
+test_optional_query_equals_baseline_limit_does_not_block_pass (test_engine_review.EngineIndependentReview.test_optional_query_equals_baseline_limit_does_not_block_pass) ... ok
+test_unexpected_query_observation_failure_remains_internal_error (test_engine_review.EngineIndependentReview.test_unexpected_query_observation_failure_remains_internal_error) ... FAIL
+
+======================================================================
+FAIL: test_unexpected_query_observation_failure_remains_internal_error (test_engine_review.EngineIndependentReview.test_unexpected_query_observation_failure_remains_internal_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_review.py", line 69, in test_unexpected_query_observation_failure_remains_internal_error
+    self.assertEqual("worker_error", raw["execution"]["status"])
+AssertionError: 'worker_error' != 'completed'
+- worker_error
++ completed
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.204s
+
+FAILED (failures=1)

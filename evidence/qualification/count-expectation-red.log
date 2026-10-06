@@ -1,0 +1,16 @@
+.........E.......
+======================================================================
+ERROR: test_expected_count_above_observation_bound_is_valid_false_check (test_contract_paths.CountExpectationTests.test_expected_count_above_observation_bound_is_valid_false_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 102, in test_expected_count_above_observation_bound_is_valid_false_check
+    self.assertEqual(validate_manifest(m)['invariants'][0]['expected'],10001)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 166, in validate_manifest
+    raise InputError('invalid row count expectation')
+sqlitefolio.contract.InputError: invalid row count expectation
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.008s
+
+FAILED (errors=1)

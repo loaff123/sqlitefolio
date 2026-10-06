@@ -1,0 +1,16 @@
+E
+======================================================================
+ERROR: test_static_escape_and_limitations (test_report.ReportTests.test_static_escape_and_limitations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_report.py", line 7, in test_static_escape_and_limitations
+    html=render(p)
+         ^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/report.py", line 2, in render
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

@@ -1,0 +1,222 @@
+[
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "profile"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "rehearse",
+      "examples/rebuild/manifest.json",
+      "--out",
+      "console-manifest",
+      "--trust-input"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "verify",
+      "console-manifest"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "inspect",
+      "console-manifest"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "replay",
+      "console-manifest",
+      "--manifest",
+      "examples/rebuild/manifest.json",
+      "--trust-input"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "profile"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "rehearse",
+      "examples/rebuild/comparison.json",
+      "--out",
+      "console-comparison",
+      "--trust-input"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "verify",
+      "console-comparison"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "inspect",
+      "console-comparison"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "wheel",
+    "command": [
+      "sqlitefolio",
+      "replay",
+      "console-comparison",
+      "--manifest",
+      "examples/rebuild/comparison.json",
+      "--trust-input"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "profile"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "rehearse",
+      "examples/rebuild/manifest.json",
+      "--out",
+      "console-manifest",
+      "--trust-input"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "verify",
+      "console-manifest"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "inspect",
+      "console-manifest"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "replay",
+      "console-manifest",
+      "--manifest",
+      "examples/rebuild/manifest.json",
+      "--trust-input"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "profile"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "rehearse",
+      "examples/rebuild/comparison.json",
+      "--out",
+      "console-comparison",
+      "--trust-input"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "verify",
+      "console-comparison"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "inspect",
+      "console-comparison"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "environment": "sdist",
+    "command": [
+      "sqlitefolio",
+      "replay",
+      "console-comparison",
+      "--manifest",
+      "examples/rebuild/comparison.json",
+      "--trust-input"
+    ],
+    "exit": 1,
+    "expected": 1
+  }
+]

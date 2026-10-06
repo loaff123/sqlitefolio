@@ -1,0 +1,33 @@
+test_coordinator_refuses_accumulation_before_next_candidate (test_output_review.OutputBoundaryReviewTests.test_coordinator_refuses_accumulation_before_next_candidate) ... ok
+test_incomplete_report_does_not_call_its_raw_snapshots_complete (test_output_review.OutputBoundaryReviewTests.test_incomplete_report_does_not_call_its_raw_snapshots_complete) ... ok
+test_input_lexical_symlink_before_dotdot_is_rejected (test_output_review.OutputBoundaryReviewTests.test_input_lexical_symlink_before_dotdot_is_rejected) ... ok
+test_inspect_does_not_emit_report_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_inspect_does_not_emit_report_replaced_after_verification) ... ok
+test_output_lexical_symlink_before_dotdot_is_rejected_before_writes (test_output_review.OutputBoundaryReviewTests.test_output_lexical_symlink_before_dotdot_is_rejected_before_writes) ... ok
+test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) ... ok
+test_partial_successful_writes_are_retried_to_completion (test_output_review.OutputBoundaryReviewTests.test_partial_successful_writes_are_retried_to_completion) ... ok
+test_replay_does_not_use_binding_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_replay_does_not_use_binding_replaced_after_verification) ... ok
+test_report_capacity_failure_does_not_publish (test_output_review.OutputBoundaryReviewTests.test_report_capacity_failure_does_not_publish) ... ok
+test_stage_name_collision_never_deletes_an_unowned_directory (test_output_review.OutputBoundaryReviewTests.test_stage_name_collision_never_deletes_an_unowned_directory) ... ok
+test_verifier_refuses_oversized_packet_before_reading (test_output_review.OutputBoundaryReviewTests.test_verifier_refuses_oversized_packet_before_reading) ... ok
+test_after_rename_fsync_failure_truthful (test_publication.PublicationTests.test_after_rename_fsync_failure_truthful) ... ok
+test_atomically_publishes (test_publication.PublicationTests.test_atomically_publishes) ... ok
+test_no_clobber_empty_or_nonempty (test_publication.PublicationTests.test_no_clobber_empty_or_nonempty) ... ok
+test_partial_write_cleanup (test_publication.PublicationTests.test_partial_write_cleanup) ... ok
+test_true_concurrent_noreplace_races (test_publication.PublicationTests.test_true_concurrent_noreplace_races) ... ok
+test_closed_stdout_keeps_published_packet (test_cli_packet.CLIPacketTests.test_closed_stdout_keeps_published_packet) ... ok
+test_database_inclusion_opt_in (test_cli_packet.CLIPacketTests.test_database_inclusion_opt_in) ... ok
+test_full_sql_journey (test_cli_packet.CLIPacketTests.test_full_sql_journey) ... ok
+test_open_transaction_and_preservation (test_cli_packet.CLIPacketTests.test_open_transaction_and_preservation) ... ok
+test_replay_changed_sql (test_cli_packet.CLIPacketTests.test_replay_changed_sql) ... ok
+test_requires_explicit_trust (test_cli_packet.CLIPacketTests.test_requires_explicit_trust) ... ok
+test_static_escape_and_limitations (test_report.ReportTests.test_static_escape_and_limitations) ... ok
+test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html) ... ok
+test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected) ... ok
+test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero) ... ok
+test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception) ... ok
+test_lexical_symlink_component_is_rejected_even_before_dotdot (test_verifier.VerifierAdditionalTests.test_lexical_symlink_component_is_rejected_even_before_dotdot) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 1.409s
+
+OK

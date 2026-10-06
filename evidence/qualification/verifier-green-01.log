@@ -1,0 +1,15 @@
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... ok
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... ok
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... ok
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... ok
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ok
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.012s
+
+OK

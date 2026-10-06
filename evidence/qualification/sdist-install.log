@@ -1,0 +1,16 @@
+WARNING: The directory '[home]/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing ./sqlitefolio/dist/sqlitefolio-0.1.0a1.tar.gz
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: sqlitefolio
+  Building wheel for sqlitefolio (pyproject.toml): started
+  Building wheel for sqlitefolio (pyproject.toml): finished with status 'done'
+  Created wheel for sqlitefolio: filename=sqlitefolio-0.1.0a1-py3-none-any.whl size=44395 sha256=fc6ccaef9041d7d1b327768f5db7cc6fb41f973700d9a772276b417c0f162234
+  Stored in directory: /tmp/pip-ephem-wheel-cache-wkra9x7s/wheels/87/4d/a8/841cce396bbcc0b8356843f8a0542a7364752e683950af4c3e
+Successfully built sqlitefolio
+Installing collected packages: sqlitefolio
+Successfully installed sqlitefolio-0.1.0a1

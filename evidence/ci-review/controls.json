@@ -1,0 +1,61 @@
+{
+  "scope": "Independent driver and shell controls. Synthetic report fixtures test validation gates, not product behavior.",
+  "results": [
+    {
+      "control": "explicit exit one remains supported",
+      "passed": true
+    },
+    {
+      "control": "unexpected nonzero fails and records both streams",
+      "passed": true
+    },
+    {
+      "control": "timeout propagates and preserves evidence",
+      "passed": true
+    },
+    {
+      "control": "driver validation: valid_gate_fixture",
+      "passed": true
+    },
+    {
+      "control": "driver validation: low_test_count",
+      "passed": true
+    },
+    {
+      "control": "driver validation: skipped_test",
+      "passed": true
+    },
+    {
+      "control": "driver validation: short_parity",
+      "passed": true
+    },
+    {
+      "control": "driver validation: parity_mismatch",
+      "passed": true
+    },
+    {
+      "control": "driver validation: wrong_frozen_count",
+      "passed": true
+    },
+    {
+      "control": "driver validation: short_calibration",
+      "passed": true
+    },
+    {
+      "control": "driver validation: calibration_mismatch",
+      "passed": true
+    },
+    {
+      "control": "real workflow shell rejects bad archive before extraction and tee retains failure",
+      "passed": true
+    },
+    {
+      "control": "real entry point refuses wrong runtime with terminal failure summary",
+      "passed": true
+    },
+    {
+      "control": "existing downloaded runtime independently hashes to workflow digest",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,697 @@
+{
+  "provenance": "Handwritten predictions authored before running the independent oracle or any prototype.",
+  "status_rule": "A migration exception gives status error. With no exception, an open transaction gives open_transaction, otherwise applied. in_transaction is independently reported even on error.",
+  "check_rule": "Fixture expect_rows are desired invariants, including deliberately failing invariants; check_outcomes below predict the actually observed rows or error.",
+  "cases": {
+    "01_safe_additive": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [],
+      "check_outcomes": [
+        {
+          "name": "project_values",
+          "actual_rows": [
+            [
+              1,
+              "Orchid",
+              0
+            ],
+            [
+              2,
+              "Maple",
+              0
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "title_index",
+          "actual_rows": [
+            [
+              "projects_title_idx"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "committed_defaults",
+          "sql": "SELECT id, archived FROM projects ORDER BY id",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "02_rebuild_drops_objects": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "Index dropped",
+        "Audit trigger dropped",
+        "CHECK constraint dropped despite unchanged rows"
+      ],
+      "check_outcomes": [
+        {
+          "name": "inventory_rows",
+          "actual_rows": [
+            [
+              1,
+              "PN-8",
+              7
+            ],
+            [
+              2,
+              "PN-9",
+              12
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "secondary_objects_preserved",
+          "actual_rows": [],
+          "passed": false
+        },
+        {
+          "name": "quantity_check_preserved",
+          "actual_rows": [
+            [
+              0
+            ]
+          ],
+          "passed": false
+        }
+      ],
+      "observations": [
+        {
+          "name": "audit_unchanged",
+          "sql": "SELECT count(*) FROM audit",
+          "connection": "live",
+          "expect_rows": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "03_fk_cascade_loss": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "Two child rows lost to ON DELETE CASCADE",
+        "foreign_key_check is clean and does not prove row preservation"
+      ],
+      "check_outcomes": [
+        {
+          "name": "customer_rows",
+          "actual_rows": [
+            [
+              1,
+              "Iris"
+            ],
+            [
+              2,
+              "Fern"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "order_rows",
+          "actual_rows": [],
+          "passed": false
+        },
+        {
+          "name": "foreign_key_clean",
+          "actual_rows": [],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_child_loss",
+          "sql": "SELECT count(*) FROM orders",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "04_fk_off_copy_correct": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [],
+      "check_outcomes": [
+        {
+          "name": "customer_rows",
+          "actual_rows": [
+            [
+              1,
+              "Iris"
+            ],
+            [
+              2,
+              "Fern"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "order_rows",
+          "actual_rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "foreign_key_clean",
+          "actual_rows": [],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_children",
+          "sql": "SELECT * FROM orders ORDER BY id",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ]
+        },
+        {
+          "name": "new_default",
+          "sql": "SELECT id, active FROM customers ORDER BY id",
+          "connection": "live",
+          "expect_rows": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    "05_fk_off_orphan": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": false,
+      "diagnoses": [
+        "Orphan order 12 references missing customer 2"
+      ],
+      "check_outcomes": [
+        {
+          "name": "foreign_key_clean",
+          "actual_rows": [
+            [
+              "orders",
+              12,
+              "customers",
+              0
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "order_rows",
+          "actual_rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "remaining_parent",
+          "sql": "SELECT * FROM customers ORDER BY id",
+          "connection": "live",
+          "expect_rows": [
+            [
+              1,
+              "Iris"
+            ]
+          ]
+        },
+        {
+          "name": "orphan_row",
+          "sql": "SELECT o.id FROM orders o LEFT JOIN customers c ON c.id=o.customer_id WHERE c.id IS NULL",
+          "connection": "live",
+          "expect_rows": [
+            [
+              12
+            ]
+          ]
+        }
+      ]
+    },
+    "06_lossy_cast": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "Three textual readings changed",
+        "Equal row counts do not prove value preservation"
+      ],
+      "check_outcomes": [
+        {
+          "name": "readings_preserved",
+          "actual_rows": [
+            [
+              1,
+              "7"
+            ],
+            [
+              2,
+              "19"
+            ],
+            [
+              3,
+              "0"
+            ],
+            [
+              4,
+              "-3"
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "row_count",
+          "actual_rows": [
+            [
+              4
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "storage_class",
+          "sql": "SELECT id, reading, typeof(reading) FROM samples ORDER BY id",
+          "connection": "live",
+          "expect_rows": [
+            [
+              1,
+              7,
+              "integer"
+            ],
+            [
+              2,
+              19,
+              "integer"
+            ],
+            [
+              3,
+              0,
+              "integer"
+            ],
+            [
+              4,
+              -3,
+              "integer"
+            ]
+          ]
+        }
+      ]
+    },
+    "07_unique_collision_partial": {
+      "status": "error",
+      "in_transaction": false,
+      "error_contains": "UNIQUE constraint failed: contacts.normalized",
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "Application failure",
+        "Earlier statements persist",
+        "Later statements do not execute"
+      ],
+      "check_outcomes": [
+        {
+          "name": "unique_index_exists",
+          "actual_rows": [],
+          "passed": false
+        },
+        {
+          "name": "no_duplicate_normalized",
+          "actual_rows": [
+            [
+              "sam@example.test",
+              2
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "finished_marker",
+          "actual_rows": [],
+          "passed": false
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_partial_rows",
+          "sql": "SELECT * FROM contacts ORDER BY id",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              1,
+              "Sam@example.test",
+              "sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test",
+              "sam@example.test"
+            ]
+          ]
+        }
+      ]
+    },
+    "08_unique_collision_transaction": {
+      "status": "error",
+      "in_transaction": true,
+      "error_contains": "UNIQUE constraint failed: contacts.normalized",
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "Application failure",
+        "Transaction remains open",
+        "Do not call local observations committed; closing rolls back"
+      ],
+      "check_outcomes": [
+        {
+          "name": "unique_index_exists",
+          "actual_rows": [],
+          "passed": false
+        },
+        {
+          "name": "no_duplicate_normalized",
+          "actual_rows": [
+            [
+              "sam@example.test",
+              2
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "finished_marker",
+          "actual_rows": [],
+          "passed": false
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_original_rows",
+          "sql": "SELECT * FROM contacts ORDER BY id",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              1,
+              "Sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test"
+            ]
+          ]
+        },
+        {
+          "name": "live_uncommitted_rows",
+          "sql": "SELECT * FROM contacts ORDER BY id",
+          "connection": "live",
+          "expect_rows": [
+            [
+              1,
+              "Sam@example.test",
+              "sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test",
+              "sam@example.test"
+            ]
+          ]
+        }
+      ]
+    },
+    "09_uncommitted_additive": {
+      "status": "open_transaction",
+      "in_transaction": true,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "No SQL exception, but transaction remains open",
+        "Local passing checks do not establish durable application"
+      ],
+      "check_outcomes": [
+        {
+          "name": "reviewed_note",
+          "actual_rows": [
+            [
+              1,
+              "draft",
+              1
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_original_rows",
+          "sql": "SELECT * FROM notes ORDER BY id",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              1,
+              "draft"
+            ]
+          ]
+        }
+      ]
+    },
+    "10_trigger_semicolons": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [],
+      "check_outcomes": [
+        {
+          "name": "counter_value",
+          "actual_rows": [
+            [
+              1,
+              11
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "trigger_statements",
+          "actual_rows": [
+            [
+              1,
+              "first;entry"
+            ],
+            [
+              1,
+              "value=11"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "trigger_exists",
+          "actual_rows": [
+            [
+              "log_counter"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "persisted_trigger_rows",
+          "sql": "SELECT * FROM changes ORDER BY rowid",
+          "connection": "persisted",
+          "expect_rows": [
+            [
+              1,
+              "first;entry"
+            ],
+            [
+              1,
+              "value=11"
+            ]
+          ]
+        }
+      ]
+    },
+    "11_invalid_view": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [
+        "SQL application succeeded",
+        "Surviving view cannot be prepared"
+      ],
+      "check_outcomes": [
+        {
+          "name": "shipping_view_usable",
+          "passed": false,
+          "error_contains": "no such column: old_code"
+        },
+        {
+          "name": "source_row_preserved",
+          "actual_rows": [
+            [
+              1,
+              "BOX-A"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "view_object_survives",
+          "sql": "SELECT type,name FROM sqlite_schema WHERE name='shipping_codes'",
+          "connection": "live",
+          "expect_rows": [
+            [
+              "view",
+              "shipping_codes"
+            ]
+          ]
+        },
+        {
+          "name": "persisted_view_invalid",
+          "sql": "SELECT * FROM shipping_codes",
+          "connection": "persisted",
+          "error_contains": "no such column: old_code"
+        }
+      ]
+    },
+    "12_without_rowid_composite": {
+      "status": "applied",
+      "in_transaction": false,
+      "error_contains": null,
+      "foreign_keys_end": true,
+      "diagnoses": [],
+      "check_outcomes": [
+        {
+          "name": "composite_rows",
+          "actual_rows": [
+            [
+              "north",
+              "theme",
+              "dark",
+              1
+            ],
+            [
+              "north",
+              "units",
+              "metric",
+              1
+            ],
+            [
+              "south",
+              "theme",
+              "light",
+              1
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "composite_key",
+          "actual_rows": [
+            [
+              "tenant",
+              1
+            ],
+            [
+              "key",
+              2
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "without_rowid_preserved",
+          "actual_rows": [
+            [
+              1
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "observations": [
+        {
+          "name": "no_rowid",
+          "sql": "SELECT rowid FROM settings",
+          "connection": "live",
+          "error_contains": "no such column: rowid"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,103 @@
+test_before_profile_runtime_group_identity (test_verifier.VerifierBoundaryTests.test_before_profile_runtime_group_identity) ... ok
+test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected) ... ok
+test_complete_packet_passes_structural_checks (test_verifier.VerifierBoundaryTests.test_complete_packet_passes_structural_checks) ... ok
+test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete) ... ERROR
+test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception) ... FAIL
+test_extra_directory_file_symlink_and_hardlink_rejected (test_verifier.VerifierBoundaryTests.test_extra_directory_file_symlink_and_hardlink_rejected) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierBoundaryTests.test_incomplete_snapshot_has_no_numeric_changes) ... ok
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierBoundaryTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierBoundaryTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierBoundaryTests.test_no_common_columns_never_claims_row_loss) ... ok
+test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing) ... ERROR
+test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero) ... ok
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierBoundaryTests.test_query_boolean_does_not_use_python_truthiness) ... ok
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierBoundaryTests.test_query_preserved_bag_is_typed_multiset) ... ok
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierBoundaryTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ok
+test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html) ... ok
+test_rehashed_original_manifest_semantics_must_match (test_verifier.VerifierBoundaryTests.test_rehashed_original_manifest_semantics_must_match) ... ok
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierBoundaryTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact) ... FAIL
+test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database) ... FAIL
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierBoundaryTests.test_view_and_native_diagnostic_errors_never_pass) ... ok
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... ok
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... ok
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... ok
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... ok
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ok
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... ok
+
+======================================================================
+ERROR: test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 123, in test_empty_partial_diagnostics_is_valid_incomplete
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'incomplete')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 512, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 374, in _validate_candidate
+    total = sum(_snapshot(value[phase],manifest['limits']) for phase in _PHASES)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 374, in <genexpr>
+    total = sum(_snapshot(value[phase],manifest['limits']) for phase in _PHASES)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 328, in _snapshot
+    _exact(diag, ('foreign_key_check','integrity_check','foreign_keys'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 117, in test_open_transaction_null_error_is_valid_nonpassing
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'execution_error')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 512, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 363, in _validate_candidate
+    _error(ex['error'],nullable=ex['status']=='completed')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 94, in _error
+    _exact(value, ('kind', 'message', 'sqlite_code', 'sqlite_name'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 55, in _exact
+    _require(type(value) is dict, 'expected an object')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: expected an object
+
+======================================================================
+FAIL: test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 130, in test_evidence_limit_enforced_with_minimal_error_envelope_exception
+    with self.assertRaises(ValueError): self.reconstruct(inp,[raw])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 183, in test_report_and_manifest_bytes_are_exact
+    self.assertFalse(self.verify(root)['valid'],filename)
+AssertionError: True is not false : manifest.json
+
+======================================================================
+FAIL: test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 208, in test_sql_packet_cannot_claim_included_database
+    self.assertFalse(self.verify(root)['valid'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.036s
+
+FAILED (failures=3, errors=2)

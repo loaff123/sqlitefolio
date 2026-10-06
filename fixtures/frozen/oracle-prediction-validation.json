@@ -1,0 +1,4518 @@
+{
+  "sqlite_version": "3.53.1",
+  "case_count": 12,
+  "all_predictions_match": true,
+  "cases": [
+    {
+      "id": "01_safe_additive",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "projects",
+            "projects",
+            "CREATE TABLE projects (id INTEGER PRIMARY KEY, title TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "projects": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "title",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Orchid"
+              ],
+              [
+                2,
+                "Maple"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "index",
+            "projects_title_idx",
+            "projects",
+            "CREATE INDEX projects_title_idx ON projects(title)"
+          ],
+          [
+            "table",
+            "projects",
+            "projects",
+            "CREATE TABLE projects (id INTEGER PRIMARY KEY, title TEXT NOT NULL, archived INTEGER NOT NULL DEFAULT 0)"
+          ]
+        ],
+        "tables": {
+          "projects": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "title",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "archived",
+                  "INTEGER",
+                  1,
+                  "0",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Orchid",
+                0
+              ],
+              [
+                2,
+                "Maple",
+                0
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "project_values",
+          "rows": [
+            [
+              1,
+              "Orchid",
+              0
+            ],
+            [
+              2,
+              "Maple",
+              0
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "title_index",
+          "rows": [
+            [
+              "projects_title_idx"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "index",
+            "projects_title_idx",
+            "projects",
+            "CREATE INDEX projects_title_idx ON projects(title)"
+          ],
+          [
+            "table",
+            "projects",
+            "projects",
+            "CREATE TABLE projects (id INTEGER PRIMARY KEY, title TEXT NOT NULL, archived INTEGER NOT NULL DEFAULT 0)"
+          ]
+        ],
+        "tables": {
+          "projects": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "title",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "archived",
+                  "INTEGER",
+                  1,
+                  "0",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Orchid",
+                0
+              ],
+              [
+                2,
+                "Maple",
+                0
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "committed_defaults",
+          "connection": "persisted",
+          "rows": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "index",
+            "projects_title_idx",
+            "projects",
+            "CREATE INDEX projects_title_idx ON projects(title)"
+          ],
+          [
+            "table",
+            "projects",
+            "projects",
+            "CREATE TABLE projects (id INTEGER PRIMARY KEY, title TEXT NOT NULL, archived INTEGER NOT NULL DEFAULT 0)"
+          ]
+        ],
+        "tables": {
+          "projects": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "title",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "archived",
+                  "INTEGER",
+                  1,
+                  "0",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Orchid",
+                0
+              ],
+              [
+                2,
+                "Maple",
+                0
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "bae5931bc74de409d81e3b045835f048da1af9998050366f6c3e5143a8d2d576",
+      "prediction_failures": []
+    },
+    {
+      "id": "02_rebuild_drops_objects",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "index",
+            "inventory_sku_idx",
+            "inventory",
+            "CREATE INDEX inventory_sku_idx ON inventory(sku)"
+          ],
+          [
+            "table",
+            "audit",
+            "audit",
+            "CREATE TABLE audit (item_id INTEGER, old_quantity INTEGER, new_quantity INTEGER)"
+          ],
+          [
+            "table",
+            "inventory",
+            "inventory",
+            "CREATE TABLE inventory (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity >= 0))"
+          ],
+          [
+            "trigger",
+            "inventory_quantity_audit",
+            "inventory",
+            "CREATE TRIGGER inventory_quantity_audit AFTER UPDATE OF quantity ON inventory\nBEGIN INSERT INTO audit VALUES(OLD.id, OLD.quantity, NEW.quantity); END"
+          ]
+        ],
+        "tables": {
+          "audit": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "item_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "old_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "new_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          },
+          "inventory": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "sku",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "quantity",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "PN-8",
+                7
+              ],
+              [
+                2,
+                "PN-9",
+                12
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "audit",
+            "audit",
+            "CREATE TABLE audit (item_id INTEGER, old_quantity INTEGER, new_quantity INTEGER)"
+          ],
+          [
+            "table",
+            "inventory",
+            "inventory",
+            "CREATE TABLE \"inventory\" (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "audit": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "item_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "old_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "new_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          },
+          "inventory": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "sku",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "quantity",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "PN-8",
+                7
+              ],
+              [
+                2,
+                "PN-9",
+                12
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "inventory_rows",
+          "rows": [
+            [
+              1,
+              "PN-8",
+              7
+            ],
+            [
+              2,
+              "PN-9",
+              12
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "secondary_objects_preserved",
+          "rows": [],
+          "passed": false
+        },
+        {
+          "name": "quantity_check_preserved",
+          "rows": [
+            [
+              0
+            ]
+          ],
+          "passed": false
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "audit",
+            "audit",
+            "CREATE TABLE audit (item_id INTEGER, old_quantity INTEGER, new_quantity INTEGER)"
+          ],
+          [
+            "table",
+            "inventory",
+            "inventory",
+            "CREATE TABLE \"inventory\" (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "audit": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "item_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "old_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "new_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          },
+          "inventory": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "sku",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "quantity",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "PN-8",
+                7
+              ],
+              [
+                2,
+                "PN-9",
+                12
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "audit_unchanged",
+          "connection": "live",
+          "rows": [
+            [
+              0
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "audit",
+            "audit",
+            "CREATE TABLE audit (item_id INTEGER, old_quantity INTEGER, new_quantity INTEGER)"
+          ],
+          [
+            "table",
+            "inventory",
+            "inventory",
+            "CREATE TABLE \"inventory\" (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "audit": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "item_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "old_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "new_quantity",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          },
+          "inventory": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "sku",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "quantity",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "PN-8",
+                7
+              ],
+              [
+                2,
+                "PN-9",
+                12
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "3b757cdfb5260ba5e78f540e961ded639fb27fdd845036a3afa8bbbe3cf0b4a0",
+      "prediction_failures": []
+    },
+    {
+      "id": "03_fk_cascade_loss",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ],
+              [
+                2,
+                "Fern"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "customer_rows",
+          "rows": [
+            [
+              1,
+              "Iris"
+            ],
+            [
+              2,
+              "Fern"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "order_rows",
+          "rows": [],
+          "passed": false
+        },
+        {
+          "name": "foreign_key_clean",
+          "rows": [],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_child_loss",
+          "connection": "persisted",
+          "rows": [
+            [
+              0
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "58dca4fee923cbf18fdcec309726532bdf295373282937e4c42038864b64ad51",
+      "prediction_failures": []
+    },
+    {
+      "id": "04_fk_off_copy_correct",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ],
+              [
+                2,
+                "Fern"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "customer_rows",
+          "rows": [
+            [
+              1,
+              "Iris"
+            ],
+            [
+              2,
+              "Fern"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "order_rows",
+          "rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "foreign_key_clean",
+          "rows": [],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_children",
+          "connection": "persisted",
+          "rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ]
+        },
+        {
+          "name": "new_default",
+          "connection": "live",
+          "rows": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE \"customers\" (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "active",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris",
+                1
+              ],
+              [
+                2,
+                "Fern",
+                1
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "001ec2305e18812f28f72f9f990a483bc23d33010b3b6a42e796452943db2484",
+      "prediction_failures": []
+    },
+    {
+      "id": "05_fk_off_orphan",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": false,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ],
+              [
+                2,
+                "Fern"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": [
+            [
+              "orders",
+              12,
+              "customers",
+              0
+            ]
+          ]
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "foreign_key_clean",
+          "rows": [
+            [
+              "orders",
+              12,
+              "customers",
+              0
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "order_rows",
+          "rows": [
+            [
+              11,
+              1,
+              80
+            ],
+            [
+              12,
+              2,
+              45
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": [
+            [
+              "orders",
+              12,
+              "customers",
+              0
+            ]
+          ]
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "remaining_parent",
+          "connection": "live",
+          "rows": [
+            [
+              1,
+              "Iris"
+            ]
+          ]
+        },
+        {
+          "name": "orphan_row",
+          "connection": "live",
+          "rows": [
+            [
+              12
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "customers",
+            "customers",
+            "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"
+          ],
+          [
+            "table",
+            "orders",
+            "orders",
+            "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "customers": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "name",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Iris"
+              ]
+            ]
+          },
+          "orders": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "customer_id",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "total",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                11,
+                1,
+                80
+              ],
+              [
+                12,
+                2,
+                45
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": [
+            [
+              "orders",
+              12,
+              "customers",
+              0
+            ]
+          ]
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "a0e555deff53e62de5dfd24469b29b5dd67d44ace2782934546fdf51cec04493",
+      "prediction_failures": []
+    },
+    {
+      "id": "06_lossy_cast",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "samples",
+            "samples",
+            "CREATE TABLE samples (id INTEGER PRIMARY KEY, reading TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "samples": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "reading",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "007"
+              ],
+              [
+                2,
+                "19.75"
+              ],
+              [
+                3,
+                "unknown"
+              ],
+              [
+                4,
+                "-3"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "samples",
+            "samples",
+            "CREATE TABLE \"samples\" (id INTEGER PRIMARY KEY, reading INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "samples": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "reading",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                19
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                -3
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "readings_preserved",
+          "rows": [
+            [
+              1,
+              "7"
+            ],
+            [
+              2,
+              "19"
+            ],
+            [
+              3,
+              "0"
+            ],
+            [
+              4,
+              "-3"
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "row_count",
+          "rows": [
+            [
+              4
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "samples",
+            "samples",
+            "CREATE TABLE \"samples\" (id INTEGER PRIMARY KEY, reading INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "samples": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "reading",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                19
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                -3
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "storage_class",
+          "connection": "live",
+          "rows": [
+            [
+              1,
+              7,
+              "integer"
+            ],
+            [
+              2,
+              19,
+              "integer"
+            ],
+            [
+              3,
+              0,
+              "integer"
+            ],
+            [
+              4,
+              -3,
+              "integer"
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "samples",
+            "samples",
+            "CREATE TABLE \"samples\" (id INTEGER PRIMARY KEY, reading INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "samples": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "reading",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                19
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                -3
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "5098cb4d7629d1490c194d05af47651688f6e395bde6dab12e6ab413d7a554db",
+      "prediction_failures": []
+    },
+    {
+      "id": "07_unique_collision_partial",
+      "status": "error",
+      "error": {
+        "message": "UNIQUE constraint failed: contacts.normalized",
+        "type": "IntegrityError"
+      },
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL, normalized TEXT)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "normalized",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test",
+                "sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test",
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "unique_index_exists",
+          "rows": [],
+          "passed": false
+        },
+        {
+          "name": "no_duplicate_normalized",
+          "rows": [
+            [
+              "sam@example.test",
+              2
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "finished_marker",
+          "rows": [],
+          "passed": false
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL, normalized TEXT)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "normalized",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test",
+                "sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test",
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_partial_rows",
+          "connection": "persisted",
+          "rows": [
+            [
+              1,
+              "Sam@example.test",
+              "sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test",
+              "sam@example.test"
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL, normalized TEXT)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "normalized",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test",
+                "sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test",
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "fe14d0688a2555229cd0353c05e6bc856f5583c6c35386021c5472bf78888e50",
+      "prediction_failures": []
+    },
+    {
+      "id": "08_unique_collision_transaction",
+      "status": "error",
+      "error": {
+        "message": "UNIQUE constraint failed: contacts.normalized",
+        "type": "IntegrityError"
+      },
+      "in_transaction": true,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL, normalized TEXT)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "normalized",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test",
+                "sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test",
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "unique_index_exists",
+          "rows": [],
+          "passed": false
+        },
+        {
+          "name": "no_duplicate_normalized",
+          "rows": [
+            [
+              "sam@example.test",
+              2
+            ]
+          ],
+          "passed": false
+        },
+        {
+          "name": "finished_marker",
+          "rows": [],
+          "passed": false
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_original_rows",
+          "connection": "persisted",
+          "rows": [
+            [
+              1,
+              "Sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test"
+            ]
+          ]
+        },
+        {
+          "name": "live_uncommitted_rows",
+          "connection": "live",
+          "rows": [
+            [
+              1,
+              "Sam@example.test",
+              "sam@example.test"
+            ],
+            [
+              2,
+              "sam@example.test",
+              "sam@example.test"
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "contacts",
+            "contacts",
+            "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "contacts": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "email",
+                  "TEXT",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "Sam@example.test"
+              ],
+              [
+                2,
+                "sam@example.test"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "22f23732636e1d88936765d34f5c0f977325ec069798db50b0de5c92546f4332",
+      "prediction_failures": []
+    },
+    {
+      "id": "09_uncommitted_additive",
+      "status": "open_transaction",
+      "error": null,
+      "in_transaction": true,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "notes",
+            "notes",
+            "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)"
+          ]
+        ],
+        "tables": {
+          "notes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "body",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "draft"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "notes",
+            "notes",
+            "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT, reviewed INTEGER NOT NULL DEFAULT 0)"
+          ]
+        ],
+        "tables": {
+          "notes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "body",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  2,
+                  "reviewed",
+                  "INTEGER",
+                  1,
+                  "0",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "draft",
+                1
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "reviewed_note",
+          "rows": [
+            [
+              1,
+              "draft",
+              1
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "notes",
+            "notes",
+            "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)"
+          ]
+        ],
+        "tables": {
+          "notes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "body",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "draft"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_original_rows",
+          "connection": "persisted",
+          "rows": [
+            [
+              1,
+              "draft"
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "notes",
+            "notes",
+            "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)"
+          ]
+        ],
+        "tables": {
+          "notes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "body",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "draft"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "a6e12171fbbf33cd80c2a48ea9f02f76dbbcbab43e8ad78a8c05526eef212006",
+      "prediction_failures": []
+    },
+    {
+      "id": "10_trigger_semicolons",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "changes",
+            "changes",
+            "CREATE TABLE changes (counter_id INTEGER, detail TEXT)"
+          ],
+          [
+            "table",
+            "counters",
+            "counters",
+            "CREATE TABLE counters (id INTEGER PRIMARY KEY, value INTEGER NOT NULL)"
+          ]
+        ],
+        "tables": {
+          "changes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "counter_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "detail",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": []
+          },
+          "counters": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "value",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                10
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "changes",
+            "changes",
+            "CREATE TABLE changes (counter_id INTEGER, detail TEXT)"
+          ],
+          [
+            "table",
+            "counters",
+            "counters",
+            "CREATE TABLE counters (id INTEGER PRIMARY KEY, value INTEGER NOT NULL)"
+          ],
+          [
+            "trigger",
+            "log_counter",
+            "counters",
+            "CREATE TRIGGER log_counter AFTER UPDATE OF value ON counters\nBEGIN\n  INSERT INTO changes VALUES(NEW.id, 'first;entry');\n  INSERT INTO changes VALUES(NEW.id, 'value=' || NEW.value);\nEND"
+          ]
+        ],
+        "tables": {
+          "changes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "counter_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "detail",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "first;entry"
+              ],
+              [
+                1,
+                "value=11"
+              ]
+            ]
+          },
+          "counters": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "value",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                11
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "counter_value",
+          "rows": [
+            [
+              1,
+              11
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "trigger_statements",
+          "rows": [
+            [
+              1,
+              "first;entry"
+            ],
+            [
+              1,
+              "value=11"
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "trigger_exists",
+          "rows": [
+            [
+              "log_counter"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "changes",
+            "changes",
+            "CREATE TABLE changes (counter_id INTEGER, detail TEXT)"
+          ],
+          [
+            "table",
+            "counters",
+            "counters",
+            "CREATE TABLE counters (id INTEGER PRIMARY KEY, value INTEGER NOT NULL)"
+          ],
+          [
+            "trigger",
+            "log_counter",
+            "counters",
+            "CREATE TRIGGER log_counter AFTER UPDATE OF value ON counters\nBEGIN\n  INSERT INTO changes VALUES(NEW.id, 'first;entry');\n  INSERT INTO changes VALUES(NEW.id, 'value=' || NEW.value);\nEND"
+          ]
+        ],
+        "tables": {
+          "changes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "counter_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "detail",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "first;entry"
+              ],
+              [
+                1,
+                "value=11"
+              ]
+            ]
+          },
+          "counters": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "value",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                11
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "persisted_trigger_rows",
+          "connection": "persisted",
+          "rows": [
+            [
+              1,
+              "first;entry"
+            ],
+            [
+              1,
+              "value=11"
+            ]
+          ]
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "changes",
+            "changes",
+            "CREATE TABLE changes (counter_id INTEGER, detail TEXT)"
+          ],
+          [
+            "table",
+            "counters",
+            "counters",
+            "CREATE TABLE counters (id INTEGER PRIMARY KEY, value INTEGER NOT NULL)"
+          ],
+          [
+            "trigger",
+            "log_counter",
+            "counters",
+            "CREATE TRIGGER log_counter AFTER UPDATE OF value ON counters\nBEGIN\n  INSERT INTO changes VALUES(NEW.id, 'first;entry');\n  INSERT INTO changes VALUES(NEW.id, 'value=' || NEW.value);\nEND"
+          ]
+        ],
+        "tables": {
+          "changes": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "counter_id",
+                  "INTEGER",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  1,
+                  "detail",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "first;entry"
+              ],
+              [
+                1,
+                "value=11"
+              ]
+            ]
+          },
+          "counters": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "value",
+                  "INTEGER",
+                  1,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                11
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "221a9587d80e638bbccce8d4e254d1790b4a5c0d08dd0e985ec62a17eb9e32cc",
+      "prediction_failures": []
+    },
+    {
+      "id": "11_invalid_view",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "shipments",
+            "shipments",
+            "CREATE TABLE shipments (id INTEGER PRIMARY KEY, old_code TEXT)"
+          ],
+          [
+            "view",
+            "shipping_codes",
+            "shipping_codes",
+            "CREATE VIEW shipping_codes AS SELECT id, old_code FROM shipments"
+          ]
+        ],
+        "tables": {
+          "shipments": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "old_code",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "BOX-A"
+              ]
+            ]
+          }
+        },
+        "views": {
+          "shipping_codes": {
+            "rows": []
+          }
+        },
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "shipments",
+            "shipments",
+            "CREATE TABLE shipments(id INTEGER PRIMARY KEY, new_code TEXT)"
+          ],
+          [
+            "view",
+            "shipping_codes",
+            "shipping_codes",
+            "CREATE VIEW shipping_codes AS SELECT id, old_code FROM shipments"
+          ]
+        ],
+        "tables": {
+          "shipments": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "new_code",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "BOX-A"
+              ]
+            ]
+          }
+        },
+        "views": {
+          "shipping_codes": {
+            "error": "no such column: old_code",
+            "error_type": "OperationalError"
+          }
+        },
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "shipping_view_usable",
+          "error": "no such column: old_code",
+          "error_type": "OperationalError",
+          "passed": false
+        },
+        {
+          "name": "source_row_preserved",
+          "rows": [
+            [
+              1,
+              "BOX-A"
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "shipments",
+            "shipments",
+            "CREATE TABLE shipments(id INTEGER PRIMARY KEY, new_code TEXT)"
+          ],
+          [
+            "view",
+            "shipping_codes",
+            "shipping_codes",
+            "CREATE VIEW shipping_codes AS SELECT id, old_code FROM shipments"
+          ]
+        ],
+        "tables": {
+          "shipments": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "new_code",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "BOX-A"
+              ]
+            ]
+          }
+        },
+        "views": {
+          "shipping_codes": {
+            "error": "no such column: old_code",
+            "error_type": "OperationalError"
+          }
+        },
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "view_object_survives",
+          "connection": "live",
+          "rows": [
+            [
+              "view",
+              "shipping_codes"
+            ]
+          ]
+        },
+        {
+          "name": "persisted_view_invalid",
+          "connection": "persisted",
+          "error": "no such column: old_code",
+          "error_type": "OperationalError"
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "shipments",
+            "shipments",
+            "CREATE TABLE shipments(id INTEGER PRIMARY KEY, new_code TEXT)"
+          ],
+          [
+            "view",
+            "shipping_codes",
+            "shipping_codes",
+            "CREATE VIEW shipping_codes AS SELECT id, old_code FROM shipments"
+          ]
+        ],
+        "tables": {
+          "shipments": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "id",
+                  "INTEGER",
+                  0,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "new_code",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                1,
+                "BOX-A"
+              ]
+            ]
+          }
+        },
+        "views": {
+          "shipping_codes": {
+            "error": "no such column: old_code",
+            "error_type": "OperationalError"
+          }
+        },
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "b15c7ba510761d7f0f3f908ac2a216175fb6188e128a37c1081247b79d4f3228",
+      "prediction_failures": []
+    },
+    {
+      "id": "12_without_rowid_composite",
+      "status": "applied",
+      "error": null,
+      "in_transaction": false,
+      "foreign_keys_end": true,
+      "before": {
+        "objects": [
+          [
+            "table",
+            "settings",
+            "settings",
+            "CREATE TABLE settings (tenant TEXT NOT NULL, key TEXT NOT NULL, value TEXT, PRIMARY KEY(tenant,key)) WITHOUT ROWID"
+          ]
+        ],
+        "tables": {
+          "settings": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "tenant",
+                  "TEXT",
+                  1,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "key",
+                  "TEXT",
+                  1,
+                  null,
+                  2
+                ],
+                [
+                  2,
+                  "value",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                "north",
+                "theme",
+                "dark"
+              ],
+              [
+                "north",
+                "units",
+                "metric"
+              ],
+              [
+                "south",
+                "theme",
+                "light"
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "live": {
+        "objects": [
+          [
+            "table",
+            "settings",
+            "settings",
+            "CREATE TABLE settings (tenant TEXT NOT NULL, key TEXT NOT NULL, value TEXT, revision INTEGER NOT NULL DEFAULT 1, PRIMARY KEY(tenant,key)) WITHOUT ROWID"
+          ]
+        ],
+        "tables": {
+          "settings": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "tenant",
+                  "TEXT",
+                  1,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "key",
+                  "TEXT",
+                  1,
+                  null,
+                  2
+                ],
+                [
+                  2,
+                  "value",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  3,
+                  "revision",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                "north",
+                "theme",
+                "dark",
+                1
+              ],
+              [
+                "north",
+                "units",
+                "metric",
+                1
+              ],
+              [
+                "south",
+                "theme",
+                "light",
+                1
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "checks": [
+        {
+          "name": "composite_rows",
+          "rows": [
+            [
+              "north",
+              "theme",
+              "dark",
+              1
+            ],
+            [
+              "north",
+              "units",
+              "metric",
+              1
+            ],
+            [
+              "south",
+              "theme",
+              "light",
+              1
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "composite_key",
+          "rows": [
+            [
+              "tenant",
+              1
+            ],
+            [
+              "key",
+              2
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "name": "without_rowid_preserved",
+          "rows": [
+            [
+              1
+            ]
+          ],
+          "passed": true
+        }
+      ],
+      "persisted": {
+        "objects": [
+          [
+            "table",
+            "settings",
+            "settings",
+            "CREATE TABLE settings (tenant TEXT NOT NULL, key TEXT NOT NULL, value TEXT, revision INTEGER NOT NULL DEFAULT 1, PRIMARY KEY(tenant,key)) WITHOUT ROWID"
+          ]
+        ],
+        "tables": {
+          "settings": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "tenant",
+                  "TEXT",
+                  1,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "key",
+                  "TEXT",
+                  1,
+                  null,
+                  2
+                ],
+                [
+                  2,
+                  "value",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  3,
+                  "revision",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                "north",
+                "theme",
+                "dark",
+                1
+              ],
+              [
+                "north",
+                "units",
+                "metric",
+                1
+              ],
+              [
+                "south",
+                "theme",
+                "light",
+                1
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "observations": [
+        {
+          "name": "no_rowid",
+          "connection": "live",
+          "error": "no such column: rowid",
+          "error_type": "OperationalError"
+        }
+      ],
+      "after_close": {
+        "objects": [
+          [
+            "table",
+            "settings",
+            "settings",
+            "CREATE TABLE settings (tenant TEXT NOT NULL, key TEXT NOT NULL, value TEXT, revision INTEGER NOT NULL DEFAULT 1, PRIMARY KEY(tenant,key)) WITHOUT ROWID"
+          ]
+        ],
+        "tables": {
+          "settings": {
+            "columns": {
+              "rows": [
+                [
+                  0,
+                  "tenant",
+                  "TEXT",
+                  1,
+                  null,
+                  1
+                ],
+                [
+                  1,
+                  "key",
+                  "TEXT",
+                  1,
+                  null,
+                  2
+                ],
+                [
+                  2,
+                  "value",
+                  "TEXT",
+                  0,
+                  null,
+                  0
+                ],
+                [
+                  3,
+                  "revision",
+                  "INTEGER",
+                  1,
+                  "1",
+                  0
+                ]
+              ]
+            },
+            "rows": [
+              [
+                "north",
+                "theme",
+                "dark",
+                1
+              ],
+              [
+                "north",
+                "units",
+                "metric",
+                1
+              ],
+              [
+                "south",
+                "theme",
+                "light",
+                1
+              ]
+            ]
+          }
+        },
+        "views": {},
+        "foreign_key_check": {
+          "rows": []
+        },
+        "integrity_check": {
+          "rows": [
+            [
+              "ok"
+            ]
+          ]
+        }
+      },
+      "fixture_sha256": "51dbd86b35e655358c32bf4a24174cca0b75b4c0708318475b381030b1ba912d",
+      "prediction_failures": []
+    }
+  ]
+}

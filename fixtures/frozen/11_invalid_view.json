@@ -1,0 +1,31 @@
+{
+  "id": "11_invalid_view",
+  "scenario": "dependent_schema",
+  "description": "Recreate the source table under the same name but omit the column referenced by a surviving view.",
+  "schema_sql": "CREATE TABLE shipments (id INTEGER PRIMARY KEY, old_code TEXT); CREATE VIEW shipping_codes AS SELECT id, old_code FROM shipments;\n",
+  "seed_sql": "INSERT INTO shipments VALUES(1,'BOX-A');\n",
+  "migration_sql": "DROP TABLE shipments; CREATE TABLE shipments(id INTEGER PRIMARY KEY, new_code TEXT); INSERT INTO shipments VALUES(1,'BOX-A');\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "shipping_view_usable",
+      "sql": "SELECT * FROM shipping_codes ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "BOX-A"
+        ]
+      ]
+    },
+    {
+      "name": "source_row_preserved",
+      "sql": "SELECT * FROM shipments ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "BOX-A"
+        ]
+      ]
+    }
+  ]
+}

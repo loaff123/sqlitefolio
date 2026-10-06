@@ -1,0 +1,722 @@
+[
+  {
+    "run": "ci-final",
+    "summary": {
+      "command_count": 63,
+      "passed": true,
+      "scope": "One exact Linux x86_64 runtime; trusted synthetic inputs only"
+    },
+    "command_count": 63,
+    "matched": true,
+    "unique_command_labels": 63,
+    "labels": {
+      "source": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/source/src/sqlitefolio/__init__.py"
+      },
+      "wheel": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/wheel-venv/lib/python3.12/site-packages/sqlitefolio/__init__.py"
+      },
+      "sdist-extracted": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/extracted/sqlitefolio-0.1.0a1/src/sqlitefolio/__init__.py"
+      },
+      "sdist": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/sdist-venv/lib/python3.12/site-packages/sqlitefolio/__init__.py"
+      }
+    },
+    "sha256_matches_artifacts": true,
+    "hashes": {
+      "builds": [
+        {
+          "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+          "sqlitefolio-0.1.0a1.tar.gz": "22a55107af8cc2bd76b3d0b2ce841f905743d2af74525525986ccd2671af1134"
+        },
+        {
+          "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+          "sqlitefolio-0.1.0a1.tar.gz": "22a55107af8cc2bd76b3d0b2ce841f905743d2af74525525986ccd2671af1134"
+        }
+      ],
+      "identical": true
+    },
+    "elapsed_seconds": 84.205
+  },
+  {
+    "run": "ci-single-workflow-final",
+    "summary": {
+      "command_count": 63,
+      "passed": true,
+      "scope": "One exact Linux x86_64 runtime; trusted synthetic inputs only"
+    },
+    "command_count": 63,
+    "matched": true,
+    "unique_command_labels": 63,
+    "labels": {
+      "source": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/source/src/sqlitefolio/__init__.py"
+      },
+      "wheel": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/wheel-venv/lib/python3.12/site-packages/sqlitefolio/__init__.py"
+      },
+      "sdist-extracted": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/extracted/sqlitefolio-0.1.0a1/src/sqlitefolio/__init__.py"
+      },
+      "sdist": {
+        "tests_reported": 148,
+        "test_lines": 148,
+        "unique_test_lines": 148,
+        "test_summary": "OK",
+        "parity_entries": 44,
+        "unique_case_mode_pairs": 44,
+        "frozen_executions": 24,
+        "additional_executions": 20,
+        "mismatches": [],
+        "calibration_cases": [
+          {
+            "case": "row_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "row_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Rows per table/query budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "value_boundary",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "value_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "SQLite value exceeds 65536 bytes",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "evidence_near_bound",
+            "status": "completed",
+            "expected": "completed",
+            "matched": true,
+            "error": null
+          },
+          {
+            "case": "evidence_overflow",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Canonical evidence byte budget exceeded",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          },
+          {
+            "case": "worker_wall",
+            "status": "resource_limit",
+            "expected": "resource_limit",
+            "matched": true,
+            "error": {
+              "kind": "resource_limit",
+              "message": "Parent-enforced worker wall deadline exhausted",
+              "sqlite_code": null,
+              "sqlite_name": null
+            }
+          }
+        ],
+        "import_origin": "<temporary-qualification-root>/sdist-venv/lib/python3.12/site-packages/sqlitefolio/__init__.py"
+      }
+    },
+    "sha256_matches_artifacts": true,
+    "hashes": {
+      "builds": [
+        {
+          "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+          "sqlitefolio-0.1.0a1.tar.gz": "8e211f1b3db964d4c50b589132b2dc46de691b64211dfe0ab85fc77a2826da6d"
+        },
+        {
+          "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+          "sqlitefolio-0.1.0a1.tar.gz": "8e211f1b3db964d4c50b589132b2dc46de691b64211dfe0ab85fc77a2826da6d"
+        }
+      ],
+      "identical": true
+    },
+    "elapsed_seconds": 82.016
+  }
+]

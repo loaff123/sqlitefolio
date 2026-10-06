@@ -1,0 +1,21 @@
+test_boolean_contract (test_contract_paths.ContractTests.test_boolean_contract) ... ok
+test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) ... ok
+test_duplicate_keys (test_contract_paths.ContractTests.test_duplicate_keys) ... ok
+test_duplicate_names_and_source_choice (test_contract_paths.ContractTests.test_duplicate_names_and_source_choice) ... ok
+test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) ... ok
+test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) ... ok
+test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) ... ok
+test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) ... ok
+test_valid_defaults (test_contract_paths.ContractTests.test_valid_defaults) ... ok
+test_database_sidecar_and_header (test_contract_paths.PathsTests.test_database_sidecar_and_header) ... ok
+test_hardlink_and_symlink (test_contract_paths.PathsTests.test_hardlink_and_symlink) ... ok
+test_missing_and_sql_utf8 (test_contract_paths.PathsTests.test_missing_and_sql_utf8) ... ok
+test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) ... ok
+test_preserves_and_normalizes (test_contract_paths.PathsTests.test_preserves_and_normalizes) ... ok
+test_source_changes_detected (test_contract_paths.PathsTests.test_source_changes_detected) ... ok
+test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.008s
+
+OK

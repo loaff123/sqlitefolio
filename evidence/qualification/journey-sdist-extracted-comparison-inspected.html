@@ -1,0 +1,1908 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src &apos;none&apos;; style-src &apos;unsafe-inline&apos;">
+<title>SQLiteFolio migration review</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1150px;margin:40px auto;padding:0 24px;color:#192b38;background:#faf9f5}h1{font-size:2.6rem;letter-spacing:-.06em}h2{margin-top:3rem}a{color:#155f78}table{border-collapse:collapse;width:100%;background:white}th,td{text-align:left;padding:10px;border:1px solid #ccd4d7;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1f0;padding:16px;font-size:12px}summary{cursor:pointer;font-weight:600}.notice{padding:16px;border-left:5px solid #ba6818;background:#fff1d9}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}li{margin:.4rem 0}</style>
+<main><p class="label">Trusted sample migration evidence</p><h1>SQLiteFolio</h1>
+<p>Scenario: <strong>inventory-rebuild</strong></p>
+<p class="notice">These are finite sample observations. A passing packet is not a production-safety verdict. Structural verification checks consistency; source-bound replay is a separate operation.</p>
+<h2>Comparison under one source and profile</h2>
+<pre>{
+  &quot;input_sha256&quot;: &quot;324441c5988ba98bf00c39f283e21a39821138a339e95bb5eaca7f7011391327&quot;,
+  &quot;profile&quot;: {
+    &quot;foreign_keys&quot;: true,
+    &quot;transaction_mode&quot;: &quot;autocommit&quot;
+  },
+  &quot;source&quot;: {
+    &quot;included&quot;: false,
+    &quot;kind&quot;: &quot;sql&quot;,
+    &quot;sha256&quot;: &quot;28ed231c7fd6e411f19eac4bbd1ab0d999ace03afd57279edd1cce4133638d0c&quot;,
+    &quot;snapshot_sha256&quot;: &quot;a6d647269c1390fbe8d49f4ffa90bb6e449bcdf716bcc155dec3e02f02b4a74d&quot;
+  }
+}</pre>
+<table><thead><tr><th>Candidate</th><th>Execution</th><th>Review status</th><th>Snapshot completeness</th></tr></thead><tbody>
+<tr><td><a href="#candidate-0">drops-behavior</a></td><td>completed</td><td>failed</td><td>True</td></tr>
+<tr><td><a href="#candidate-1">preserves-behavior</a></td><td>completed</td><td>pass</td><td>True</td></tr>
+</tbody></table><p>No ranking or automatic candidate selection. Changes can be intentional; review the exact SQL and your named expectations.</p>
+<section id="candidate-0"><h2>drops-behavior</h2><h3>Execution and runtime</h3>
+<pre>{
+  &quot;execution&quot;: {
+    &quot;error&quot;: null,
+    &quot;foreign_keys_end&quot;: true,
+    &quot;foreign_keys_start&quot;: true,
+    &quot;in_transaction&quot;: false,
+    &quot;status&quot;: &quot;completed&quot;
+  },
+  &quot;runtime&quot;: {
+    &quot;compile_options&quot;: [
+      &quot;ATOMIC_INTRINSICS=1&quot;,
+      &quot;COMPILER=clang-22.1.3&quot;,
+      &quot;DEFAULT_AUTOVACUUM&quot;,
+      &quot;DEFAULT_CACHE_SIZE=-2000&quot;,
+      &quot;DEFAULT_FILE_FORMAT=4&quot;,
+      &quot;DEFAULT_JOURNAL_SIZE_LIMIT=-1&quot;,
+      &quot;DEFAULT_MMAP_SIZE=0&quot;,
+      &quot;DEFAULT_PAGE_SIZE=4096&quot;,
+      &quot;DEFAULT_PCACHE_INITSZ=20&quot;,
+      &quot;DEFAULT_RECURSIVE_TRIGGERS&quot;,
+      &quot;DEFAULT_SECTOR_SIZE=4096&quot;,
+      &quot;DEFAULT_SYNCHRONOUS=2&quot;,
+      &quot;DEFAULT_WAL_AUTOCHECKPOINT=1000&quot;,
+      &quot;DEFAULT_WAL_SYNCHRONOUS=2&quot;,
+      &quot;DEFAULT_WORKER_THREADS=0&quot;,
+      &quot;DIRECT_OVERFLOW_READ&quot;,
+      &quot;ENABLE_DBSTAT_VTAB&quot;,
+      &quot;ENABLE_FTS3&quot;,
+      &quot;ENABLE_FTS3_PARENTHESIS&quot;,
+      &quot;ENABLE_FTS4&quot;,
+      &quot;ENABLE_FTS5&quot;,
+      &quot;ENABLE_GEOPOLY&quot;,
+      &quot;ENABLE_MATH_FUNCTIONS&quot;,
+      &quot;ENABLE_PERCENTILE&quot;,
+      &quot;ENABLE_RTREE&quot;,
+      &quot;MALLOC_SOFT_LIMIT=1024&quot;,
+      &quot;MAX_ATTACHED=10&quot;,
+      &quot;MAX_COLUMN=2000&quot;,
+      &quot;MAX_COMPOUND_SELECT=500&quot;,
+      &quot;MAX_DEFAULT_PAGE_SIZE=8192&quot;,
+      &quot;MAX_EXPR_DEPTH=1000&quot;,
+      &quot;MAX_FUNCTION_ARG=1000&quot;,
+      &quot;MAX_LENGTH=1000000000&quot;,
+      &quot;MAX_LIKE_PATTERN_LENGTH=50000&quot;,
+      &quot;MAX_MMAP_SIZE=0x7fff0000&quot;,
+      &quot;MAX_PAGE_COUNT=0xfffffffe&quot;,
+      &quot;MAX_PAGE_SIZE=65536&quot;,
+      &quot;MAX_SQL_LENGTH=1000000000&quot;,
+      &quot;MAX_TRIGGER_DEPTH=1000&quot;,
+      &quot;MAX_VARIABLE_NUMBER=32766&quot;,
+      &quot;MAX_VDBE_OP=250000000&quot;,
+      &quot;MAX_WORKER_THREADS=8&quot;,
+      &quot;MUTEX_PTHREADS&quot;,
+      &quot;SYSTEM_MALLOC&quot;,
+      &quot;TEMP_STORE=1&quot;,
+      &quot;THREADSAFE=1&quot;
+    ],
+    &quot;implementation&quot;: &quot;CPython&quot;,
+    &quot;machine&quot;: &quot;x86_64&quot;,
+    &quot;platform&quot;: &quot;linux&quot;,
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;python_build&quot;: &quot;3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]&quot;,
+    &quot;sqlite&quot;: &quot;3.53.1&quot;,
+    &quot;sqlite_source_id&quot;: &quot;2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9&quot;
+  }
+}</pre>
+<p>Each change count below is a common-column multiset projection. Added and removed columns are shown separately; no row correspondence is inferred.</p>
+<h3>Observed in-session</h3><p><a href="#candidate-0-observed">Underlying raw facts and diagnostics</a></p>
+<h4>Named checks</h4>
+<pre>[
+  {
+    &quot;name&quot;: &quot;inventory values preserved&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;sku index present&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;audit trigger present&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;quantity CHECK retained&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;native integrity&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;no FK violations&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  }
+]</pre>
+<h4>Schema and projected typed-row changes</h4>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;objects_added&quot;: [],
+  &quot;objects_changed&quot;: [
+    &quot;table:inventory&quot;
+  ],
+  &quot;objects_removed&quot;: [
+    &quot;index:inventory_sku&quot;,
+    &quot;trigger:inventory_update&quot;
+  ],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 0,
+      &quot;rows_before&quot;: 0
+    },
+    &quot;inventory&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: true,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 2,
+      &quot;rows_before&quot;: 2
+    }
+  }
+}</pre>
+<details id="candidate-0-observed"><summary>Raw observed snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE \&quot;inventory\&quot;(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<h3>Reopened after controlled close</h3><p><a href="#candidate-0-reopened">Underlying raw facts and diagnostics</a></p>
+<h4>Named checks</h4>
+<pre>[
+  {
+    &quot;name&quot;: &quot;inventory values preserved&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;sku index present&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;audit trigger present&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;quantity CHECK retained&quot;,
+    &quot;status&quot;: &quot;fail&quot;
+  },
+  {
+    &quot;name&quot;: &quot;native integrity&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;no FK violations&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  }
+]</pre>
+<h4>Schema and projected typed-row changes</h4>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;objects_added&quot;: [],
+  &quot;objects_changed&quot;: [
+    &quot;table:inventory&quot;
+  ],
+  &quot;objects_removed&quot;: [
+    &quot;index:inventory_sku&quot;,
+    &quot;trigger:inventory_update&quot;
+  ],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 0,
+      &quot;rows_before&quot;: 0
+    },
+    &quot;inventory&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: true,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 2,
+      &quot;rows_before&quot;: 2
+    }
+  }
+}</pre>
+<details id="candidate-0-reopened"><summary>Raw reopened snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE \&quot;inventory\&quot;(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<details><summary>Baseline snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;inventory_sku&quot;,
+      &quot;sql&quot;: &quot;CREATE INDEX inventory_sku ON inventory(sku)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;index&quot;
+    },
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE inventory(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity &gt;= 0))&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory_update&quot;,
+      &quot;sql&quot;: &quot;CREATE TRIGGER inventory_update AFTER UPDATE OF quantity ON inventory BEGIN\n  INSERT INTO audit VALUES(new.id, new.quantity);\nEND&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;trigger&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [
+        {
+          &quot;columns&quot;: [
+            [
+              0,
+              1,
+              &quot;sku&quot;,
+              0,
+              &quot;BINARY&quot;,
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              &quot;BINARY&quot;,
+              0
+            ]
+          ],
+          &quot;info&quot;: [
+            0,
+            &quot;inventory_sku&quot;,
+            0,
+            &quot;c&quot;,
+            0
+          ]
+        }
+      ],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<details><summary>Raw invariant queries in all phases</summary>
+<pre>{
+  &quot;inventory values preserved&quot;: {
+    &quot;before&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;observed&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;reopened&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;quantity CHECK retained&quot;: {
+    &quot;before&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;observed&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;0&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;reopened&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;0&quot;
+          ]
+        ]
+      ]
+    }
+  }
+}</pre>
+</details></section>
+<section id="candidate-1"><h2>preserves-behavior</h2><h3>Execution and runtime</h3>
+<pre>{
+  &quot;execution&quot;: {
+    &quot;error&quot;: null,
+    &quot;foreign_keys_end&quot;: true,
+    &quot;foreign_keys_start&quot;: true,
+    &quot;in_transaction&quot;: false,
+    &quot;status&quot;: &quot;completed&quot;
+  },
+  &quot;runtime&quot;: {
+    &quot;compile_options&quot;: [
+      &quot;ATOMIC_INTRINSICS=1&quot;,
+      &quot;COMPILER=clang-22.1.3&quot;,
+      &quot;DEFAULT_AUTOVACUUM&quot;,
+      &quot;DEFAULT_CACHE_SIZE=-2000&quot;,
+      &quot;DEFAULT_FILE_FORMAT=4&quot;,
+      &quot;DEFAULT_JOURNAL_SIZE_LIMIT=-1&quot;,
+      &quot;DEFAULT_MMAP_SIZE=0&quot;,
+      &quot;DEFAULT_PAGE_SIZE=4096&quot;,
+      &quot;DEFAULT_PCACHE_INITSZ=20&quot;,
+      &quot;DEFAULT_RECURSIVE_TRIGGERS&quot;,
+      &quot;DEFAULT_SECTOR_SIZE=4096&quot;,
+      &quot;DEFAULT_SYNCHRONOUS=2&quot;,
+      &quot;DEFAULT_WAL_AUTOCHECKPOINT=1000&quot;,
+      &quot;DEFAULT_WAL_SYNCHRONOUS=2&quot;,
+      &quot;DEFAULT_WORKER_THREADS=0&quot;,
+      &quot;DIRECT_OVERFLOW_READ&quot;,
+      &quot;ENABLE_DBSTAT_VTAB&quot;,
+      &quot;ENABLE_FTS3&quot;,
+      &quot;ENABLE_FTS3_PARENTHESIS&quot;,
+      &quot;ENABLE_FTS4&quot;,
+      &quot;ENABLE_FTS5&quot;,
+      &quot;ENABLE_GEOPOLY&quot;,
+      &quot;ENABLE_MATH_FUNCTIONS&quot;,
+      &quot;ENABLE_PERCENTILE&quot;,
+      &quot;ENABLE_RTREE&quot;,
+      &quot;MALLOC_SOFT_LIMIT=1024&quot;,
+      &quot;MAX_ATTACHED=10&quot;,
+      &quot;MAX_COLUMN=2000&quot;,
+      &quot;MAX_COMPOUND_SELECT=500&quot;,
+      &quot;MAX_DEFAULT_PAGE_SIZE=8192&quot;,
+      &quot;MAX_EXPR_DEPTH=1000&quot;,
+      &quot;MAX_FUNCTION_ARG=1000&quot;,
+      &quot;MAX_LENGTH=1000000000&quot;,
+      &quot;MAX_LIKE_PATTERN_LENGTH=50000&quot;,
+      &quot;MAX_MMAP_SIZE=0x7fff0000&quot;,
+      &quot;MAX_PAGE_COUNT=0xfffffffe&quot;,
+      &quot;MAX_PAGE_SIZE=65536&quot;,
+      &quot;MAX_SQL_LENGTH=1000000000&quot;,
+      &quot;MAX_TRIGGER_DEPTH=1000&quot;,
+      &quot;MAX_VARIABLE_NUMBER=32766&quot;,
+      &quot;MAX_VDBE_OP=250000000&quot;,
+      &quot;MAX_WORKER_THREADS=8&quot;,
+      &quot;MUTEX_PTHREADS&quot;,
+      &quot;SYSTEM_MALLOC&quot;,
+      &quot;TEMP_STORE=1&quot;,
+      &quot;THREADSAFE=1&quot;
+    ],
+    &quot;implementation&quot;: &quot;CPython&quot;,
+    &quot;machine&quot;: &quot;x86_64&quot;,
+    &quot;platform&quot;: &quot;linux&quot;,
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;python_build&quot;: &quot;3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]&quot;,
+    &quot;sqlite&quot;: &quot;3.53.1&quot;,
+    &quot;sqlite_source_id&quot;: &quot;2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9&quot;
+  }
+}</pre>
+<p>Each change count below is a common-column multiset projection. Added and removed columns are shown separately; no row correspondence is inferred.</p>
+<h3>Observed in-session</h3><p><a href="#candidate-1-observed">Underlying raw facts and diagnostics</a></p>
+<h4>Named checks</h4>
+<pre>[
+  {
+    &quot;name&quot;: &quot;inventory values preserved&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;sku index present&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;audit trigger present&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;quantity CHECK retained&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;native integrity&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;no FK violations&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  }
+]</pre>
+<h4>Schema and projected typed-row changes</h4>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;objects_added&quot;: [],
+  &quot;objects_changed&quot;: [
+    &quot;table:inventory&quot;
+  ],
+  &quot;objects_removed&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 0,
+      &quot;rows_before&quot;: 0
+    },
+    &quot;inventory&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 2,
+      &quot;rows_before&quot;: 2
+    }
+  }
+}</pre>
+<details id="candidate-1-observed"><summary>Raw observed snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;inventory_sku&quot;,
+      &quot;sql&quot;: &quot;CREATE INDEX inventory_sku ON inventory(sku)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;index&quot;
+    },
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE \&quot;inventory\&quot;(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity &gt;= 0))&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory_update&quot;,
+      &quot;sql&quot;: &quot;CREATE TRIGGER inventory_update AFTER UPDATE OF quantity ON inventory BEGIN\n  INSERT INTO audit VALUES(new.id, new.quantity);\nEND&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;trigger&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [
+        {
+          &quot;columns&quot;: [
+            [
+              0,
+              1,
+              &quot;sku&quot;,
+              0,
+              &quot;BINARY&quot;,
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              &quot;BINARY&quot;,
+              0
+            ]
+          ],
+          &quot;info&quot;: [
+            0,
+            &quot;inventory_sku&quot;,
+            0,
+            &quot;c&quot;,
+            0
+          ]
+        }
+      ],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<h3>Reopened after controlled close</h3><p><a href="#candidate-1-reopened">Underlying raw facts and diagnostics</a></p>
+<h4>Named checks</h4>
+<pre>[
+  {
+    &quot;name&quot;: &quot;inventory values preserved&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;sku index present&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;audit trigger present&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;quantity CHECK retained&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;native integrity&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  },
+  {
+    &quot;name&quot;: &quot;no FK violations&quot;,
+    &quot;status&quot;: &quot;pass&quot;
+  }
+]</pre>
+<h4>Schema and projected typed-row changes</h4>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;objects_added&quot;: [],
+  &quot;objects_changed&quot;: [
+    &quot;table:inventory&quot;
+  ],
+  &quot;objects_removed&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 0,
+      &quot;rows_before&quot;: 0
+    },
+    &quot;inventory&quot;: {
+      &quot;columns_added&quot;: [],
+      &quot;columns_removed&quot;: [],
+      &quot;common_columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;kind&quot;: &quot;projection&quot;,
+      &quot;metadata_changed&quot;: false,
+      &quot;projected_added&quot;: 0,
+      &quot;projected_removed&quot;: 0,
+      &quot;rows_after&quot;: 2,
+      &quot;rows_before&quot;: 2
+    }
+  }
+}</pre>
+<details id="candidate-1-reopened"><summary>Raw reopened snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;inventory_sku&quot;,
+      &quot;sql&quot;: &quot;CREATE INDEX inventory_sku ON inventory(sku)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;index&quot;
+    },
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE \&quot;inventory\&quot;(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity &gt;= 0))&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory_update&quot;,
+      &quot;sql&quot;: &quot;CREATE TRIGGER inventory_update AFTER UPDATE OF quantity ON inventory BEGIN\n  INSERT INTO audit VALUES(new.id, new.quantity);\nEND&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;trigger&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [
+        {
+          &quot;columns&quot;: [
+            [
+              0,
+              1,
+              &quot;sku&quot;,
+              0,
+              &quot;BINARY&quot;,
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              &quot;BINARY&quot;,
+              0
+            ]
+          ],
+          &quot;info&quot;: [
+            0,
+            &quot;inventory_sku&quot;,
+            0,
+            &quot;c&quot;,
+            0
+          ]
+        }
+      ],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<details><summary>Baseline snapshot</summary>
+<pre>{
+  &quot;complete&quot;: true,
+  &quot;diagnostics&quot;: {
+    &quot;foreign_key_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: []
+    },
+    &quot;foreign_keys&quot;: true,
+    &quot;integrity_check&quot;: {
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;text&quot;,
+            &quot;b2s=&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;error&quot;: null,
+  &quot;objects&quot;: [
+    {
+      &quot;name&quot;: &quot;inventory_sku&quot;,
+      &quot;sql&quot;: &quot;CREATE INDEX inventory_sku ON inventory(sku)&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;index&quot;
+    },
+    {
+      &quot;name&quot;: &quot;audit&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE audit(item_id INTEGER, quantity INTEGER)&quot;,
+      &quot;table&quot;: &quot;audit&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory&quot;,
+      &quot;sql&quot;: &quot;CREATE TABLE inventory(id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity &gt;= 0))&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;table&quot;
+    },
+    {
+      &quot;name&quot;: &quot;inventory_update&quot;,
+      &quot;sql&quot;: &quot;CREATE TRIGGER inventory_update AFTER UPDATE OF quantity ON inventory BEGIN\n  INSERT INTO audit VALUES(new.id, new.quantity);\nEND&quot;,
+      &quot;table&quot;: &quot;inventory&quot;,
+      &quot;type&quot;: &quot;trigger&quot;
+    }
+  ],
+  &quot;sequences&quot;: [],
+  &quot;tables&quot;: {
+    &quot;audit&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;item_id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ],
+        [
+          1,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;item_id&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [],
+      &quot;rows&quot;: [],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;audit&quot;,
+        &quot;table&quot;,
+        2,
+        0,
+        0
+      ]
+    },
+    &quot;inventory&quot;: {
+      &quot;column_info&quot;: [
+        [
+          0,
+          &quot;id&quot;,
+          &quot;INTEGER&quot;,
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          &quot;sku&quot;,
+          &quot;TEXT&quot;,
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          &quot;quantity&quot;,
+          &quot;INTEGER&quot;,
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      &quot;columns&quot;: [
+        &quot;id&quot;,
+        &quot;sku&quot;,
+        &quot;quantity&quot;
+      ],
+      &quot;foreign_keys&quot;: [],
+      &quot;indexes&quot;: [
+        {
+          &quot;columns&quot;: [
+            [
+              0,
+              1,
+              &quot;sku&quot;,
+              0,
+              &quot;BINARY&quot;,
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              &quot;BINARY&quot;,
+              0
+            ]
+          ],
+          &quot;info&quot;: [
+            0,
+            &quot;inventory_sku&quot;,
+            0,
+            &quot;c&quot;,
+            0
+          ]
+        }
+      ],
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ],
+      &quot;table_info&quot;: [
+        &quot;main&quot;,
+        &quot;inventory&quot;,
+        &quot;table&quot;,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  &quot;views&quot;: {}
+}</pre>
+</details>
+<details><summary>Raw invariant queries in all phases</summary>
+<pre>{
+  &quot;inventory values preserved&quot;: {
+    &quot;before&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;observed&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;reopened&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOA==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;7&quot;
+          ]
+        ],
+        [
+          [
+            &quot;integer&quot;,
+            &quot;2&quot;
+          ],
+          [
+            &quot;text&quot;,
+            &quot;UE4tOQ==&quot;
+          ],
+          [
+            &quot;integer&quot;,
+            &quot;12&quot;
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;quantity CHECK retained&quot;: {
+    &quot;before&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;observed&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ]
+        ]
+      ]
+    },
+    &quot;reopened&quot;: {
+      &quot;complete&quot;: true,
+      &quot;error&quot;: null,
+      &quot;rows&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ]
+        ]
+      ]
+    }
+  }
+}</pre>
+</details></section>
+<h2>Declared contract and input identities</h2>
+<pre>{
+  &quot;candidates&quot;: [
+    {
+      &quot;name&quot;: &quot;drops-behavior&quot;,
+      &quot;sql&quot;: &quot;inputs/candidate-1.sql&quot;
+    },
+    {
+      &quot;name&quot;: &quot;preserves-behavior&quot;,
+      &quot;sql&quot;: &quot;inputs/candidate-2.sql&quot;
+    }
+  ],
+  &quot;format&quot;: &quot;sqlitefolio.input.v1&quot;,
+  &quot;invariants&quot;: [
+    {
+      &quot;kind&quot;: &quot;query_preserved&quot;,
+      &quot;name&quot;: &quot;inventory values preserved&quot;,
+      &quot;order&quot;: &quot;bag&quot;,
+      &quot;sql&quot;: &quot;SELECT id, sku, quantity FROM inventory&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;object_present&quot;,
+      &quot;name&quot;: &quot;sku index present&quot;,
+      &quot;object&quot;: &quot;inventory_sku&quot;,
+      &quot;object_type&quot;: &quot;index&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;object_present&quot;,
+      &quot;name&quot;: &quot;audit trigger present&quot;,
+      &quot;object&quot;: &quot;inventory_update&quot;,
+      &quot;object_type&quot;: &quot;trigger&quot;
+    },
+    {
+      &quot;boolean&quot;: true,
+      &quot;expected&quot;: [
+        [
+          [
+            &quot;integer&quot;,
+            &quot;1&quot;
+          ]
+        ]
+      ],
+      &quot;kind&quot;: &quot;query_equals&quot;,
+      &quot;name&quot;: &quot;quantity CHECK retained&quot;,
+      &quot;order&quot;: &quot;ordered&quot;,
+      &quot;sql&quot;: &quot;SELECT instr(sql, &#x27;CHECK(quantity &gt;= 0)&#x27;) &gt; 0 FROM sqlite_schema WHERE type=&#x27;table&#x27; AND name=&#x27;inventory&#x27;&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;integrity_ok&quot;,
+      &quot;name&quot;: &quot;native integrity&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;no_foreign_key_violations&quot;,
+      &quot;name&quot;: &quot;no FK violations&quot;
+    }
+  ],
+  &quot;limits&quot;: {
+    &quot;evidence_bytes&quot;: 16777216,
+    &quot;rows_per_query&quot;: 10000,
+    &quot;vm_steps&quot;: 2000000,
+    &quot;wall_seconds&quot;: 30
+  },
+  &quot;profile&quot;: {
+    &quot;foreign_keys&quot;: true,
+    &quot;transaction_mode&quot;: &quot;autocommit&quot;
+  },
+  &quot;scenario&quot;: &quot;inventory-rebuild&quot;,
+  &quot;source&quot;: {
+    &quot;schema&quot;: &quot;inputs/schema.sql&quot;,
+    &quot;seed&quot;: &quot;inputs/seed.sql&quot;
+  }
+}</pre>
+<pre>{
+  &quot;inputs/candidate-1.sql&quot;: &quot;736207d86af583e5e7cffe17e5c049027964aca7b8e355e82000b5282d1f9aac&quot;,
+  &quot;inputs/candidate-2.sql&quot;: &quot;35c11960827531b2029f72ee0aec122e88aa9944c8e613299218239be52f0b46&quot;,
+  &quot;inputs/original-manifest.json&quot;: &quot;c01f2e8a417feed739baf54d04e7aaa6afb5c13530bee40bc5d816c10d87d964&quot;,
+  &quot;inputs/schema.sql&quot;: &quot;f1eba47c21777fb1d8958fda12c4d1f9d22820ad1a2c616f137ee5a796de07b2&quot;,
+  &quot;inputs/seed.sql&quot;: &quot;04fbcc0c7bd3001746000766bb702eca6ba4e37dce415f76788eb0729ec13916&quot;
+}</pre>
+<h2>Limits of interpretation</h2><ul>
+<li>Trusted sample input only; guardrails are not a hostile-input security sandbox.</li>
+<li>Sample checks do not prove production safety or correctness for other data.</li>
+<li>Reopened state follows controlled close; no crash durability or rollback guarantee.</li>
+<li>Row deltas are common-column multiset projections, not inferred row identity.</li>
+<li>Structural verification checks consistency, not authorship or SQLite engine correctness.</li>
+<li>Source-bound replay is separate and uses the same qualified SQLite engine.</li>
+<li>Existing migration tools and competent SQLite recipes can obtain these same facts.</li>
+</ul><p>Atlas migration tests, Alembic assertions, sqlite-utils schema diffs and capable SQLite inspection recipes deserve full capability credit. This packet integrates review evidence; no detection, performance or adoption superiority is claimed.</p></main></html>

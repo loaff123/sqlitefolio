@@ -1,0 +1,485 @@
+{
+  "all_expected": true,
+  "commands": [
+    {
+      "environment": "wheel",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/manifest.json",
+        "--out",
+        "readme-manifest",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "ff5a8768729a8c4fd6712d53f5ae09d457471eeb9ca281073b3f74d2ce6afd03"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "1cef2040716eb88becff2f0d175aa18bfa63062adb8d05eb297da8e517238f64"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "3f7570b7e585f7ffb522bf399f24e1dc2240e3c99ce63e32742d9c7d072e0ac2"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-manifest",
+        "--manifest",
+        "examples/rebuild/manifest.json",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "6d56942bd4160bd05e99e35e57e0fc622781be43f4a2fd6e90d8a2ed41a75310"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/comparison.json",
+        "--out",
+        "readme-comparison",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "f5a26cf1a57a90f995221557758b6b52854f07e4452cc4b6220ac2f9b6fb5ef4"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "627a6f092a3e40e11ebda462824f56c8768f80b2cb464320f15e3a62d0c5beaa"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "2525d1ed6cc031dfe8b9522a7821abf220dd6233af1c5ec18caaec63119c8758"
+    },
+    {
+      "environment": "wheel",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-comparison",
+        "--manifest",
+        "examples/rebuild/comparison.json",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "08cfc0f5430f640dcd8a3f20156aed7c9601ce0ee1a5f0a6080a4a2f783cbe43"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/manifest.json",
+        "--out",
+        "readme-manifest",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "ff5a8768729a8c4fd6712d53f5ae09d457471eeb9ca281073b3f74d2ce6afd03"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "1cef2040716eb88becff2f0d175aa18bfa63062adb8d05eb297da8e517238f64"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "3f7570b7e585f7ffb522bf399f24e1dc2240e3c99ce63e32742d9c7d072e0ac2"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-manifest",
+        "--manifest",
+        "examples/rebuild/manifest.json",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "6d56942bd4160bd05e99e35e57e0fc622781be43f4a2fd6e90d8a2ed41a75310"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/comparison.json",
+        "--out",
+        "readme-comparison",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "f5a26cf1a57a90f995221557758b6b52854f07e4452cc4b6220ac2f9b6fb5ef4"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "627a6f092a3e40e11ebda462824f56c8768f80b2cb464320f15e3a62d0c5beaa"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "2525d1ed6cc031dfe8b9522a7821abf220dd6233af1c5ec18caaec63119c8758"
+    },
+    {
+      "environment": "sdist-install",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-comparison",
+        "--manifest",
+        "examples/rebuild/comparison.json",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "08cfc0f5430f640dcd8a3f20156aed7c9601ce0ee1a5f0a6080a4a2f783cbe43"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/manifest.json",
+        "--out",
+        "readme-manifest",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "ff5a8768729a8c4fd6712d53f5ae09d457471eeb9ca281073b3f74d2ce6afd03"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "1cef2040716eb88becff2f0d175aa18bfa63062adb8d05eb297da8e517238f64"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-manifest"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "3f7570b7e585f7ffb522bf399f24e1dc2240e3c99ce63e32742d9c7d072e0ac2"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "manifest",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-manifest",
+        "--manifest",
+        "examples/rebuild/manifest.json",
+        "--trust-input"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "6d56942bd4160bd05e99e35e57e0fc622781be43f4a2fd6e90d8a2ed41a75310"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "profile"
+      ],
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "matched": true,
+      "stdout_sha256": "fc74e27b68d016d12aa8b646aaf8cf890c1f31ef5a33c579a8b15ad081396911"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "rehearse",
+        "examples/rebuild/comparison.json",
+        "--out",
+        "readme-comparison",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "f5a26cf1a57a90f995221557758b6b52854f07e4452cc4b6220ac2f9b6fb5ef4"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "verify",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "627a6f092a3e40e11ebda462824f56c8768f80b2cb464320f15e3a62d0c5beaa"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "inspect",
+        "readme-comparison"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "2525d1ed6cc031dfe8b9522a7821abf220dd6233af1c5ec18caaec63119c8758"
+    },
+    {
+      "environment": "sdist-extracted",
+      "scenario": "comparison",
+      "command": [
+        "python",
+        "-m",
+        "sqlitefolio",
+        "replay",
+        "readme-comparison",
+        "--manifest",
+        "examples/rebuild/comparison.json",
+        "--trust-input"
+      ],
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "matched": true,
+      "stdout_sha256": "08cfc0f5430f640dcd8a3f20156aed7c9601ce0ee1a5f0a6080a4a2f783cbe43"
+    }
+  ]
+}

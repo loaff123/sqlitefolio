@@ -1,0 +1,44 @@
+{
+  "id": "10_trigger_semicolons",
+  "scenario": "safe_evolution",
+  "description": "A trigger body has multiple statements and a string literal containing a semicolon; execute the entire script.",
+  "schema_sql": "CREATE TABLE counters (id INTEGER PRIMARY KEY, value INTEGER NOT NULL); CREATE TABLE changes (counter_id INTEGER, detail TEXT);\n",
+  "seed_sql": "INSERT INTO counters VALUES(1,10);\n",
+  "migration_sql": "CREATE TRIGGER log_counter AFTER UPDATE OF value ON counters\nBEGIN\n  INSERT INTO changes VALUES(NEW.id, 'first;entry');\n  INSERT INTO changes VALUES(NEW.id, 'value=' || NEW.value);\nEND;\nUPDATE counters SET value=value+1 WHERE id=1;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "counter_value",
+      "sql": "SELECT * FROM counters",
+      "expect_rows": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "name": "trigger_statements",
+      "sql": "SELECT counter_id, detail FROM changes ORDER BY rowid",
+      "expect_rows": [
+        [
+          1,
+          "first;entry"
+        ],
+        [
+          1,
+          "value=11"
+        ]
+      ]
+    },
+    {
+      "name": "trigger_exists",
+      "sql": "SELECT name FROM sqlite_schema WHERE type='trigger'",
+      "expect_rows": [
+        [
+          "log_counter"
+        ]
+      ]
+    }
+  ]
+}

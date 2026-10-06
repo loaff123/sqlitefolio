@@ -1,0 +1,36 @@
+{
+  "id": "01_safe_additive",
+  "scenario": "safe_evolution",
+  "description": "Add a non-null column with default and an index without losing rows.",
+  "schema_sql": "CREATE TABLE projects (id INTEGER PRIMARY KEY, title TEXT NOT NULL);\n",
+  "seed_sql": "INSERT INTO projects VALUES (1, 'Orchid'), (2, 'Maple');\n",
+  "migration_sql": "ALTER TABLE projects ADD COLUMN archived INTEGER NOT NULL DEFAULT 0;\nCREATE INDEX projects_title_idx ON projects(title);\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "project_values",
+      "sql": "SELECT id, title, archived FROM projects ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "Orchid",
+          0
+        ],
+        [
+          2,
+          "Maple",
+          0
+        ]
+      ]
+    },
+    {
+      "name": "title_index",
+      "sql": "SELECT name FROM sqlite_schema WHERE type='index' AND name='projects_title_idx'",
+      "expect_rows": [
+        [
+          "projects_title_idx"
+        ]
+      ]
+    }
+  ]
+}

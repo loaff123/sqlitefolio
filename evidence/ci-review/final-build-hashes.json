@@ -1,0 +1,13 @@
+{
+  "builds": [
+    {
+      "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+      "sqlitefolio-0.1.0a1.tar.gz": "8e211f1b3db964d4c50b589132b2dc46de691b64211dfe0ab85fc77a2826da6d"
+    },
+    {
+      "sqlitefolio-0.1.0a1-py3-none-any.whl": "b08e7913d6050c5f8ebbb188402129f6b9421225c6bf01bb09fbab1473a659a3",
+      "sqlitefolio-0.1.0a1.tar.gz": "8e211f1b3db964d4c50b589132b2dc46de691b64211dfe0ab85fc77a2826da6d"
+    }
+  ],
+  "identical": true
+}

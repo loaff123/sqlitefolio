@@ -1,0 +1,492 @@
+test_boolean_contract (test_contract_paths.ContractTests.test_boolean_contract) ... ERROR
+test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) ... 
+  test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=True) ... ERROR
+  test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=-1) ... ERROR
+  test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=10001) ... ERROR
+  test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value='3') ... ERROR
+test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) ... ERROR
+test_duplicate_keys (test_contract_paths.ContractTests.test_duplicate_keys) ... ERROR
+test_duplicate_names_and_source_choice (test_contract_paths.ContractTests.test_duplicate_names_and_source_choice) ... ERROR
+test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) ... 
+  test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'\xff') ... ERROR
+  test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'{"x":NaN}') ... ERROR
+  test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'{"x":Infinity}') ... ERROR
+test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) ... 
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', True]) ... ERROR
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', '01']) ... ERROR
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', '9223372036854775808']) ... ERROR
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['text', '!!!']) ... ERROR
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['real', '7ff8000000000000']) ... ERROR
+  test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['null', 'null']) ... ERROR
+test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) ... 
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='../x') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='/x') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='https://a') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a//b') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a\\b') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='$HOME/a') ... ERROR
+  test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a/./b') ... ERROR
+test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) ... 
+  test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='top') ... ERROR
+  test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='profile') ... ERROR
+  test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='source') ... ERROR
+  test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='candidate') ... ERROR
+  test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='invariant') ... ERROR
+test_valid_defaults (test_contract_paths.ContractTests.test_valid_defaults) ... ERROR
+test_database_sidecar_and_header (test_contract_paths.PathsTests.test_database_sidecar_and_header) ... ERROR
+test_hardlink_and_symlink (test_contract_paths.PathsTests.test_hardlink_and_symlink) ... ERROR
+test_missing_and_sql_utf8 (test_contract_paths.PathsTests.test_missing_and_sql_utf8) ... ERROR
+test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) ... 
+  test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz')) ... ERROR
+  test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz/input.json')) ... ERROR
+  test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz/schema.sql')) ... ERROR
+test_preserves_and_normalizes (test_contract_paths.PathsTests.test_preserves_and_normalizes) ... ERROR
+test_source_changes_detected (test_contract_paths.PathsTests.test_source_changes_detected) ... ERROR
+test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) ... 
+  test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) (dest=PosixPath('/tmp/tmp41y8d0cm/alias/out')) ... ERROR
+  test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) (dest=PosixPath('/tmp/tmp41y8d0cm/missing/out')) ... ERROR
+
+======================================================================
+ERROR: test_boolean_contract (test_contract_paths.ContractTests.test_boolean_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 49, in test_boolean_contract
+    with self.assertRaises(InputError):validate_manifest(m)
+                                       ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 40, in test_counts_and_limits
+    with self.subTest(value=value),self.assertRaises(InputError):validate_manifest(m)
+                                                                 ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 40, in test_counts_and_limits
+    with self.subTest(value=value),self.assertRaises(InputError):validate_manifest(m)
+                                                                 ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value=10001)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 40, in test_counts_and_limits
+    with self.subTest(value=value),self.assertRaises(InputError):validate_manifest(m)
+                                                                 ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) (value='3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 40, in test_counts_and_limits
+    with self.subTest(value=value),self.assertRaises(InputError):validate_manifest(m)
+                                                                 ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 42, in test_counts_and_limits
+    with self.assertRaises(InputError):validate_manifest(m)
+                                       ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_duplicate_keys (test_contract_paths.ContractTests.test_duplicate_keys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 20, in test_duplicate_keys
+    with self.assertRaises(InputError):read_json(b'{"format":1,"format":2}')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 8, in read_json
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_duplicate_names_and_source_choice (test_contract_paths.ContractTests.test_duplicate_names_and_source_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 34, in test_duplicate_names_and_source_choice
+    with self.assertRaises(InputError):validate_manifest(m)
+                                       ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'\xff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 23, in test_invalid_utf8_nonfinite
+    with self.subTest(data=data),self.assertRaises(InputError):read_json(data)
+                                                               ^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 8, in read_json
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'{"x":NaN}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 23, in test_invalid_utf8_nonfinite
+    with self.subTest(data=data),self.assertRaises(InputError):read_json(data)
+                                                               ^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 8, in read_json
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) (data=b'{"x":Infinity}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 23, in test_invalid_utf8_nonfinite
+    with self.subTest(data=data),self.assertRaises(InputError):read_json(data)
+                                                               ^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 8, in read_json
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', True])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', '01'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['integer', '9223372036854775808'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['text', '!!!'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['real', '7ff8000000000000'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) (cell=['null', 'null'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 46, in test_typed_expectations
+    with self.subTest(cell=cell),self.assertRaises(InputError):validate_manifest(m)
+                                                               ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='../x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='/x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='https://a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a//b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a\\b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='$HOME/a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) (p='a/./b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 53, in test_unequal_width_paths
+    with self.subTest(p=p),self.assertRaises(InputError):validate_manifest(m)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='top')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 31, in test_unknown_nested
+    with self.subTest(target=target),self.assertRaises(InputError):validate_manifest(m)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='profile')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 31, in test_unknown_nested
+    with self.subTest(target=target),self.assertRaises(InputError):validate_manifest(m)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 31, in test_unknown_nested
+    with self.subTest(target=target),self.assertRaises(InputError):validate_manifest(m)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='candidate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 31, in test_unknown_nested
+    with self.subTest(target=target),self.assertRaises(InputError):validate_manifest(m)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) (target='invariant')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 31, in test_unknown_nested
+    with self.subTest(target=target),self.assertRaises(InputError):validate_manifest(m)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_valid_defaults (test_contract_paths.ContractTests.test_valid_defaults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 17, in test_valid_defaults
+    m=validate_manifest(manifest())
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/contract.py", line 5, in validate_manifest
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_database_sidecar_and_header (test_contract_paths.PathsTests.test_database_sidecar_and_header)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 95, in test_database_sidecar_and_header
+    b=load_inputs(self.path);self.assertEqual(b.source_kind,'database')
+      ^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_hardlink_and_symlink (test_contract_paths.PathsTests.test_hardlink_and_symlink)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 74, in test_hardlink_and_symlink
+    with self.assertRaises(InputError):load_inputs(self.path,self.root/'out')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_missing_and_sql_utf8 (test_contract_paths.PathsTests.test_missing_and_sql_utf8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 88, in test_missing_and_sql_utf8
+    with self.assertRaises(InputError):load_inputs(self.path)
+                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 71, in test_no_clobber_source_or_ancestor
+    with self.subTest(dest=dest),self.assertRaises(InputError):load_inputs(self.path,dest)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz/input.json'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 71, in test_no_clobber_source_or_ancestor
+    with self.subTest(dest=dest),self.assertRaises(InputError):load_inputs(self.path,dest)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) (dest=PosixPath('/tmp/tmpwr89m7tz/schema.sql'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 71, in test_no_clobber_source_or_ancestor
+    with self.subTest(dest=dest),self.assertRaises(InputError):load_inputs(self.path,dest)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_preserves_and_normalizes (test_contract_paths.PathsTests.test_preserves_and_normalizes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 65, in test_preserves_and_normalizes
+    bundle=load_inputs(self.path,self.root/'packet')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_source_changes_detected (test_contract_paths.PathsTests.test_source_changes_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 84, in test_source_changes_detected
+    b=load_inputs(self.path);(self.root/'seed.sql').write_text('SELECT 2;')
+      ^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) (dest=PosixPath('/tmp/tmp41y8d0cm/alias/out'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 81, in test_symlink_output_ancestor_and_nonexistent_parent
+    with self.subTest(dest=dest),self.assertRaises(InputError):load_inputs(self.path,dest)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) (dest=PosixPath('/tmp/tmp41y8d0cm/missing/out'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_contract_paths.py", line 81, in test_symlink_output_ancestor_and_nonexistent_parent
+    with self.subTest(dest=dest),self.assertRaises(InputError):load_inputs(self.path,dest)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/paths.py", line 2, in load_inputs
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.009s
+
+FAILED (errors=40)

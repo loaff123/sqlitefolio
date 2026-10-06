@@ -1,0 +1,95 @@
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... FAIL
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... FAIL
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... FAIL
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... FAIL
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... FAIL
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... FAIL
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... FAIL
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... FAIL
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... FAIL
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... FAIL
+
+======================================================================
+FAIL: test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+======================================================================
+FAIL: test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 34, in setUp
+    self.assertIsNotNone(importlib.util.find_spec('sqlitefolio.verify'),'independent verifier must exist')
+AssertionError: unexpectedly None : independent verifier must exist
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+FAILED (failures=10)

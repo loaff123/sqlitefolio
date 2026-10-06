@@ -1,0 +1,4 @@
+{
+  ".github/workflows/ci.yml": "d7b582e4da3c959dcb5c8a67cb1225ae382cb786263489cc5d9b82d51a7c22b8",
+  "qualification/ci_qualify.py": "8b87dca0d612cbb9fc50ad3c753477a48d8b822518f62c2a2f878989b4a951a1"
+}

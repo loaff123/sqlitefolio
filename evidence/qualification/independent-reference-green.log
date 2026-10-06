@@ -1,0 +1,13 @@
+test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check) ... ok
+test_all_frozen_auxiliary_live_and_reopened_observations_are_validated (test_independent_semantics.IndependentReferenceTests.test_all_frozen_auxiliary_live_and_reopened_observations_are_validated) ... ok
+test_handwritten_additional_predictions_are_checked_without_rewriting_them (test_independent_semantics.IndependentReferenceTests.test_handwritten_additional_predictions_are_checked_without_rewriting_them) ... ok
+test_oracle_keeps_blob_and_invalid_utf8_text_distinct (test_independent_semantics.IndependentReferenceTests.test_oracle_keeps_blob_and_invalid_utf8_text_distinct) ... ok
+test_oracle_records_open_transaction_and_reopened_rollback_separately (test_independent_semantics.IndependentReferenceTests.test_oracle_records_open_transaction_and_reopened_rollback_separately) ... ok
+test_oracle_retains_duplicate_multiplicity_and_projection_boundary (test_independent_semantics.IndependentReferenceTests.test_oracle_retains_duplicate_multiplicity_and_projection_boundary) ... ok
+test_original_frozen_12_cases_and_30_checks_remain_byte_frozen (test_independent_semantics.IndependentReferenceTests.test_original_frozen_12_cases_and_30_checks_remain_byte_frozen) ... ok
+test_schema_seed_connection_settings_do_not_leak_to_candidate (test_independent_semantics.IndependentReferenceTests.test_schema_seed_connection_settings_do_not_leak_to_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.118s
+
+OK

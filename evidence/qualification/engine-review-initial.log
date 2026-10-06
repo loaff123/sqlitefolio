@@ -1,0 +1,48 @@
+test_baseline_limit_cannot_leave_open_transaction_with_an_error (test_engine_review.EngineIndependentReview.test_baseline_limit_cannot_leave_open_transaction_with_an_error) ... FAIL
+test_baseline_limit_open_transaction_packet_verifies_as_nonpassing (test_engine_review.EngineIndependentReview.test_baseline_limit_open_transaction_packet_verifies_as_nonpassing) ... ERROR
+test_optional_query_equals_baseline_limit_does_not_block_pass (test_engine_review.EngineIndependentReview.test_optional_query_equals_baseline_limit_does_not_block_pass) ... FAIL
+
+======================================================================
+ERROR: test_baseline_limit_open_transaction_packet_verifies_as_nonpassing (test_engine_review.EngineIndependentReview.test_baseline_limit_open_transaction_packet_verifies_as_nonpassing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_review.py", line 66, in test_baseline_limit_open_transaction_packet_verifies_as_nonpassing
+    result = rehearse(root / "manifest.json", root / "review", trust_input=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/packet.py", line 58, in rehearse
+    if reconstruct(packet['input'],packet['candidates']) != packet['summary']:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 531, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 374, in _validate_candidate
+    _require(ex['error'] is None, 'non-error execution contains an error')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: non-error execution contains an error
+
+======================================================================
+FAIL: test_baseline_limit_cannot_leave_open_transaction_with_an_error (test_engine_review.EngineIndependentReview.test_baseline_limit_cannot_leave_open_transaction_with_an_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_review.py", line 39, in test_baseline_limit_cannot_leave_open_transaction_with_an_error
+    self.assertEqual("resource_limit", raw["execution"]["status"])
+AssertionError: 'resource_limit' != 'open_transaction'
+- resource_limit
++ open_transaction
+
+
+======================================================================
+FAIL: test_optional_query_equals_baseline_limit_does_not_block_pass (test_engine_review.EngineIndependentReview.test_optional_query_equals_baseline_limit_does_not_block_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_review.py", line 50, in test_optional_query_equals_baseline_limit_does_not_block_pass
+    self.assertEqual("completed", raw["execution"]["status"])
+AssertionError: 'completed' != 'resource_limit'
+- completed
++ resource_limit
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.202s
+
+FAILED (failures=2, errors=1)

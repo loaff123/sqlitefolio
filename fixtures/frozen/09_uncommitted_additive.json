@@ -1,0 +1,22 @@
+{
+  "id": "09_uncommitted_additive",
+  "scenario": "failure_transaction",
+  "description": "A syntactically successful script forgets COMMIT; its apparent success is uncommitted.",
+  "schema_sql": "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT);\n",
+  "seed_sql": "INSERT INTO notes VALUES(1,'draft');\n",
+  "migration_sql": "BEGIN; ALTER TABLE notes ADD COLUMN reviewed INTEGER NOT NULL DEFAULT 0; UPDATE notes SET reviewed=1 WHERE id=1;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "reviewed_note",
+      "sql": "SELECT * FROM notes ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "draft",
+          1
+        ]
+      ]
+    }
+  ]
+}

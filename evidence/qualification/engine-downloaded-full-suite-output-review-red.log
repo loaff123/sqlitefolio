@@ -1,0 +1,208 @@
+test_closed_stdout_keeps_published_packet (test_cli_packet.CLIPacketTests.test_closed_stdout_keeps_published_packet) ... ok
+test_database_inclusion_opt_in (test_cli_packet.CLIPacketTests.test_database_inclusion_opt_in) ... ok
+test_full_sql_journey (test_cli_packet.CLIPacketTests.test_full_sql_journey) ... ok
+test_open_transaction_and_preservation (test_cli_packet.CLIPacketTests.test_open_transaction_and_preservation) ... ok
+test_replay_changed_sql (test_cli_packet.CLIPacketTests.test_replay_changed_sql) ... ok
+test_requires_explicit_trust (test_cli_packet.CLIPacketTests.test_requires_explicit_trust) ... ok
+test_boolean_contract (test_contract_paths.ContractTests.test_boolean_contract) ... ok
+test_counts_and_limits (test_contract_paths.ContractTests.test_counts_and_limits) ... ok
+test_duplicate_keys (test_contract_paths.ContractTests.test_duplicate_keys) ... ok
+test_duplicate_names_and_source_choice (test_contract_paths.ContractTests.test_duplicate_names_and_source_choice) ... ok
+test_invalid_utf8_nonfinite (test_contract_paths.ContractTests.test_invalid_utf8_nonfinite) ... ok
+test_typed_expectations (test_contract_paths.ContractTests.test_typed_expectations) ... ok
+test_unequal_width_paths (test_contract_paths.ContractTests.test_unequal_width_paths) ... ok
+test_unknown_nested (test_contract_paths.ContractTests.test_unknown_nested) ... ok
+test_valid_defaults (test_contract_paths.ContractTests.test_valid_defaults) ... ok
+test_expected_count_above_observation_bound_is_valid_false_check (test_contract_paths.CountExpectationTests.test_expected_count_above_observation_bound_is_valid_false_check) ... ok
+test_database_sidecar_and_header (test_contract_paths.PathsTests.test_database_sidecar_and_header) ... ok
+test_hardlink_and_symlink (test_contract_paths.PathsTests.test_hardlink_and_symlink) ... ok
+test_missing_and_sql_utf8 (test_contract_paths.PathsTests.test_missing_and_sql_utf8) ... ok
+test_no_clobber_source_or_ancestor (test_contract_paths.PathsTests.test_no_clobber_source_or_ancestor) ... ok
+test_preserves_and_normalizes (test_contract_paths.PathsTests.test_preserves_and_normalizes) ... ok
+test_source_changes_detected (test_contract_paths.PathsTests.test_source_changes_detected) ... ok
+test_symlink_output_ancestor_and_nonexistent_parent (test_contract_paths.PathsTests.test_symlink_output_ancestor_and_nonexistent_parent) ... ok
+test_alter_table_rename_column_and_drop_preserve_supported_behavior (test_engine.EngineContract.test_alter_table_rename_column_and_drop_preserve_supported_behavior) ... ok
+test_as_written_partial_autocommit_survives_sqlite_error (test_engine.EngineContract.test_as_written_partial_autocommit_survives_sqlite_error) ... ok
+test_complete_structured_schema_generated_columns_indexes_views_sequences (test_engine.EngineContract.test_complete_structured_schema_generated_columns_indexes_views_sequences) ... ok
+test_database_source_bytes_and_directory_untouched (test_engine.EngineContract.test_database_source_bytes_and_directory_untouched) ... ok
+test_evidence_budget_cannot_produce_complete_snapshot (test_engine.EngineContract.test_evidence_budget_cannot_produce_complete_snapshot) ... ok
+test_existing_virtual_source_is_unsupported (test_engine.EngineContract.test_existing_virtual_source_is_unsupported) ... ok
+test_failed_query_is_explicit_in_each_phase (test_engine.EngineContract.test_failed_query_is_explicit_in_each_phase) ... ok
+test_forbidden_features_are_refused_before_side_effects (test_engine.EngineContract.test_forbidden_features_are_refused_before_side_effects) ... ok
+test_foreign_key_profile_and_mode_changes_are_observed (test_engine.EngineContract.test_foreign_key_profile_and_mode_changes_are_observed) ... ok
+test_invariant_dml_and_pragma_writes_cannot_mutate (test_engine.EngineContract.test_invariant_dml_and_pragma_writes_cannot_mutate) ... ok
+test_open_transaction_observed_and_reopened_are_distinct (test_engine.EngineContract.test_open_transaction_observed_and_reopened_are_distinct) ... ok
+test_qualified_runtime_is_recorded_by_worker (test_engine.EngineContract.test_qualified_runtime_is_recorded_by_worker) ... ok
+test_query_facts_capture_all_three_phases_and_order (test_engine.EngineContract.test_query_facts_capture_all_three_phases_and_order) ... ok
+test_query_row_limit_is_incomplete (test_engine.EngineContract.test_query_row_limit_is_incomplete) ... ok
+test_read_only_metadata_pragmas_are_supported (test_engine.EngineContract.test_read_only_metadata_pragmas_are_supported) ... ok
+test_request_cannot_supply_worker_commands_or_callbacks (test_engine.EngineContract.test_request_cannot_supply_worker_commands_or_callbacks) ... ok
+test_row_limit_is_incomplete_not_empty_success (test_engine.EngineContract.test_row_limit_is_incomplete_not_empty_success) ... ok
+test_same_source_has_identical_before_facts (test_engine.EngineContract.test_same_source_has_identical_before_facts) ... ok
+test_source_connection_pragma_changes_do_not_change_candidate_profile (test_engine.EngineContract.test_source_connection_pragma_changes_do_not_change_candidate_profile) ... ok
+test_source_scripts_cannot_leave_transactions_open (test_engine.EngineContract.test_source_scripts_cannot_leave_transactions_open) ... ok
+test_sqlite_error_has_priority_over_open_transaction (test_engine.EngineContract.test_sqlite_error_has_priority_over_open_transaction) ... ok
+test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless (test_engine.EngineContract.test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless) ... ok
+test_value_size_is_checked_before_accumulating (test_engine.EngineContract.test_value_size_is_checked_before_accumulating) ... ok
+test_vm_budget_is_resource_limit_not_sqlite_error (test_engine.EngineContract.test_vm_budget_is_resource_limit_not_sqlite_error) ... ok
+test_worker_records_exact_python_build_implementation_and_machine (test_engine.EngineContract.test_worker_records_exact_python_build_implementation_and_machine) ... ok
+test_all_phase_total_row_cap_is_enforced (test_engine_limits.EngineLimitContract.test_all_phase_total_row_cap_is_enforced) ... ok
+test_all_required_failure_query_frames_survive_small_budget (test_engine_limits.EngineLimitContract.test_all_required_failure_query_frames_survive_small_budget) ... ok
+test_exact_row_and_value_boundaries_succeed (test_engine_limits.EngineLimitContract.test_exact_row_and_value_boundaries_succeed) ... ok
+test_native_process_resource_limits_are_installed (test_engine_limits.EngineLimitContract.test_native_process_resource_limits_are_installed) ... ok
+test_nested_protocol_corruption_is_worker_error (test_engine_limits.EngineLimitContract.test_nested_protocol_corruption_is_worker_error) ... ok
+test_parent_wall_deadline_is_observed_and_workspace_cleaned (test_engine_limits.EngineLimitContract.test_parent_wall_deadline_is_observed_and_workspace_cleaned) ... ok
+test_schema_object_limit_prevents_complete_baseline (test_engine_limits.EngineLimitContract.test_schema_object_limit_prevents_complete_baseline) ... ok
+test_source_schema_is_guarded_before_application_statements (test_engine_limits.EngineLimitContract.test_source_schema_is_guarded_before_application_statements) ... ok
+test_source_sidecar_or_hardlink_is_refused (test_engine_limits.EngineLimitContract.test_source_sidecar_or_hardlink_is_refused) ... ok
+test_table_limit_prevents_complete_baseline (test_engine_limits.EngineLimitContract.test_table_limit_prevents_complete_baseline) ... ok
+test_typed_value_validation_rejects_ambiguous_encodings (test_engine_limits.EngineLimitContract.test_typed_value_validation_rejects_ambiguous_encodings) ... ok
+test_unexpected_death_is_worker_error_not_guessed_resource (test_engine_limits.EngineLimitContract.test_unexpected_death_is_worker_error_not_guessed_resource) ... ok
+test_wide_without_rowid_expression_index_metadata_is_complete (test_engine_limits.EngineLimitContract.test_wide_without_rowid_expression_index_metadata_is_complete) ... ok
+test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it (test_independent_semantics.IndependentPacketBoundaryTests.test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it) ... ok
+test_exact_retained_sql_bytes_are_checked (test_independent_semantics.IndependentPacketBoundaryTests.test_exact_retained_sql_bytes_are_checked) ... ok
+test_real_incomplete_packet_is_consistent_but_never_zero_exit (test_independent_semantics.IndependentPacketBoundaryTests.test_real_incomplete_packet_is_consistent_but_never_zero_exit) ... ok
+test_rehashed_false_summary_is_rejected_even_with_matching_html (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_false_summary_is_rejected_even_with_matching_html) ... ok
+test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution) ... ok
+test_replay_binds_exact_original_sql_even_for_identical_after_state (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_exact_original_sql_even_for_identical_after_state) ... ok
+test_replay_binds_recorded_runtime_facts (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_recorded_runtime_facts) ... ok
+test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged) ... ok
+test_stale_raw_fact_change_is_rejected (test_independent_semantics.IndependentPacketBoundaryTests.test_stale_raw_fact_change_is_rejected) ... ok
+test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check) ... ok
+test_all_frozen_auxiliary_live_and_reopened_observations_are_validated (test_independent_semantics.IndependentReferenceTests.test_all_frozen_auxiliary_live_and_reopened_observations_are_validated) ... ok
+test_handwritten_additional_predictions_are_checked_without_rewriting_them (test_independent_semantics.IndependentReferenceTests.test_handwritten_additional_predictions_are_checked_without_rewriting_them) ... ok
+test_oracle_keeps_blob_and_invalid_utf8_text_distinct (test_independent_semantics.IndependentReferenceTests.test_oracle_keeps_blob_and_invalid_utf8_text_distinct) ... ok
+test_oracle_records_open_transaction_and_reopened_rollback_separately (test_independent_semantics.IndependentReferenceTests.test_oracle_records_open_transaction_and_reopened_rollback_separately) ... ok
+test_oracle_retains_duplicate_multiplicity_and_projection_boundary (test_independent_semantics.IndependentReferenceTests.test_oracle_retains_duplicate_multiplicity_and_projection_boundary) ... ok
+test_original_frozen_12_cases_and_30_checks_remain_byte_frozen (test_independent_semantics.IndependentReferenceTests.test_original_frozen_12_cases_and_30_checks_remain_byte_frozen) ... ok
+test_schema_seed_connection_settings_do_not_leak_to_candidate (test_independent_semantics.IndependentReferenceTests.test_schema_seed_connection_settings_do_not_leak_to_candidate) ... ok
+test_incomplete_report_does_not_call_its_raw_snapshots_complete (test_output_review.OutputBoundaryReviewTests.test_incomplete_report_does_not_call_its_raw_snapshots_complete) ... FAIL
+test_input_lexical_symlink_before_dotdot_is_rejected (test_output_review.OutputBoundaryReviewTests.test_input_lexical_symlink_before_dotdot_is_rejected) ... FAIL
+test_inspect_does_not_emit_report_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_inspect_does_not_emit_report_replaced_after_verification) ... FAIL
+test_output_lexical_symlink_before_dotdot_is_rejected_before_writes (test_output_review.OutputBoundaryReviewTests.test_output_lexical_symlink_before_dotdot_is_rejected_before_writes) ... FAIL
+test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) ... 
+  test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) (encoded=b'{"x":1e999}') ... FAIL
+  test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) (encoded=b'{"x":-1e999}') ... FAIL
+test_partial_successful_writes_are_retried_to_completion (test_output_review.OutputBoundaryReviewTests.test_partial_successful_writes_are_retried_to_completion) ... ok
+test_replay_does_not_use_binding_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_replay_does_not_use_binding_replaced_after_verification) ... FAIL
+test_stage_name_collision_never_deletes_an_unowned_directory (test_output_review.OutputBoundaryReviewTests.test_stage_name_collision_never_deletes_an_unowned_directory) ... FAIL
+test_after_rename_fsync_failure_truthful (test_publication.PublicationTests.test_after_rename_fsync_failure_truthful) ... ok
+test_atomically_publishes (test_publication.PublicationTests.test_atomically_publishes) ... ok
+test_no_clobber_empty_or_nonempty (test_publication.PublicationTests.test_no_clobber_empty_or_nonempty) ... ok
+test_partial_write_cleanup (test_publication.PublicationTests.test_partial_write_cleanup) ... ok
+test_true_concurrent_noreplace_races (test_publication.PublicationTests.test_true_concurrent_noreplace_races) ... ok
+test_static_escape_and_limitations (test_report.ReportTests.test_static_escape_and_limitations) ... ok
+test_added_columns_explicit (test_summary.SummaryTests.test_added_columns_explicit) ... ok
+test_bad_boolean_error_and_notpass (test_summary.SummaryTests.test_bad_boolean_error_and_notpass) ... ok
+test_duplicate_projection_and_change (test_summary.SummaryTests.test_duplicate_projection_and_change) ... ok
+test_incomplete_no_loss_counts (test_summary.SummaryTests.test_incomplete_no_loss_counts) ... ok
+test_open_transaction_never_pass (test_summary.SummaryTests.test_open_transaction_never_pass) ... ok
+test_query_typed_bag (test_summary.SummaryTests.test_query_typed_bag) ... ok
+test_view_error_and_fk_failure (test_summary.SummaryTests.test_view_error_and_fk_failure) ... ok
+test_all_nonquery_invariants_reconstructed_from_facts (test_verifier.VerifierAdditionalTests.test_all_nonquery_invariants_reconstructed_from_facts) ... ok
+test_complete_baselines_agree_even_with_missing_failure_baseline (test_verifier.VerifierAdditionalTests.test_complete_baselines_agree_even_with_missing_failure_baseline) ... ok
+test_db_digest_is_declared_without_sample_and_checked_with_sample (test_verifier.VerifierAdditionalTests.test_db_digest_is_declared_without_sample_and_checked_with_sample) ... ok
+test_incomplete_metadata_does_not_require_complete_object_correspondence (test_verifier.VerifierAdditionalTests.test_incomplete_metadata_does_not_require_complete_object_correspondence) ... ok
+test_lexical_symlink_component_is_rejected_even_before_dotdot (test_verifier.VerifierAdditionalTests.test_lexical_symlink_component_is_rejected_even_before_dotdot) ... ok
+test_long_exact_native_error_message_is_allowed_within_evidence_cap (test_verifier.VerifierAdditionalTests.test_long_exact_native_error_message_is_allowed_within_evidence_cap) ... ok
+test_original_repeated_filename_must_retain_identical_bytes (test_verifier.VerifierAdditionalTests.test_original_repeated_filename_must_retain_identical_bytes) ... ok
+test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete (test_verifier.VerifierAdditionalTests.test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete) ... ok
+test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected) ... ok
+test_complete_packet_passes_structural_checks (test_verifier.VerifierBoundaryTests.test_complete_packet_passes_structural_checks) ... ok
+test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete) ... ok
+test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception) ... ok
+test_extra_directory_file_symlink_and_hardlink_rejected (test_verifier.VerifierBoundaryTests.test_extra_directory_file_symlink_and_hardlink_rejected) ... ok
+test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing) ... ok
+test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero) ... ok
+test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html) ... ok
+test_rehashed_original_manifest_semantics_must_match (test_verifier.VerifierBoundaryTests.test_rehashed_original_manifest_semantics_must_match) ... ok
+test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact) ... ok
+test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database) ... ok
+test_execution_kind_and_status_must_be_consistent (test_verifier.VerifierFinalContractTests.test_execution_kind_and_status_must_be_consistent) ... ok
+test_expanded_runtime_identity_is_required (test_verifier.VerifierFinalContractTests.test_expanded_runtime_identity_is_required) ... ok
+test_metadata_rows_count_toward_total_observation_budget (test_verifier.VerifierFinalContractTests.test_metadata_rows_count_toward_total_observation_budget) ... ok
+test_native_metadata_strings_are_not_typed_cell_payloads (test_verifier.VerifierFinalContractTests.test_native_metadata_strings_are_not_typed_cell_payloads) ... ok
+test_row_count_expectation_may_exceed_observation_cap (test_verifier.VerifierFinalContractTests.test_row_count_expectation_may_exceed_observation_cap) ... ok
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... ok
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... ok
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... ok
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... ok
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ok
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... ok
+
+======================================================================
+FAIL: test_incomplete_report_does_not_call_its_raw_snapshots_complete (test_output_review.OutputBoundaryReviewTests.test_incomplete_report_does_not_call_its_raw_snapshots_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 148, in test_incomplete_report_does_not_call_its_raw_snapshots_complete
+    self.assertNotIn("Underlying complete raw facts and diagnostics", text)
+AssertionError: 'Underlying complete raw facts and diagnostics' unexpectedly found in '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n<meta http-equiv="Content-Security-Policy" content="default-src &apos;none&apos;; style-src &apos;unsafe-inline&apos;">\n<title>SQLiteFolio migration review</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1150px;margin:40px auto;padding:0 24px;color:#192b38;background:#faf9f5}h1{font-size:2.6rem;letter-spacing:-.06em}h2{margin-top:3rem}a{color:#155f78}table{border-collapse:collapse;width:100%;background:white}th,td{text-align:left;padding:10px;border:1px solid #ccd4d7;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1f0;padding:16px;font-size:12px}summary{cursor:pointer;font-weight:600}.notice{padding:16px;border-left:5px solid #ba6818;background:#fff1d9}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}li{margin:.4rem 0}</style>\n<main><p class="label">Trusted sample migration evidence</p><h1>SQLiteFolio</h1>\n<p>Scenario: <strong>output_review</strong></p>\n<p class="notice">These are finite sample observations. A passing packet is not a production-safety verdict. Structural verification checks consistency; source-bound replay is a separate operation.</p>\n<h2>Comparison under one source and profile</h2>\n<pre>{\n  &quot;input_sha256&quot;: &quot;9fa3aa2b97896fd6643028ee7b5a54a2253f1905c06e32652a6d9dc8c9025c5a&quot;,\n  &quot;profile&quot;: {\n    &quot;foreign_keys&quot;: true,\n    &quot;transaction_mode&quot;: &quot;autocommit&quot;\n  },\n  &quot;source&quot;: {\n    &quot;included&quot;: false,\n    &quot;kind&quot;: &quot;sql&quot;,\n    &quot;sha256&quot;: &quot;c0d36ea3c4c1587800530cbde2b353ccb645709b5deb4b73a1890ff7610c4dfb&quot;,\n    &quot;snapshot_sha256&quot;: &quot;c9d0a56156870a52ee784a0b7eee9d6b79e51de113b0a4930108931546e218c0&quot;\n  }\n}</pre>\n<table><thead><tr><th>Candidate</th><th>Execution</th><th>Review status</th><th>Snapshot completeness</th></tr></thead><tbody>\n<tr><td><a href="#candidate-0">proposal</a></td><td>resource_limit</td><td>incomplete</td><td>False</td></tr>\n</tbody></table><p>No ranking or automatic candidate selection. Changes can be intentional; review the exact SQL and your named expectations.</p>\n<section id="candidate-0"><h2>proposal</h2><h3>Execution and runtime</h3>\n<pre>{\n  &quot;execution&quot;: {\n    &quot;error&quot;: {\n      &quot;kind&quot;: &quot;resource_limit&quot;,\n      &quot;message&quot;: &quot;Rows per table/query budget exceeded&quot;,\n      &quot;sqlite_code&quot;: null,\n      &quot;sqlite_name&quot;: null\n    },\n    &quot;foreign_keys_end&quot;: null,\n    &quot;foreign_keys_start&quot;: true,\n    &quot;in_transaction&quot;: null,\n    &quot;status&quot;: &quot;resource_limit&quot;\n  },\n  &quot;runtime&quot;: {\n    &quot;compile_options&quot;: [\n      &quot;ATOMIC_INTRINSICS=1&quot;,\n      &quot;COMPILER=clang-22.1.3&quot;,\n      &quot;DEFAULT_AUTOVACUUM&quot;,\n      &quot;DEFAULT_CACHE_SIZE=-2000&quot;,\n      &quot;DEFAULT_FILE_FORMAT=4&quot;,\n      &quot;DEFAULT_JOURNAL_SIZE_LIMIT=-1&quot;,\n      &quot;DEFAULT_MMAP_SIZE=0&quot;,\n      &quot;DEFAULT_PAGE_SIZE=4096&quot;,\n      &quot;DEFAULT_PCACHE_INITSZ=20&quot;,\n      &quot;DEFAULT_RECURSIVE_TRIGGERS&quot;,\n      &quot;DEFAULT_SECTOR_SIZE=4096&quot;,\n      &quot;DEFAULT_SYNCHRONOUS=2&quot;,\n      &quot;DEFAULT_WAL_AUTOCHECKPOINT=1000&quot;,\n      &quot;DEFAULT_WAL_SYNCHRONOUS=2&quot;,\n      &quot;DEFAULT_WORKER_THREADS=0&quot;,\n      &quot;DIRECT_OVERFLOW_READ&quot;,\n      &quot;ENABLE_DBSTAT_VTAB&quot;,\n      &quot;ENABLE_FTS3&quot;,\n      &quot;ENABLE_FTS3_PARENTHESIS&quot;,\n      &quot;ENABLE_FTS4&quot;,\n      &quot;ENABLE_FTS5&quot;,\n      &quot;ENABLE_GEOPOLY&quot;,\n      &quot;ENABLE_MATH_FUNCTIONS&quot;,\n      &quot;ENABLE_PERCENTILE&quot;,\n      &quot;ENABLE_RTREE&quot;,\n      &quot;MALLOC_SOFT_LIMIT=1024&quot;,\n      &quot;MAX_ATTACHED=10&quot;,\n      &quot;MAX_COLUMN=2000&quot;,\n      &quot;MAX_COMPOUND_SELECT=500&quot;,\n      &quot;MAX_DEFAULT_PAGE_SIZE=8192&quot;,\n      &quot;MAX_EXPR_DEPTH=1000&quot;,\n      &quot;MAX_FUNCTION_ARG=1000&quot;,\n      &quot;MAX_LENGTH=1000000000&quot;,\n      &quot;MAX_LIKE_PATTERN_LENGTH=50000&quot;,\n      &quot;MAX_MMAP_SIZE=0x7fff0000&quot;,\n      &quot;MAX_PAGE_COUNT=0xfffffffe&quot;,\n      &quot;MAX_PAGE_SIZE=65536&quot;,\n      &quot;MAX_SQL_LENGTH=1000000000&quot;,\n      &quot;MAX_TRIGGER_DEPTH=1000&quot;,\n      &quot;MAX_VARIABLE_NUMBER=32766&quot;,\n      &quot;MAX_VDBE_OP=250000000&quot;,\n      &quot;MAX_WORKER_THREADS=8&quot;,\n      &quot;MUTEX_PTHREADS&quot;,\n      &quot;SYSTEM_MALLOC&quot;,\n      &quot;TEMP_STORE=1&quot;,\n      &quot;THREADSAFE=1&quot;\n    ],\n    &quot;implementation&quot;: &quot;CPython&quot;,\n    &quot;machine&quot;: &quot;x86_64&quot;,\n    &quot;platform&quot;: &quot;linux&quot;,\n    &quot;python&quot;: &quot;3.12.14&quot;,\n    &quot;python_build&quot;: &quot;3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]&quot;,\n    &quot;sqlite&quot;: &quot;3.53.1&quot;,\n    &quot;sqlite_source_id&quot;: &quot;2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9&quot;\n  }\n}</pre>\n<p>Each change count below is a common-column multiset projection. Added and removed columns are shown separately; no row correspondence is inferred.</p>\n<h3>Observed in-session</h3><p><a href="#candidate-0-observed">Underlying complete raw facts and diagnostics</a></p>\n<h4>Named checks</h4>\n<pre>[]</pre>\n<h4>Schema and projected typed-row changes</h4>\n<pre>{\n  &quot;complete&quot;: false,\n  &quot;objects_added&quot;: null,\n  &quot;objects_changed&quot;: null,\n  &quot;objects_removed&quot;: null,\n  &quot;tables&quot;: {}\n}</pre>\n<details id="candidate-0-observed"><summary>Raw observed snapshot</summary>\n<pre>null</pre>\n</details>\n<h3>Reopened after controlled close</h3><p><a href="#candidate-0-reopened">Underlying complete raw facts and diagnostics</a></p>\n<h4>Named checks</h4>\n<pre>[]</pre>\n<h4>Schema and projected typed-row changes</h4>\n<pre>{\n  &quot;complete&quot;: false,\n  &quot;objects_added&quot;: null,\n  &quot;objects_changed&quot;: null,\n  &quot;objects_removed&quot;: null,\n  &quot;tables&quot;: {}\n}</pre>\n<details id="candidate-0-reopened"><summary>Raw reopened snapshot</summary>\n<pre>null</pre>\n</details>\n<details><summary>Baseline snapshot</summary>\n<pre>{\n  &quot;complete&quot;: false,\n  &quot;diagnostics&quot;: {\n    &quot;foreign_key_check&quot;: {\n      &quot;error&quot;: {\n        &quot;kind&quot;: &quot;not_run&quot;,\n        &quot;message&quot;: &quot;Phase was not run&quot;,\n        &quot;sqlite_code&quot;: null,\n        &quot;sqlite_name&quot;: null\n      },\n      &quot;rows&quot;: []\n    },\n    &quot;foreign_keys&quot;: true,\n    &quot;integrity_check&quot;: {\n      &quot;error&quot;: {\n        &quot;kind&quot;: &quot;not_run&quot;,\n        &quot;message&quot;: &quot;Phase was not run&quot;,\n        &quot;sqlite_code&quot;: null,\n        &quot;sqlite_name&quot;: null\n      },\n      &quot;rows&quot;: []\n    }\n  },\n  &quot;error&quot;: {\n    &quot;kind&quot;: &quot;resource_limit&quot;,\n    &quot;message&quot;: &quot;Rows per table/query budget exceeded&quot;,\n    &quot;sqlite_code&quot;: null,\n    &quot;sqlite_name&quot;: null\n  },\n  &quot;objects&quot;: [\n    {\n      &quot;name&quot;: &quot;t&quot;,\n      &quot;sql&quot;: &quot;CREATE TABLE t(x INTEGER)&quot;,\n      &quot;table&quot;: &quot;t&quot;,\n      &quot;type&quot;: &quot;table&quot;\n    }\n  ],\n  &quot;sequences&quot;: [],\n  &quot;tables&quot;: {},\n  &quot;views&quot;: {}\n}</pre>\n</details>\n<details><summary>Raw invariant queries in all phases</summary>\n<pre>{}</pre>\n</details></section>\n<h2>Declared contract and input identities</h2>\n<pre>{\n  &quot;candidates&quot;: [\n    {\n      &quot;name&quot;: &quot;proposal&quot;,\n      &quot;sql&quot;: &quot;inputs/candidate-1.sql&quot;\n    }\n  ],\n  &quot;format&quot;: &quot;sqlitefolio.input.v1&quot;,\n  &quot;invariants&quot;: [],\n  &quot;limits&quot;: {\n    &quot;evidence_bytes&quot;: 16777216,\n    &quot;rows_per_query&quot;: 1,\n    &quot;vm_steps&quot;: 2000000,\n    &quot;wall_seconds&quot;: 30\n  },\n  &quot;profile&quot;: {\n    &quot;foreign_keys&quot;: true,\n    &quot;transaction_mode&quot;: &quot;autocommit&quot;\n  },\n  &quot;scenario&quot;: &quot;output_review&quot;,\n  &quot;source&quot;: {\n    &quot;schema&quot;: &quot;inputs/schema.sql&quot;,\n    &quot;seed&quot;: &quot;inputs/seed.sql&quot;\n  }\n}</pre>\n<pre>{\n  &quot;inputs/candidate-1.sql&quot;: &quot;17db4fd369edb9244b9f91d9aeed145c3d04ad8ba6e95d06247f07a63527d11a&quot;,\n  &quot;inputs/original-manifest.json&quot;: &quot;27bbab5f795122a912a65f201b953d9aa8dc80bd46d838e79e2c4c8070627129&quot;,\n  &quot;inputs/schema.sql&quot;: &quot;774b34727b1c40fb06ea5c26f2009c01cd1f3a841e6ae6fdb3467721fe505154&quot;,\n  &quot;inputs/seed.sql&quot;: &quot;8e36a465c2a770f5ae392ae967eec1f28f4ba4d71199b8987f0595a20a59c1be&quot;\n}</pre>\n<h2>Limits of interpretation</h2><ul>\n<li>Trusted sample input only; guardrails are not a hostile-input security sandbox.</li>\n<li>Sample checks do not prove production safety or correctness for other data.</li>\n<li>Reopened state follows controlled close; no crash durability or rollback guarantee.</li>\n<li>Row deltas are common-column multiset projections, not inferred row identity.</li>\n<li>Structural verification checks consistency, not authorship or SQLite engine correctness.</li>\n<li>Source-bound replay is separate and uses the same qualified SQLite engine.</li>\n<li>Existing migration tools and competent SQLite recipes can obtain these same facts.</li>\n</ul><p>Atlas migration tests, Alembic assertions, sqlite-utils schema diffs and capable SQLite inspection recipes deserve full capability credit. This packet integrates review evidence; no detection, performance or adoption superiority is claimed.</p></main></html>'
+
+======================================================================
+FAIL: test_input_lexical_symlink_before_dotdot_is_rejected (test_output_review.OutputBoundaryReviewTests.test_input_lexical_symlink_before_dotdot_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 54, in test_input_lexical_symlink_before_dotdot_is_rejected
+    with self.assertRaises(InputError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_inspect_does_not_emit_report_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_inspect_does_not_emit_report_replaced_after_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 116, in test_inspect_does_not_emit_report_replaced_after_verification
+    self.assertNotIn(replacement, emitted, "inspect reread and emitted unverified replacement bytes")
+AssertionError: 'THIS REPORT WAS NEVER VERIFIED\n' unexpectedly found in ['THIS REPORT WAS NEVER VERIFIED\n'] : inspect reread and emitted unverified replacement bytes
+
+======================================================================
+FAIL: test_output_lexical_symlink_before_dotdot_is_rejected_before_writes (test_output_review.OutputBoundaryReviewTests.test_output_lexical_symlink_before_dotdot_is_rejected_before_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 63, in test_output_lexical_symlink_before_dotdot_is_rejected_before_writes
+    with self.assertRaises(InputError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) (encoded=b'{"x":1e999}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 45, in test_overflowed_json_number_is_rejected_as_nonfinite
+    with self.subTest(encoded=encoded), self.assertRaises(InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_overflowed_json_number_is_rejected_as_nonfinite (test_output_review.OutputBoundaryReviewTests.test_overflowed_json_number_is_rejected_as_nonfinite) (encoded=b'{"x":-1e999}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 45, in test_overflowed_json_number_is_rejected_as_nonfinite
+    with self.subTest(encoded=encoded), self.assertRaises(InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_replay_does_not_use_binding_replaced_after_verification (test_output_review.OutputBoundaryReviewTests.test_replay_does_not_use_binding_replaced_after_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 137, in test_replay_does_not_use_binding_replaced_after_verification
+    self.assertFalse(result["matched"], "replay trusted a new binding not checked against retained SQL")
+AssertionError: True is not false : replay trusted a new binding not checked against retained SQL
+
+======================================================================
+FAIL: test_stage_name_collision_never_deletes_an_unowned_directory (test_output_review.OutputBoundaryReviewTests.test_stage_name_collision_never_deletes_an_unowned_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_output_review.py", line 78, in test_stage_name_collision_never_deletes_an_unowned_directory
+    self.assertTrue(sentinel.is_file(), "cleanup removed a stage this call did not create")
+AssertionError: False is not true : cleanup removed a stage this call did not create
+
+----------------------------------------------------------------------
+Ran 133 tests in 10.298s
+
+FAILED (failures=8)

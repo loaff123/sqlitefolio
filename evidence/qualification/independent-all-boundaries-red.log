@@ -1,0 +1,122 @@
+test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it (test_independent_semantics.IndependentPacketBoundaryTests.test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it) ... FAIL
+test_exact_retained_sql_bytes_are_checked (test_independent_semantics.IndependentPacketBoundaryTests.test_exact_retained_sql_bytes_are_checked) ... FAIL
+test_real_incomplete_packet_is_consistent_but_never_zero_exit (test_independent_semantics.IndependentPacketBoundaryTests.test_real_incomplete_packet_is_consistent_but_never_zero_exit) ... FAIL
+test_rehashed_false_summary_is_rejected_even_with_matching_html (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_false_summary_is_rejected_even_with_matching_html) ... FAIL
+test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution) ... FAIL
+test_replay_binds_exact_original_sql_even_for_identical_after_state (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_exact_original_sql_even_for_identical_after_state) ... FAIL
+test_replay_binds_recorded_runtime_facts (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_recorded_runtime_facts) ... FAIL
+test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged) ... FAIL
+test_stale_raw_fact_change_is_rejected (test_independent_semantics.IndependentPacketBoundaryTests.test_stale_raw_fact_change_is_rejected) ... FAIL
+
+======================================================================
+FAIL: test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it (test_independent_semantics.IndependentPacketBoundaryTests.test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 164, in test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_exact_retained_sql_bytes_are_checked (test_independent_semantics.IndependentPacketBoundaryTests.test_exact_retained_sql_bytes_are_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 155, in test_exact_retained_sql_bytes_are_checked
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_real_incomplete_packet_is_consistent_but_never_zero_exit (test_independent_semantics.IndependentPacketBoundaryTests.test_real_incomplete_packet_is_consistent_but_never_zero_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 223, in test_real_incomplete_packet_is_consistent_but_never_zero_exit
+    _, packet = self.make_packet(folder, rows_limit=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 4 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_rehashed_false_summary_is_rejected_even_with_matching_html (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_false_summary_is_rejected_even_with_matching_html)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 145, in test_rehashed_false_summary_is_rejected_even_with_matching_html
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 188, in test_rehashed_retained_sql_is_not_authentication_and_replay_rejects_substitution
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_replay_binds_exact_original_sql_even_for_identical_after_state (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_exact_original_sql_even_for_identical_after_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 180, in test_replay_binds_exact_original_sql_even_for_identical_after_state
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_replay_binds_recorded_runtime_facts (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_recorded_runtime_facts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 212, in test_replay_binds_recorded_runtime_facts
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 204, in test_replay_binds_source_bytes_even_if_sample_rows_are_unchanged
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_stale_raw_fact_change_is_rejected (test_independent_semantics.IndependentPacketBoundaryTests.test_stale_raw_fact_change_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 137, in test_stale_raw_fact_change_is_rejected
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.106s
+
+FAILED (failures=9)

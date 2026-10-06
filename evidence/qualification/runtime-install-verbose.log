@@ -1,0 +1,26 @@
+DEBUG Searching for user configuration in: `[home]/.config/uv/uv.toml`
+DEBUG uv 0.12.19 (x86_64-unknown-linux-gnu)
+DEBUG Using request connect timeout of 10s and read timeout of 30s
+DEBUG Will reinstall `cpython-3.12.14-linux-x86_64-gnu`
+DEBUG Found download `cpython-3.12.14-linux-x86_64-gnu` for request `cpython-3.12.14-linux-x86_64-gnu`
+DEBUG Downloading https://releases.astral.sh/github/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+DEBUG Extracting cpython-3.12.14-20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz to temporary location: [temporary-workspace]
+WARN Failed to fetch `cpython-3.12.14-linux-x86_64-gnu` from https://releases.astral.sh/github/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz (Failed to download https://releases.astral.sh/github/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz); falling back to https://github.com/astral-sh/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+DEBUG Downloading https://github.com/astral-sh/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+DEBUG Extracting cpython-3.12.14-20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz to temporary location: [temporary-workspace]
+DEBUG Transient failure while handling response from https://github.com/astral-sh/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz; retrying after 1.5s...
+DEBUG Downloading https://releases.astral.sh/github/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+DEBUG Extracting cpython-3.12.14-20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz to temporary location: [temporary-workspace]
+Downloading cpython-3.12.14-linux-x86_64-gnu (download) (32.7MiB)
+ Downloaded cpython-3.12.14-linux-x86_64-gnu (download)
+DEBUG Removing existing directory: [temporary-workspace]
+DEBUG Moving [temporary-workspace] to [temporary-workspace]
+DEBUG Created link [temporary-workspace] -> [temporary-workspace]
+Installed Python 3.12.14 in 38.56s
+ ~ cpython-3.12.14-linux-x86_64-gnu
+DEBUG Detected parent process ID: 2
+DEBUG Parent process executable: /usr/bin/bash
+warning: `[home]/.local/share/../bin` is not on your PATH. To use installed Python executables, run `export PATH="[home]/.local/share/../bin:$PATH"` or `uv python update-shell`.
+warning: Failed to install executable for cpython-3.12.14-linux-x86_64-gnu
+  cause: Failed to create directory for Python executable link
+  cause: failed to create directory `[home]/.local/share/../bin`: Read-only file system (os error 30)

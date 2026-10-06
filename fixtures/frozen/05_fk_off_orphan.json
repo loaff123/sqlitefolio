@@ -1,0 +1,32 @@
+{
+  "id": "05_fk_off_orphan",
+  "scenario": "referential_integrity",
+  "description": "A migration under FK-off execution deletes a parent without cascading, creating an orphan.",
+  "schema_sql": "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL);\n",
+  "seed_sql": "INSERT INTO customers VALUES (1, 'Iris'), (2, 'Fern'); INSERT INTO orders VALUES (11, 1, 80), (12, 2, 45);\n",
+  "migration_sql": "DELETE FROM customers WHERE id=2;\n",
+  "foreign_keys": false,
+  "checks": [
+    {
+      "name": "foreign_key_clean",
+      "sql": "PRAGMA foreign_key_check",
+      "expect_rows": []
+    },
+    {
+      "name": "order_rows",
+      "sql": "SELECT * FROM orders ORDER BY id",
+      "expect_rows": [
+        [
+          11,
+          1,
+          80
+        ],
+        [
+          12,
+          2,
+          45
+        ]
+      ]
+    }
+  ]
+}

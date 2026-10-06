@@ -1,0 +1,58 @@
+{
+  "id": "12_without_rowid_composite",
+  "scenario": "safe_evolution",
+  "description": "Composite primary keys in a WITHOUT ROWID table remain usable after additive evolution.",
+  "schema_sql": "CREATE TABLE settings (tenant TEXT NOT NULL, key TEXT NOT NULL, value TEXT, PRIMARY KEY(tenant,key)) WITHOUT ROWID;\n",
+  "seed_sql": "INSERT INTO settings VALUES('north','theme','dark'),('north','units','metric'),('south','theme','light');\n",
+  "migration_sql": "ALTER TABLE settings ADD COLUMN revision INTEGER NOT NULL DEFAULT 1;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "composite_rows",
+      "sql": "SELECT tenant,key,value,revision FROM settings ORDER BY tenant,key",
+      "expect_rows": [
+        [
+          "north",
+          "theme",
+          "dark",
+          1
+        ],
+        [
+          "north",
+          "units",
+          "metric",
+          1
+        ],
+        [
+          "south",
+          "theme",
+          "light",
+          1
+        ]
+      ]
+    },
+    {
+      "name": "composite_key",
+      "sql": "SELECT name,pk FROM pragma_table_info('settings') WHERE pk>0 ORDER BY pk",
+      "expect_rows": [
+        [
+          "tenant",
+          1
+        ],
+        [
+          "key",
+          2
+        ]
+      ]
+    },
+    {
+      "name": "without_rowid_preserved",
+      "sql": "SELECT instr(upper(sql),'WITHOUT ROWID')>0 FROM sqlite_schema WHERE name='settings'",
+      "expect_rows": [
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

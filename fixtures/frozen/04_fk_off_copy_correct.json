@@ -1,0 +1,46 @@
+{
+  "id": "04_fk_off_copy_correct",
+  "scenario": "referential_integrity",
+  "description": "Explicitly disable FK enforcement outside the rebuild transaction and re-enable after commit; preserve children.",
+  "schema_sql": "CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE, total INTEGER NOT NULL);\n",
+  "seed_sql": "INSERT INTO customers VALUES (1, 'Iris'), (2, 'Fern'); INSERT INTO orders VALUES (11, 1, 80), (12, 2, 45);\n",
+  "migration_sql": "PRAGMA foreign_keys=OFF;\nBEGIN;\nCREATE TABLE customers_new (id INTEGER PRIMARY KEY, name TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1);\nINSERT INTO customers_new(id, name) SELECT id, name FROM customers;\nDROP TABLE customers;\nALTER TABLE customers_new RENAME TO customers;\nCOMMIT;\nPRAGMA foreign_keys=ON;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "customer_rows",
+      "sql": "SELECT id, name FROM customers ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "Iris"
+        ],
+        [
+          2,
+          "Fern"
+        ]
+      ]
+    },
+    {
+      "name": "order_rows",
+      "sql": "SELECT * FROM orders ORDER BY id",
+      "expect_rows": [
+        [
+          11,
+          1,
+          80
+        ],
+        [
+          12,
+          2,
+          45
+        ]
+      ]
+    },
+    {
+      "name": "foreign_key_clean",
+      "sql": "PRAGMA foreign_key_check",
+      "expect_rows": []
+    }
+  ]
+}

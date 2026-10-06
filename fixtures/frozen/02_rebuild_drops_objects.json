@@ -1,0 +1,50 @@
+{
+  "id": "02_rebuild_drops_objects",
+  "scenario": "rebuild_preservation",
+  "description": "A row-preserving rebuild silently loses a CHECK constraint, index, and audit trigger.",
+  "schema_sql": "CREATE TABLE inventory (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL CHECK(quantity >= 0));\nCREATE INDEX inventory_sku_idx ON inventory(sku);\nCREATE TABLE audit (item_id INTEGER, old_quantity INTEGER, new_quantity INTEGER);\nCREATE TRIGGER inventory_quantity_audit AFTER UPDATE OF quantity ON inventory\nBEGIN INSERT INTO audit VALUES(OLD.id, OLD.quantity, NEW.quantity); END;\n",
+  "seed_sql": "INSERT INTO inventory VALUES (1, 'PN-8', 7), (2, 'PN-9', 12);\n",
+  "migration_sql": "BEGIN;\nCREATE TABLE inventory_new (id INTEGER PRIMARY KEY, sku TEXT NOT NULL, quantity INTEGER NOT NULL);\nINSERT INTO inventory_new SELECT * FROM inventory;\nDROP TABLE inventory;\nALTER TABLE inventory_new RENAME TO inventory;\nCOMMIT;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "inventory_rows",
+      "sql": "SELECT * FROM inventory ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "PN-8",
+          7
+        ],
+        [
+          2,
+          "PN-9",
+          12
+        ]
+      ]
+    },
+    {
+      "name": "secondary_objects_preserved",
+      "sql": "SELECT type, name FROM sqlite_schema WHERE tbl_name='inventory' AND type IN ('index','trigger') ORDER BY type, name",
+      "expect_rows": [
+        [
+          "index",
+          "inventory_sku_idx"
+        ],
+        [
+          "trigger",
+          "inventory_quantity_audit"
+        ]
+      ]
+    },
+    {
+      "name": "quantity_check_preserved",
+      "sql": "SELECT instr(upper(sql), 'CHECK') > 0 FROM sqlite_schema WHERE type='table' AND name='inventory'",
+      "expect_rows": [
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

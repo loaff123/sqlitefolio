@@ -1,0 +1,88 @@
+EEEEProcess ForkProcess-2:
+Process ForkProcess-1:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "[original-python]/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "[original-python]/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "[original-python]/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 13, in contender
+    publish({'packet.json':marker.encode(),'inputs/x.sql':b'SELECT 1;'},Path(root)/'packet')
+  File "[original-python]/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/publish.py", line 7, in publish
+    raise NotImplementedError
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 13, in contender
+    publish({'packet.json':marker.encode(),'inputs/x.sql':b'SELECT 1;'},Path(root)/'packet')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/publish.py", line 7, in publish
+    raise NotImplementedError
+NotImplementedError
+NotImplementedError
+F
+======================================================================
+ERROR: test_after_rename_fsync_failure_truthful (test_publication.PublicationTests.test_after_rename_fsync_failure_truthful)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 54, in test_after_rename_fsync_failure_truthful
+    with patch('sqlitefolio.publish.os.fsync',side_effect=fail_parent):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[original-python]/lib/python3.12/unittest/mock.py", line 1451, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "[original-python]/lib/python3.12/pkgutil.py", line 528, in resolve_name
+    result = getattr(result, p)
+             ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'sqlitefolio.publish' has no attribute 'os'
+
+======================================================================
+ERROR: test_atomically_publishes (test_publication.PublicationTests.test_atomically_publishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 22, in test_atomically_publishes
+    p=Path(d)/'packet';publish({'packet.json':b'{}','inputs/x.sql':b'SELECT 1;'},p)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/publish.py", line 7, in publish
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_no_clobber_empty_or_nonempty (test_publication.PublicationTests.test_no_clobber_empty_or_nonempty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 28, in test_no_clobber_empty_or_nonempty
+    with self.assertRaises(PublicationError):publish({'x':b'bad'},p)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/publish.py", line 7, in publish
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_partial_write_cleanup (test_publication.PublicationTests.test_partial_write_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 45, in test_partial_write_cleanup
+    with patch('sqlitefolio.publish.os.write',side_effect=OSError('simulated write failure')):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[original-python]/lib/python3.12/unittest/mock.py", line 1451, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "[original-python]/lib/python3.12/pkgutil.py", line 528, in resolve_name
+    result = getattr(result, p)
+             ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'sqlitefolio.publish' has no attribute 'os'
+
+======================================================================
+FAIL: test_true_concurrent_noreplace_races (test_publication.PublicationTests.test_true_concurrent_noreplace_races)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_publication.py", line 39, in test_true_concurrent_noreplace_races
+    for w in workers:w.join(10);self.assertFalse(w.is_alive());self.assertEqual(w.exitcode,0)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.018s
+
+FAILED (failures=1, errors=4)

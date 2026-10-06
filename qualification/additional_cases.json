@@ -1,0 +1,721 @@
+{
+  "provenance": "Original benign fixtures and handwritten outcomes, authored before executing this qualification or reading production implementation.",
+  "cases": [
+    {
+      "id": "duplicate_multiset",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE bag(label TEXT, amount INTEGER);",
+      "seed_sql": "INSERT INTO bag VALUES ('same',1),('same',1),('other',2);",
+      "migration_sql": "DELETE FROM bag WHERE rowid=(SELECT min(rowid) FROM bag);",
+      "invariants": [
+        {
+          "name": "duplicate_rows",
+          "kind": "query_preserved",
+          "sql": "SELECT label,amount FROM bag",
+          "order": "bag"
+        },
+        {
+          "name": "bag_count",
+          "kind": "row_count",
+          "table": "bag",
+          "expected": "baseline"
+        },
+        {
+          "name": "remaining_duplicate",
+          "kind": "query_equals",
+          "sql": "SELECT count(*) FROM bag WHERE label='same'",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "1"
+              ]
+            ]
+          ]
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "failed",
+        "observed_checks": [
+          "fail",
+          "fail",
+          "pass"
+        ],
+        "reopened_checks": [
+          "fail",
+          "fail",
+          "pass"
+        ],
+        "tables": {
+          "bag": {
+            "projected_added": 0,
+            "projected_removed": 1,
+            "rows_before": 3,
+            "rows_after": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "rename_projection",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE labels(old_name TEXT);",
+      "seed_sql": "INSERT INTO labels VALUES ('oak'),('oak');",
+      "migration_sql": "ALTER TABLE labels RENAME COLUMN old_name TO new_name;",
+      "invariants": [
+        {
+          "name": "labels_count",
+          "kind": "row_count",
+          "table": "labels",
+          "expected": "baseline"
+        },
+        {
+          "name": "renamed_values",
+          "kind": "query_equals",
+          "sql": "SELECT new_name FROM labels",
+          "order": "bag",
+          "expected": [
+            [
+              [
+                "text",
+                "b2Fr"
+              ]
+            ],
+            [
+              [
+                "text",
+                "b2Fr"
+              ]
+            ]
+          ]
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "labels": {
+            "common_columns": [],
+            "columns_added": [
+              "new_name"
+            ],
+            "columns_removed": [
+              "old_name"
+            ],
+            "projected_added": null,
+            "projected_removed": null
+          }
+        }
+      }
+    },
+    {
+      "id": "generated_columns",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE measurements(base INTEGER, doubled INTEGER GENERATED ALWAYS AS(base*2) VIRTUAL, squared INTEGER GENERATED ALWAYS AS(base*base) STORED);",
+      "seed_sql": "INSERT INTO measurements(base) VALUES(2),(3);",
+      "migration_sql": "UPDATE measurements SET base=4 WHERE base=2;",
+      "invariants": [
+        {
+          "name": "computed_values",
+          "kind": "query_equals",
+          "sql": "SELECT * FROM measurements ORDER BY base",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "3"
+              ],
+              [
+                "integer",
+                "6"
+              ],
+              [
+                "integer",
+                "9"
+              ]
+            ],
+            [
+              [
+                "integer",
+                "4"
+              ],
+              [
+                "integer",
+                "8"
+              ],
+              [
+                "integer",
+                "16"
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "generated_metadata",
+          "kind": "query_equals",
+          "sql": "SELECT name,hidden FROM pragma_table_xinfo('measurements') ORDER BY cid",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "YmFzZQ=="
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "text",
+                "ZG91YmxlZA=="
+              ],
+              [
+                "integer",
+                "2"
+              ]
+            ],
+            [
+              [
+                "text",
+                "c3F1YXJlZA=="
+              ],
+              [
+                "integer",
+                "3"
+              ]
+            ]
+          ]
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "measurements": {
+            "projected_added": 1,
+            "projected_removed": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "sequence_retention",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE events(id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT);",
+      "seed_sql": "INSERT INTO events(id,note) VALUES(8,'old'); DELETE FROM events;",
+      "migration_sql": "INSERT INTO events(note) VALUES('new');",
+      "invariants": [
+        {
+          "name": "sequence",
+          "kind": "query_equals",
+          "sql": "SELECT name,seq FROM sqlite_sequence",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "ZXZlbnRz"
+              ],
+              [
+                "integer",
+                "9"
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "assigned_id",
+          "kind": "query_equals",
+          "sql": "SELECT id FROM events",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "9"
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "events_count",
+          "kind": "row_count",
+          "table": "events",
+          "expected": 1
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "sqlite_sequence": {
+            "projected_added": 1,
+            "projected_removed": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "native_metadata",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE parents(a TEXT COLLATE NOCASE,b INTEGER,PRIMARY KEY(a,b)) WITHOUT ROWID,STRICT; CREATE TABLE children(a TEXT,b INTEGER,note TEXT,FOREIGN KEY(a,b) REFERENCES parents(a,b) ON UPDATE CASCADE ON DELETE RESTRICT); CREATE UNIQUE INDEX child_expression ON children(lower(note)) WHERE note IS NOT NULL; CREATE VIEW parent_view AS SELECT a,b FROM parents;",
+      "seed_sql": "INSERT INTO parents VALUES('p',1); INSERT INTO children VALUES('p',1,'Note');",
+      "migration_sql": "CREATE INDEX child_desc ON children(b DESC,a COLLATE NOCASE); UPDATE parents SET b=2 WHERE a='p';",
+      "invariants": [
+        {
+          "name": "cascade_update",
+          "kind": "query_equals",
+          "sql": "SELECT a,b,note FROM children",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "cA=="
+              ],
+              [
+                "integer",
+                "2"
+              ],
+              [
+                "text",
+                "Tm90ZQ=="
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "fk_ok",
+          "kind": "no_foreign_key_violations"
+        },
+        {
+          "name": "integrity",
+          "kind": "integrity_ok"
+        },
+        {
+          "name": "expression_present",
+          "kind": "object_present",
+          "object_type": "index",
+          "object": "child_expression"
+        },
+        {
+          "name": "not_here",
+          "kind": "object_absent",
+          "object_type": "trigger",
+          "object": "unused"
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "parents": {
+            "metadata_changed": false
+          },
+          "children": {
+            "metadata_changed": true
+          }
+        }
+      }
+    },
+    {
+      "id": "typed_values",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE valueset(id INTEGER, rawtext TEXT, rawblob BLOB, hi INTEGER, lo INTEGER, positive_inf REAL, nullable, zero);",
+      "seed_sql": "INSERT INTO valueset VALUES(1,CAST(X'FF00' AS TEXT),X'FF00',9223372036854775807,-9223372036854775808,1e999,NULL,-0.0);",
+      "migration_sql": "-- Preserve all SQLite-observed storage classes and bytes.\nSELECT 1;",
+      "invariants": [
+        {
+          "name": "all_typed_values",
+          "kind": "query_preserved",
+          "sql": "SELECT * FROM valueset",
+          "order": "bag"
+        },
+        {
+          "name": "sqlite_storage_classes",
+          "kind": "query_equals",
+          "sql": "SELECT typeof(rawtext),typeof(rawblob),typeof(hi),typeof(positive_inf),typeof(nullable),typeof(zero) FROM valueset",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "dGV4dA=="
+              ],
+              [
+                "text",
+                "YmxvYg=="
+              ],
+              [
+                "text",
+                "aW50ZWdlcg=="
+              ],
+              [
+                "text",
+                "cmVhbA=="
+              ],
+              [
+                "text",
+                "bnVsbA=="
+              ],
+              [
+                "text",
+                "cmVhbA=="
+              ]
+            ]
+          ]
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "valueset": {
+            "projected_added": 0,
+            "projected_removed": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "constraint_declaration",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE stock(id INTEGER PRIMARY KEY, qty INTEGER CONSTRAINT nonnegative CHECK(qty>=0));",
+      "seed_sql": "INSERT INTO stock VALUES(1,4);",
+      "migration_sql": "CREATE TABLE replacement(id INTEGER PRIMARY KEY, qty INTEGER); INSERT INTO replacement SELECT * FROM stock; DROP TABLE stock; ALTER TABLE replacement RENAME TO stock;",
+      "invariants": [
+        {
+          "name": "values_preserved",
+          "kind": "query_preserved",
+          "sql": "SELECT * FROM stock",
+          "order": "bag"
+        },
+        {
+          "name": "constraint_survives",
+          "kind": "query_equals",
+          "sql": "SELECT instr(sql,'CHECK')>0 FROM sqlite_schema WHERE name='stock'",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "1"
+              ]
+            ]
+          ],
+          "boolean": true
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "failed",
+        "observed_checks": [
+          "pass",
+          "fail"
+        ],
+        "reopened_checks": [
+          "pass",
+          "fail"
+        ],
+        "tables": {
+          "stock": {
+            "metadata_changed": false,
+            "projected_added": 0,
+            "projected_removed": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "ordered_bag_and_boolean",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE tags(id INTEGER PRIMARY KEY,label TEXT);",
+      "seed_sql": "INSERT INTO tags VALUES(1,'b'),(2,'a'),(3,'a');",
+      "migration_sql": "SELECT 1;",
+      "invariants": [
+        {
+          "name": "bag_counts",
+          "kind": "query_equals",
+          "sql": "SELECT label FROM tags ORDER BY id",
+          "order": "bag",
+          "expected": [
+            [
+              [
+                "text",
+                "YQ=="
+              ]
+            ],
+            [
+              [
+                "text",
+                "Yg=="
+              ]
+            ],
+            [
+              [
+                "text",
+                "YQ=="
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "ordered_differs",
+          "kind": "query_equals",
+          "sql": "SELECT label FROM tags ORDER BY id",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "YQ=="
+              ]
+            ],
+            [
+              [
+                "text",
+                "YQ=="
+              ]
+            ],
+            [
+              [
+                "text",
+                "Yg=="
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "strict_boolean",
+          "kind": "query_equals",
+          "sql": "SELECT 2",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "1"
+              ]
+            ]
+          ],
+          "boolean": true
+        },
+        {
+          "name": "integer_not_real",
+          "kind": "query_equals",
+          "sql": "SELECT 1.0",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "1"
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "valid_boolean",
+          "kind": "query_equals",
+          "sql": "SELECT count(*)=3 FROM tags",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "integer",
+                "1"
+              ]
+            ]
+          ],
+          "boolean": true
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "failed",
+        "observed_checks": [
+          "pass",
+          "fail",
+          "error",
+          "fail",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "fail",
+          "error",
+          "fail",
+          "pass"
+        ],
+        "tables": {
+          "tags": {
+            "projected_added": 0,
+            "projected_removed": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "savepoint_close",
+      "foreign_keys": false,
+      "schema_sql": "CREATE TABLE notes(id INTEGER PRIMARY KEY,value TEXT);",
+      "seed_sql": "INSERT INTO notes VALUES(1,'draft');",
+      "migration_sql": "SAVEPOINT review; UPDATE notes SET value='reviewed';",
+      "invariants": [
+        {
+          "name": "reviewed",
+          "kind": "query_equals",
+          "sql": "SELECT value FROM notes",
+          "order": "ordered",
+          "expected": [
+            [
+              [
+                "text",
+                "cmV2aWV3ZWQ="
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "notes_count",
+          "kind": "row_count",
+          "table": "notes",
+          "expected": "baseline"
+        }
+      ],
+      "predicted": {
+        "execution": "open_transaction",
+        "status": "execution_error",
+        "observed_checks": [
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "fail",
+          "pass"
+        ],
+        "tables": {
+          "notes": {
+            "projected_added": 1,
+            "projected_removed": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "add_drop_empty_tables",
+      "foreign_keys": true,
+      "schema_sql": "CREATE TABLE old_empty(a TEXT); CREATE TABLE kept(a INTEGER,b TEXT);",
+      "seed_sql": "INSERT INTO kept VALUES(1,'before'),(1,'before');",
+      "migration_sql": "DROP TABLE old_empty; CREATE TABLE new_empty(a INTEGER); ALTER TABLE kept ADD COLUMN fresh TEXT DEFAULT 'new'; ALTER TABLE kept DROP COLUMN b;",
+      "invariants": [
+        {
+          "name": "kept_count",
+          "kind": "row_count",
+          "table": "kept",
+          "expected": "baseline"
+        },
+        {
+          "name": "new_empty_count",
+          "kind": "row_count",
+          "table": "new_empty",
+          "expected": 0
+        },
+        {
+          "name": "old_gone",
+          "kind": "object_absent",
+          "object_type": "table",
+          "object": "old_empty"
+        }
+      ],
+      "predicted": {
+        "execution": "completed",
+        "status": "pass",
+        "observed_checks": [
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "reopened_checks": [
+          "pass",
+          "pass",
+          "pass"
+        ],
+        "tables": {
+          "kept": {
+            "common_columns": [
+              "a"
+            ],
+            "columns_added": [
+              "fresh"
+            ],
+            "columns_removed": [
+              "b"
+            ],
+            "projected_added": 0,
+            "projected_removed": 0
+          },
+          "old_empty": {
+            "kind": "removed"
+          },
+          "new_empty": {
+            "kind": "added"
+          }
+        }
+      }
+    }
+  ]
+}

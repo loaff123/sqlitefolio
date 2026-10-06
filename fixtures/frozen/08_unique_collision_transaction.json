@@ -1,0 +1,34 @@
+{
+  "id": "08_unique_collision_transaction",
+  "scenario": "failure_transaction",
+  "description": "An explicit transaction remains open on uniqueness failure; local uncommitted changes differ from persistent state.",
+  "schema_sql": "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL);\n",
+  "seed_sql": "INSERT INTO contacts VALUES (1,'Sam@example.test'),(2,'sam@example.test');\n",
+  "migration_sql": "BEGIN;\nALTER TABLE contacts ADD COLUMN normalized TEXT;\nUPDATE contacts SET normalized=lower(email);\nCREATE UNIQUE INDEX contacts_normalized_uq ON contacts(normalized);\nCREATE TABLE migration_finished (done INTEGER);\nCOMMIT;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "unique_index_exists",
+      "sql": "SELECT name FROM sqlite_schema WHERE type='index' AND name='contacts_normalized_uq'",
+      "expect_rows": [
+        [
+          "contacts_normalized_uq"
+        ]
+      ]
+    },
+    {
+      "name": "no_duplicate_normalized",
+      "sql": "SELECT normalized, count(*) FROM contacts GROUP BY normalized HAVING count(*)>1",
+      "expect_rows": []
+    },
+    {
+      "name": "finished_marker",
+      "sql": "SELECT name FROM sqlite_schema WHERE type='table' AND name='migration_finished'",
+      "expect_rows": [
+        [
+          "migration_finished"
+        ]
+      ]
+    }
+  ]
+}

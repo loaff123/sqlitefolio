@@ -1,0 +1,588 @@
+test_all_nonquery_invariants_reconstructed_from_facts (test_verifier.VerifierAdditionalTests.test_all_nonquery_invariants_reconstructed_from_facts) ... ERROR
+test_complete_baselines_agree_even_with_missing_failure_baseline (test_verifier.VerifierAdditionalTests.test_complete_baselines_agree_even_with_missing_failure_baseline) ... ERROR
+test_db_digest_is_declared_without_sample_and_checked_with_sample (test_verifier.VerifierAdditionalTests.test_db_digest_is_declared_without_sample_and_checked_with_sample) ... ERROR
+test_incomplete_metadata_does_not_require_complete_object_correspondence (test_verifier.VerifierAdditionalTests.test_incomplete_metadata_does_not_require_complete_object_correspondence) ... ERROR
+test_lexical_symlink_component_is_rejected_even_before_dotdot (test_verifier.VerifierAdditionalTests.test_lexical_symlink_component_is_rejected_even_before_dotdot) ... ERROR
+test_long_exact_native_error_message_is_allowed_within_evidence_cap (test_verifier.VerifierAdditionalTests.test_long_exact_native_error_message_is_allowed_within_evidence_cap) ... ERROR
+test_original_repeated_filename_must_retain_identical_bytes (test_verifier.VerifierAdditionalTests.test_original_repeated_filename_must_retain_identical_bytes) ... ERROR
+test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete (test_verifier.VerifierAdditionalTests.test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete) ... ERROR
+test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected) ... ERROR
+test_complete_packet_passes_structural_checks (test_verifier.VerifierBoundaryTests.test_complete_packet_passes_structural_checks) ... ERROR
+test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete) ... ERROR
+test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception) ... ERROR
+test_extra_directory_file_symlink_and_hardlink_rejected (test_verifier.VerifierBoundaryTests.test_extra_directory_file_symlink_and_hardlink_rejected) ... ERROR
+test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing) ... ERROR
+test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero) ... ERROR
+test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html) ... ERROR
+test_rehashed_original_manifest_semantics_must_match (test_verifier.VerifierBoundaryTests.test_rehashed_original_manifest_semantics_must_match) ... ERROR
+test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact) ... ERROR
+test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database) ... ERROR
+test_execution_kind_and_status_must_be_consistent (test_verifier.VerifierFinalContractTests.test_execution_kind_and_status_must_be_consistent) ... ok
+test_expanded_runtime_identity_is_required (test_verifier.VerifierFinalContractTests.test_expanded_runtime_identity_is_required) ... ok
+test_metadata_rows_count_toward_total_observation_budget (test_verifier.VerifierFinalContractTests.test_metadata_rows_count_toward_total_observation_budget) ... ok
+test_row_count_expectation_may_exceed_observation_cap (test_verifier.VerifierFinalContractTests.test_row_count_expectation_may_exceed_observation_cap) ... ERROR
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... ERROR
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... ERROR
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... ERROR
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... ERROR
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ERROR
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... ERROR
+
+======================================================================
+ERROR: test_all_nonquery_invariants_reconstructed_from_facts (test_verifier.VerifierAdditionalTests.test_all_nonquery_invariants_reconstructed_from_facts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 249, in test_all_nonquery_invariants_reconstructed_from_facts
+    out=self.reconstruct(manifest(checks),[candidate()])[0]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_complete_baselines_agree_even_with_missing_failure_baseline (test_verifier.VerifierAdditionalTests.test_complete_baselines_agree_even_with_missing_failure_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 241, in test_complete_baselines_agree_even_with_missing_failure_baseline
+    out=self.reconstruct(inp,[a,b]); self.assertEqual([r['status'] for r in out],['pass','internal_error'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_db_digest_is_declared_without_sample_and_checked_with_sample (test_verifier.VerifierAdditionalTests.test_db_digest_is_declared_without_sample_and_checked_with_sample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 262, in test_db_digest_is_declared_without_sample_and_checked_with_sample
+    root=Path(folder)/'packet'; packet=self.write_packet(root)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_incomplete_metadata_does_not_require_complete_object_correspondence (test_verifier.VerifierAdditionalTests.test_incomplete_metadata_does_not_require_complete_object_correspondence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 229, in test_incomplete_metadata_does_not_require_complete_object_correspondence
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'incomplete')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_lexical_symlink_component_is_rejected_even_before_dotdot (test_verifier.VerifierAdditionalTests.test_lexical_symlink_component_is_rejected_even_before_dotdot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 222, in test_lexical_symlink_component_is_rejected_even_before_dotdot
+    base=Path(folder); root=base/'packet'; self.write_packet(root)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_long_exact_native_error_message_is_allowed_within_evidence_cap (test_verifier.VerifierAdditionalTests.test_long_exact_native_error_message_is_allowed_within_evidence_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 218, in test_long_exact_native_error_message_is_allowed_within_evidence_cap
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'execution_error')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_original_repeated_filename_must_retain_identical_bytes (test_verifier.VerifierAdditionalTests.test_original_repeated_filename_must_retain_identical_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 234, in test_original_repeated_filename_must_retain_identical_bytes
+    root=Path(folder)/'packet'; self.write_packet(root,original=original)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete (test_verifier.VerifierAdditionalTests.test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 256, in test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete
+    raw=candidate(queries=q); self.assertEqual(self.reconstruct(manifest([check]),[raw])[0]['status'],'pass')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 166, in test_boolean_number_summary_substitution_is_rejected
+    root=Path(folder)/'packet'; packet=self.write_packet(root)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_complete_packet_passes_structural_checks (test_verifier.VerifierBoundaryTests.test_complete_packet_passes_structural_checks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 154, in test_complete_packet_passes_structural_checks
+    root=Path(folder)/'packet'; self.write_packet(root)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 123, in test_empty_partial_diagnostics_is_valid_incomplete
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'incomplete')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 133, in test_evidence_limit_enforced_with_minimal_error_envelope_exception
+    self.assertEqual(self.reconstruct(inp,[raw])[0]['status'],'incomplete')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_extra_directory_file_symlink_and_hardlink_rejected (test_verifier.VerifierBoundaryTests.test_extra_directory_file_symlink_and_hardlink_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 188, in test_extra_directory_file_symlink_and_hardlink_rejected
+    root=Path(folder)/'packet'; self.write_packet(root)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 117, in test_open_transaction_null_error_is_valid_nonpassing
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'execution_error')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 200, in test_partial_error_packet_valid_but_never_zero
+    self.write_packet(root,raw=raw)
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 159, in test_rehashed_false_summary_fails_despite_matching_html
+    root=Path(folder)/'packet'; packet=self.write_packet(root)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_rehashed_original_manifest_semantics_must_match (test_verifier.VerifierBoundaryTests.test_rehashed_original_manifest_semantics_must_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 172, in test_rehashed_original_manifest_semantics_must_match
+    root=Path(folder)/'packet'; packet=self.write_packet(root)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 181, in test_report_and_manifest_bytes_are_exact
+    root=Path(folder)/'packet'; self.write_packet(root)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 205, in test_sql_packet_cannot_claim_included_database
+    root=Path(folder)/'packet'; packet=self.write_packet(root)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 144, in write_packet
+    packet={'format':'sqlitefolio.packet.v1','input':inp,'input_sha256':digest(canon(inp)),'files':{name:digest(blob) for name,blob in data.items()},'source':{'kind':'sql','sha256':source_digest,'snapshot_sha256':digest(canon(candidate_data['before'])),'included':False},'candidates':[candidate_data],'summary':self.reconstruct(inp,[candidate_data]),'limitations':list(_LIMITATIONS)}
+                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_row_count_expectation_may_exceed_observation_cap (test_verifier.VerifierFinalContractTests.test_row_count_expectation_may_exceed_observation_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 290, in test_row_count_expectation_may_exceed_observation_cap
+    out=self.reconstruct(manifest(checks),[candidate()])[0]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 517, in reconstruct
+    manifest = _manifest(input_manifest)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 213, in _manifest
+    _integer(check['expected'], 0, 10000)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 72, in _integer
+    _require(type(value) is int and low <= value <= high, 'invalid integer metadata')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: invalid integer metadata
+
+======================================================================
+ERROR: test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 67, in test_incomplete_snapshot_has_no_numeric_changes
+    result=self.reconstruct(manifest(),[raw])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 45, in test_no_common_columns_never_claims_row_loss
+    result=self.reconstruct(manifest(),[candidate(after=snap(('renamed',),[[integer(1)]]))])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 53, in test_query_boolean_does_not_use_python_truthiness
+    result=self.reconstruct(manifest([check]),[candidate(queries=q)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 60, in test_query_preserved_bag_is_typed_multiset
+    result=self.reconstruct(manifest([check]),[candidate(queries=q)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 39, in test_reconstructs_duplicate_projection_counts_and_every_summary_field
+    result=self.reconstruct(manifest(),[candidate(after=snap(rows=[[integer(1)]]))])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+======================================================================
+ERROR: test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 81, in test_view_and_native_diagnostic_errors_never_pass
+    self.assertEqual(self.reconstruct(manifest(),[raw])[0]['status'],'failed',mode)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 521, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 359, in _validate_candidate
+    _name(value['name']); _runtime(value['runtime']); _profile(value['profile'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 223, in _runtime
+    _exact(value, ('python','sqlite','sqlite_source_id','compile_options','platform'))
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 56, in _exact
+    _require(set(required) <= value.keys() and not (value.keys() - set(required) - set(optional)),
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: missing or unexpected object field
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.248s
+
+FAILED (errors=26)

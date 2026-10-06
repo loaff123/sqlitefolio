@@ -1,0 +1,61 @@
+name: Qualified runtime and distributions
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Prepare evidence directory
+        run: |
+          mkdir -p "$RUNNER_TEMP/sqlitefolio-qualification"
+          printf 'run_id=%s\ncommit=%s\nrunner_os=%s\n' \
+            "$GITHUB_RUN_ID" "$GITHUB_SHA" "$RUNNER_OS" \
+            > "$RUNNER_TEMP/sqlitefolio-qualification/run-context.log"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Download and verify the exact public runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            archive="$RUNNER_TEMP/sqlitefolio-python.tar.gz"
+            curl --fail --location --retry 3 \
+              'https://github.com/astral-sh/python-build-standalone/releases/download/20260924/cpython-3.12.14%2B20260924-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz' \
+              --output "$archive"
+            printf '%s  %s\n' \
+              269b2c99e4db15b242bf01832f4fea1e8f1a664f273cff519393f296e9820b41 \
+              "$archive" | sha256sum --check
+            test "$(stat -c %s "$archive")" = 34270188
+            mkdir "$RUNNER_TEMP/sqlitefolio-runtime"
+            tar -xzf "$archive" -C "$RUNNER_TEMP/sqlitefolio-runtime"
+            "$RUNNER_TEMP/sqlitefolio-runtime/python/bin/python3" --version
+          } 2>&1 | tee "$RUNNER_TEMP/sqlitefolio-qualification/runtime-acquisition.log"
+
+      - name: Qualify source, reproducible builds, wheel and sdist
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/sqlitefolio-runtime/python/bin/python3" \
+            qualification/ci_qualify.py \
+            --output "$RUNNER_TEMP/sqlitefolio-qualification/run" \
+            2>&1 | tee "$RUNNER_TEMP/sqlitefolio-qualification/driver.log"
+
+      - name: Preserve logs, reports and distributions even after failure
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sqlitefolio-qualification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sqlitefolio-qualification/
+          if-no-files-found: error
+          retention-days: 14

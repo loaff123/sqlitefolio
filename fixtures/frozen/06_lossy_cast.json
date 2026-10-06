@@ -1,0 +1,42 @@
+{
+  "id": "06_lossy_cast",
+  "scenario": "value_preservation",
+  "description": "Explicit text-to-integer casts erase formatting, truncate fractions, and turn nonnumeric text into zero.",
+  "schema_sql": "CREATE TABLE samples (id INTEGER PRIMARY KEY, reading TEXT NOT NULL);\n",
+  "seed_sql": "INSERT INTO samples VALUES (1,'007'),(2,'19.75'),(3,'unknown'),(4,'-3');\n",
+  "migration_sql": "BEGIN;\nCREATE TABLE samples_new (id INTEGER PRIMARY KEY, reading INTEGER NOT NULL);\nINSERT INTO samples_new SELECT id, CAST(reading AS INTEGER) FROM samples;\nDROP TABLE samples;\nALTER TABLE samples_new RENAME TO samples;\nCOMMIT;\n",
+  "foreign_keys": true,
+  "checks": [
+    {
+      "name": "readings_preserved",
+      "sql": "SELECT id, CAST(reading AS TEXT) FROM samples ORDER BY id",
+      "expect_rows": [
+        [
+          1,
+          "007"
+        ],
+        [
+          2,
+          "19.75"
+        ],
+        [
+          3,
+          "unknown"
+        ],
+        [
+          4,
+          "-3"
+        ]
+      ]
+    },
+    {
+      "name": "row_count",
+      "sql": "SELECT count(*) FROM samples",
+      "expect_rows": [
+        [
+          4
+        ]
+      ]
+    }
+  ]
+}

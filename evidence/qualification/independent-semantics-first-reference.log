@@ -1,0 +1,21 @@
+test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check) ... ERROR
+test_oracle_keeps_blob_and_invalid_utf8_text_distinct (test_independent_semantics.IndependentReferenceTests.test_oracle_keeps_blob_and_invalid_utf8_text_distinct) ... ok
+test_oracle_records_open_transaction_and_reopened_rollback_separately (test_independent_semantics.IndependentReferenceTests.test_oracle_records_open_transaction_and_reopened_rollback_separately) ... ok
+test_oracle_retains_duplicate_multiplicity_and_projection_boundary (test_independent_semantics.IndependentReferenceTests.test_oracle_retains_duplicate_multiplicity_and_projection_boundary) ... ok
+test_original_frozen_12_cases_and_30_checks_remain_byte_frozen (test_independent_semantics.IndependentReferenceTests.test_original_frozen_12_cases_and_30_checks_remain_byte_frozen) ... ok
+
+======================================================================
+ERROR: test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 66, in test_24_original_executions_match_every_native_fact_and_check
+    report = ref.qualify(ROOT / 'fixtures' / 'frozen', include_additional=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/qualification/independent_semantics.py", line 377, in qualify
+    from sqlitefolio.runner import run_candidate
+ModuleNotFoundError: No module named 'sqlitefolio'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.043s
+
+FAILED (errors=1)

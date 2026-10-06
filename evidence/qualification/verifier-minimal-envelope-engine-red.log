@@ -1,0 +1,25 @@
+test_baseline_limit_cannot_leave_open_transaction_with_an_error (test_engine_review.EngineIndependentReview.test_baseline_limit_cannot_leave_open_transaction_with_an_error) ... ok
+test_baseline_limit_open_transaction_packet_verifies_as_nonpassing (test_engine_review.EngineIndependentReview.test_baseline_limit_open_transaction_packet_verifies_as_nonpassing) ... ok
+test_internal_error_minimal_envelope_survives_lowered_evidence_cap (test_engine_review.EngineIndependentReview.test_internal_error_minimal_envelope_survives_lowered_evidence_cap) ... ERROR
+test_optional_query_equals_baseline_limit_does_not_block_pass (test_engine_review.EngineIndependentReview.test_optional_query_equals_baseline_limit_does_not_block_pass) ... ok
+test_unexpected_query_observation_failure_remains_internal_error (test_engine_review.EngineIndependentReview.test_unexpected_query_observation_failure_remains_internal_error) ... ok
+
+======================================================================
+ERROR: test_internal_error_minimal_envelope_survives_lowered_evidence_cap (test_engine_review.EngineIndependentReview.test_internal_error_minimal_envelope_survives_lowered_evidence_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine_review.py", line 99, in test_internal_error_minimal_envelope_survives_lowered_evidence_cap
+    summary = reconstruct(manifest, [raw])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 531, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 408, in _validate_candidate
+    _require(minimal and ex['status']=='resource_limit', 'raw evidence exceeds declared limit')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: raw evidence exceeds declared limit
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.210s
+
+FAILED (errors=1)

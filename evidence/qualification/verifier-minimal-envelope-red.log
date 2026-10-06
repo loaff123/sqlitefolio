@@ -1,0 +1,76 @@
+test_all_nonquery_invariants_reconstructed_from_facts (test_verifier.VerifierAdditionalTests.test_all_nonquery_invariants_reconstructed_from_facts) ... ok
+test_complete_baselines_agree_even_with_missing_failure_baseline (test_verifier.VerifierAdditionalTests.test_complete_baselines_agree_even_with_missing_failure_baseline) ... ok
+test_db_digest_is_declared_without_sample_and_checked_with_sample (test_verifier.VerifierAdditionalTests.test_db_digest_is_declared_without_sample_and_checked_with_sample) ... ok
+test_incomplete_metadata_does_not_require_complete_object_correspondence (test_verifier.VerifierAdditionalTests.test_incomplete_metadata_does_not_require_complete_object_correspondence) ... ok
+test_lexical_symlink_component_is_rejected_even_before_dotdot (test_verifier.VerifierAdditionalTests.test_lexical_symlink_component_is_rejected_even_before_dotdot) ... ok
+test_long_exact_native_error_message_is_allowed_within_evidence_cap (test_verifier.VerifierAdditionalTests.test_long_exact_native_error_message_is_allowed_within_evidence_cap) ... ok
+test_original_repeated_filename_must_retain_identical_bytes (test_verifier.VerifierAdditionalTests.test_original_repeated_filename_must_retain_identical_bytes) ... ok
+test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete (test_verifier.VerifierAdditionalTests.test_query_equals_ignores_baseline_errors_and_required_notrun_is_incomplete) ... ok
+test_boolean_number_summary_substitution_is_rejected (test_verifier.VerifierBoundaryTests.test_boolean_number_summary_substitution_is_rejected) ... ok
+test_complete_packet_passes_structural_checks (test_verifier.VerifierBoundaryTests.test_complete_packet_passes_structural_checks) ... ok
+test_empty_partial_diagnostics_is_valid_incomplete (test_verifier.VerifierBoundaryTests.test_empty_partial_diagnostics_is_valid_incomplete) ... ok
+test_evidence_limit_enforced_with_minimal_error_envelope_exception (test_verifier.VerifierBoundaryTests.test_evidence_limit_enforced_with_minimal_error_envelope_exception) ... ok
+test_extra_directory_file_symlink_and_hardlink_rejected (test_verifier.VerifierBoundaryTests.test_extra_directory_file_symlink_and_hardlink_rejected) ... ok
+test_open_transaction_null_error_is_valid_nonpassing (test_verifier.VerifierBoundaryTests.test_open_transaction_null_error_is_valid_nonpassing) ... ok
+test_partial_error_packet_valid_but_never_zero (test_verifier.VerifierBoundaryTests.test_partial_error_packet_valid_but_never_zero) ... ok
+test_rehashed_false_summary_fails_despite_matching_html (test_verifier.VerifierBoundaryTests.test_rehashed_false_summary_fails_despite_matching_html) ... ok
+test_rehashed_original_manifest_semantics_must_match (test_verifier.VerifierBoundaryTests.test_rehashed_original_manifest_semantics_must_match) ... ok
+test_report_and_manifest_bytes_are_exact (test_verifier.VerifierBoundaryTests.test_report_and_manifest_bytes_are_exact) ... ok
+test_sql_packet_cannot_claim_included_database (test_verifier.VerifierBoundaryTests.test_sql_packet_cannot_claim_included_database) ... ok
+test_checked_byte_digests_do_not_reread_after_validation (test_verifier.VerifierCheckedByteTests.test_checked_byte_digests_do_not_reread_after_validation) ... ok
+test_success_returns_digests_of_exact_verified_bytes (test_verifier.VerifierCheckedByteTests.test_success_returns_digests_of_exact_verified_bytes) ... ok
+test_execution_kind_and_status_must_be_consistent (test_verifier.VerifierFinalContractTests.test_execution_kind_and_status_must_be_consistent) ... ok
+test_expanded_runtime_identity_is_required (test_verifier.VerifierFinalContractTests.test_expanded_runtime_identity_is_required) ... ok
+test_metadata_rows_count_toward_total_observation_budget (test_verifier.VerifierFinalContractTests.test_metadata_rows_count_toward_total_observation_budget) ... ok
+test_native_metadata_strings_are_not_typed_cell_payloads (test_verifier.VerifierFinalContractTests.test_native_metadata_strings_are_not_typed_cell_payloads) ... ok
+test_row_count_expectation_may_exceed_observation_cap (test_verifier.VerifierFinalContractTests.test_row_count_expectation_may_exceed_observation_cap) ... ok
+test_exception_does_not_cover_lower_priority_execution_error (test_verifier.VerifierMinimalEnvelopeTests.test_exception_does_not_cover_lower_priority_execution_error) ... ok
+test_exception_does_not_permit_collected_facts_above_limit (test_verifier.VerifierMinimalEnvelopeTests.test_exception_does_not_permit_collected_facts_above_limit) ... ok
+test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit (test_verifier.VerifierMinimalEnvelopeTests.test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit) ... 
+  test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit (test_verifier.VerifierMinimalEnvelopeTests.test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit) (status='worker_error') ... ERROR
+  test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit (test_verifier.VerifierMinimalEnvelopeTests.test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit) (status='source_changed') ... ERROR
+test_before_profile_runtime_group_identity (test_verifier.VerifierTests.test_before_profile_runtime_group_identity) ... ok
+test_incomplete_snapshot_has_no_numeric_changes (test_verifier.VerifierTests.test_incomplete_snapshot_has_no_numeric_changes) ... ok
+test_malformed_packet_returns_controlled_failure (test_verifier.VerifierTests.test_malformed_packet_returns_controlled_failure) ... ok
+test_missing_query_phase_rejected (test_verifier.VerifierTests.test_missing_query_phase_rejected) ... ok
+test_no_common_columns_never_claims_row_loss (test_verifier.VerifierTests.test_no_common_columns_never_claims_row_loss) ... ok
+test_query_boolean_does_not_use_python_truthiness (test_verifier.VerifierTests.test_query_boolean_does_not_use_python_truthiness) ... ok
+test_query_preserved_bag_is_typed_multiset (test_verifier.VerifierTests.test_query_preserved_bag_is_typed_multiset) ... ok
+test_reconstructs_duplicate_projection_counts_and_every_summary_field (test_verifier.VerifierTests.test_reconstructs_duplicate_projection_counts_and_every_summary_field) ... ok
+test_rejects_raw_shape_and_typed_cell_forgeries (test_verifier.VerifierTests.test_rejects_raw_shape_and_typed_cell_forgeries) ... ok
+test_view_and_native_diagnostic_errors_never_pass (test_verifier.VerifierTests.test_view_and_native_diagnostic_errors_never_pass) ... ok
+
+======================================================================
+ERROR: test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit (test_verifier.VerifierMinimalEnvelopeTests.test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit) (status='worker_error')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 377, in test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit
+    self.assertEqual(self.reconstruct(inp,[raw])[0]['status'],expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 531, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 408, in _validate_candidate
+    _require(minimal and ex['status']=='resource_limit', 'raw evidence exceeds declared limit')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: raw evidence exceeds declared limit
+
+======================================================================
+ERROR: test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit (test_verifier.VerifierMinimalEnvelopeTests.test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit) (status='source_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_verifier.py", line 377, in test_higher_priority_failure_envelope_is_reviewable_above_lowered_limit
+    self.assertEqual(self.reconstruct(inp,[raw])[0]['status'],expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 531, in reconstruct
+    _validate_candidate(actual,manifest)
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 408, in _validate_candidate
+    _require(minimal and ex['status']=='resource_limit', 'raw evidence exceeds declared limit')
+  File "[workspace]/sqlitefolio/src/sqlitefolio/verify.py", line 42, in _require
+    raise VerificationError(reason)
+sqlitefolio.verify.VerificationError: raw evidence exceeds declared limit
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.719s
+
+FAILED (errors=2)

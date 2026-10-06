@@ -1,0 +1,7 @@
+include README.md LICENSE
+recursive-include docs *.md *.json
+recursive-include examples *.sql *.json
+recursive-include tests *.py
+recursive-include qualification *.py *.md *.json
+recursive-include fixtures/frozen *.json *.md *.py SHA256SUMS
+recursive-include .github *.yml

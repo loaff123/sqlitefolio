@@ -1,0 +1,113 @@
+test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it (test_independent_semantics.IndependentPacketBoundaryTests.test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it) ... FAIL
+test_exact_retained_sql_bytes_are_checked (test_independent_semantics.IndependentPacketBoundaryTests.test_exact_retained_sql_bytes_are_checked) ... FAIL
+test_real_incomplete_packet_is_consistent_but_never_zero_exit (test_independent_semantics.IndependentPacketBoundaryTests.test_real_incomplete_packet_is_consistent_but_never_zero_exit) ... FAIL
+test_rehashed_false_summary_is_rejected_even_with_matching_html (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_false_summary_is_rejected_even_with_matching_html) ... FAIL
+test_replay_binds_exact_original_sql_even_for_identical_after_state (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_exact_original_sql_even_for_identical_after_state) ... FAIL
+test_stale_raw_fact_change_is_rejected (test_independent_semantics.IndependentPacketBoundaryTests.test_stale_raw_fact_change_is_rejected) ... FAIL
+test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check) ... FAIL
+test_all_frozen_auxiliary_live_and_reopened_observations_are_validated (test_independent_semantics.IndependentReferenceTests.test_all_frozen_auxiliary_live_and_reopened_observations_are_validated) ... ok
+test_handwritten_additional_predictions_are_checked_without_rewriting_them (test_independent_semantics.IndependentReferenceTests.test_handwritten_additional_predictions_are_checked_without_rewriting_them) ... ok
+test_oracle_keeps_blob_and_invalid_utf8_text_distinct (test_independent_semantics.IndependentReferenceTests.test_oracle_keeps_blob_and_invalid_utf8_text_distinct) ... ok
+test_oracle_records_open_transaction_and_reopened_rollback_separately (test_independent_semantics.IndependentReferenceTests.test_oracle_records_open_transaction_and_reopened_rollback_separately) ... ok
+test_oracle_retains_duplicate_multiplicity_and_projection_boundary (test_independent_semantics.IndependentReferenceTests.test_oracle_retains_duplicate_multiplicity_and_projection_boundary) ... ok
+test_original_frozen_12_cases_and_30_checks_remain_byte_frozen (test_independent_semantics.IndependentReferenceTests.test_original_frozen_12_cases_and_30_checks_remain_byte_frozen) ... ok
+test_schema_seed_connection_settings_do_not_leak_to_candidate (test_independent_semantics.IndependentReferenceTests.test_schema_seed_connection_settings_do_not_leak_to_candidate) ... FAIL
+
+======================================================================
+FAIL: test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it (test_independent_semantics.IndependentPacketBoundaryTests.test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 165, in test_consistent_fabrication_can_verify_but_source_bound_replay_rejects_it
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_exact_retained_sql_bytes_are_checked (test_independent_semantics.IndependentPacketBoundaryTests.test_exact_retained_sql_bytes_are_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 155, in test_exact_retained_sql_bytes_are_checked
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_real_incomplete_packet_is_consistent_but_never_zero_exit (test_independent_semantics.IndependentPacketBoundaryTests.test_real_incomplete_packet_is_consistent_but_never_zero_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 189, in test_real_incomplete_packet_is_consistent_but_never_zero_exit
+    _, packet = self.make_packet(folder, rows_limit=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 4 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_rehashed_false_summary_is_rejected_even_with_matching_html (test_independent_semantics.IndependentPacketBoundaryTests.test_rehashed_false_summary_is_rejected_even_with_matching_html)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 145, in test_rehashed_false_summary_is_rejected_even_with_matching_html
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_replay_binds_exact_original_sql_even_for_identical_after_state (test_independent_semantics.IndependentPacketBoundaryTests.test_replay_binds_exact_original_sql_even_for_identical_after_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 181, in test_replay_binds_exact_original_sql_even_for_identical_after_state
+    original, packet = self.make_packet(folder)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_stale_raw_fact_change_is_rejected (test_independent_semantics.IndependentPacketBoundaryTests.test_stale_raw_fact_change_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 137, in test_stale_raw_fact_change_is_rejected
+    _, packet = self.make_packet(folder)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 131, in make_packet
+    self.assertEqual(process.returncode, 4 if rows_limit is not None else 0,
+AssertionError: 1 != 0 : <qualified-python>: No module named sqlitefolio.__main__; 'sqlitefolio' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_24_original_executions_match_every_native_fact_and_check (test_independent_semantics.IndependentReferenceTests.test_24_original_executions_match_every_native_fact_and_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 105, in test_24_original_executions_match_every_native_fact_and_check
+    self.assertEqual(report['mismatches'], [])
+AssertionError: Lists differ: ["duplicate_multiset/schema: $.queries.dup[3385 chars]=='"] != []
+
+First list contains 36 additional elements.
+First extra element 0:
+"duplicate_multiset/schema: $.queries.duplicate_rows.before.rows[0][0][1]: 'b3RoZXI=' != 'c2FtZQ=='"
+
+Diff is 3761 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_schema_seed_connection_settings_do_not_leak_to_candidate (test_independent_semantics.IndependentReferenceTests.test_schema_seed_connection_settings_do_not_leak_to_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/sqlitefolio/tests/test_independent_semantics.py", line 93, in test_schema_seed_connection_settings_do_not_leak_to_candidate
+    self.assertTrue(native['execution']['foreign_keys_start'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 14 tests in 3.166s
+
+FAILED (failures=8)

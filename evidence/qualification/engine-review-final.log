@@ -1,0 +1,11 @@
+test_baseline_limit_cannot_leave_open_transaction_with_an_error (test_engine_review.EngineIndependentReview.test_baseline_limit_cannot_leave_open_transaction_with_an_error) ... ok
+test_baseline_limit_open_transaction_packet_verifies_as_nonpassing (test_engine_review.EngineIndependentReview.test_baseline_limit_open_transaction_packet_verifies_as_nonpassing) ... ok
+test_internal_error_minimal_envelope_survives_lowered_evidence_cap (test_engine_review.EngineIndependentReview.test_internal_error_minimal_envelope_survives_lowered_evidence_cap) ... ok
+test_optional_query_equals_baseline_limit_does_not_block_pass (test_engine_review.EngineIndependentReview.test_optional_query_equals_baseline_limit_does_not_block_pass) ... ok
+test_unexpected_query_observation_failure_remains_internal_error (test_engine_review.EngineIndependentReview.test_unexpected_query_observation_failure_remains_internal_error) ... ok
+test_runtime_profile_closes_its_native_connection (test_engine_limits.EngineLimitContract.test_runtime_profile_closes_its_native_connection) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.208s
+
+OK

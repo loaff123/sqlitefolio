@@ -1,0 +1,203 @@
+test_as_written_partial_autocommit_survives_sqlite_error (test_engine.EngineContract.test_as_written_partial_autocommit_survives_sqlite_error) ... FAIL
+test_complete_structured_schema_generated_columns_indexes_views_sequences (test_engine.EngineContract.test_complete_structured_schema_generated_columns_indexes_views_sequences) ... FAIL
+test_database_source_bytes_and_directory_untouched (test_engine.EngineContract.test_database_source_bytes_and_directory_untouched) ... FAIL
+test_evidence_budget_cannot_produce_complete_snapshot (test_engine.EngineContract.test_evidence_budget_cannot_produce_complete_snapshot) ... FAIL
+test_existing_virtual_source_is_unsupported (test_engine.EngineContract.test_existing_virtual_source_is_unsupported) ... FAIL
+test_failed_query_is_explicit_in_each_phase (test_engine.EngineContract.test_failed_query_is_explicit_in_each_phase) ... FAIL
+test_forbidden_features_are_refused_before_side_effects (test_engine.EngineContract.test_forbidden_features_are_refused_before_side_effects) ... FAIL
+test_foreign_key_profile_and_mode_changes_are_observed (test_engine.EngineContract.test_foreign_key_profile_and_mode_changes_are_observed) ... FAIL
+test_invariant_dml_and_pragma_writes_cannot_mutate (test_engine.EngineContract.test_invariant_dml_and_pragma_writes_cannot_mutate) ... FAIL
+test_open_transaction_observed_and_reopened_are_distinct (test_engine.EngineContract.test_open_transaction_observed_and_reopened_are_distinct) ... FAIL
+test_qualified_runtime_is_recorded_by_worker (test_engine.EngineContract.test_qualified_runtime_is_recorded_by_worker) ... FAIL
+test_query_facts_capture_all_three_phases_and_order (test_engine.EngineContract.test_query_facts_capture_all_three_phases_and_order) ... FAIL
+test_query_row_limit_is_incomplete (test_engine.EngineContract.test_query_row_limit_is_incomplete) ... FAIL
+test_read_only_metadata_pragmas_are_supported (test_engine.EngineContract.test_read_only_metadata_pragmas_are_supported) ... FAIL
+test_request_cannot_supply_worker_commands_or_callbacks (test_engine.EngineContract.test_request_cannot_supply_worker_commands_or_callbacks) ... FAIL
+test_row_limit_is_incomplete_not_empty_success (test_engine.EngineContract.test_row_limit_is_incomplete_not_empty_success) ... FAIL
+test_same_source_has_identical_before_facts (test_engine.EngineContract.test_same_source_has_identical_before_facts) ... FAIL
+test_source_scripts_cannot_leave_transactions_open (test_engine.EngineContract.test_source_scripts_cannot_leave_transactions_open) ... FAIL
+test_sqlite_error_has_priority_over_open_transaction (test_engine.EngineContract.test_sqlite_error_has_priority_over_open_transaction) ... FAIL
+test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless (test_engine.EngineContract.test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless) ... FAIL
+test_value_size_is_checked_before_accumulating (test_engine.EngineContract.test_value_size_is_checked_before_accumulating) ... FAIL
+test_vm_budget_is_resource_limit_not_sqlite_error (test_engine.EngineContract.test_vm_budget_is_resource_limit_not_sqlite_error) ... FAIL
+
+======================================================================
+FAIL: test_as_written_partial_autocommit_survives_sqlite_error (test_engine.EngineContract.test_as_written_partial_autocommit_survives_sqlite_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_complete_structured_schema_generated_columns_indexes_views_sequences (test_engine.EngineContract.test_complete_structured_schema_generated_columns_indexes_views_sequences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_database_source_bytes_and_directory_untouched (test_engine.EngineContract.test_database_source_bytes_and_directory_untouched)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_evidence_budget_cannot_produce_complete_snapshot (test_engine.EngineContract.test_evidence_budget_cannot_produce_complete_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_existing_virtual_source_is_unsupported (test_engine.EngineContract.test_existing_virtual_source_is_unsupported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_failed_query_is_explicit_in_each_phase (test_engine.EngineContract.test_failed_query_is_explicit_in_each_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_forbidden_features_are_refused_before_side_effects (test_engine.EngineContract.test_forbidden_features_are_refused_before_side_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_foreign_key_profile_and_mode_changes_are_observed (test_engine.EngineContract.test_foreign_key_profile_and_mode_changes_are_observed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_invariant_dml_and_pragma_writes_cannot_mutate (test_engine.EngineContract.test_invariant_dml_and_pragma_writes_cannot_mutate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_open_transaction_observed_and_reopened_are_distinct (test_engine.EngineContract.test_open_transaction_observed_and_reopened_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_qualified_runtime_is_recorded_by_worker (test_engine.EngineContract.test_qualified_runtime_is_recorded_by_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_query_facts_capture_all_three_phases_and_order (test_engine.EngineContract.test_query_facts_capture_all_three_phases_and_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_query_row_limit_is_incomplete (test_engine.EngineContract.test_query_row_limit_is_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_read_only_metadata_pragmas_are_supported (test_engine.EngineContract.test_read_only_metadata_pragmas_are_supported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_request_cannot_supply_worker_commands_or_callbacks (test_engine.EngineContract.test_request_cannot_supply_worker_commands_or_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_row_limit_is_incomplete_not_empty_success (test_engine.EngineContract.test_row_limit_is_incomplete_not_empty_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_same_source_has_identical_before_facts (test_engine.EngineContract.test_same_source_has_identical_before_facts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_source_scripts_cannot_leave_transactions_open (test_engine.EngineContract.test_source_scripts_cannot_leave_transactions_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_sqlite_error_has_priority_over_open_transaction (test_engine.EngineContract.test_sqlite_error_has_priority_over_open_transaction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless (test_engine.EngineContract.test_typed_values_duplicates_invalid_utf8_and_infinities_are_lossless)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_value_size_is_checked_before_accumulating (test_engine.EngineContract.test_value_size_is_checked_before_accumulating)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+======================================================================
+FAIL: test_vm_budget_is_resource_limit_not_sqlite_error (test_engine.EngineContract.test_vm_budget_is_resource_limit_not_sqlite_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[workspace]/sqlitefolio/tests/test_engine.py", line 31, in setUp
+    self.assertIsNotNone(importlib.util.find_spec("sqlitefolio.runner"), "bounded engine runner must exist")
+AssertionError: unexpectedly None : bounded engine runner must exist
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.002s
+
+FAILED (failures=22)

@@ -1,0 +1,1 @@
+{"exit_code":1,"message":"Structurally consistent nonpassing packet; hashes do not authenticate authorship or native SQLite truth.","packet_sha256":"7d38d73c645fa2bcf641a86b26998285f91fbe2876e6b15e72e01d4eb80fd3c6","passing":false,"report_sha256":"2525d1ed6cc031dfe8b9522a7821abf220dd6233af1c5ec18caaec63119c8758","valid":true}
